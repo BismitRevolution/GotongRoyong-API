@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\campaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 
 class CampaignController extends Controller
 {
@@ -16,7 +17,8 @@ class CampaignController extends Controller
     public function index()
     {
         $response = DB::table('campaigns_copy')->get();
-        return json_encode($response);
+        return response($response->jsonSerialize(), Response::HTTP_OK);
+
     }
 
     /**
