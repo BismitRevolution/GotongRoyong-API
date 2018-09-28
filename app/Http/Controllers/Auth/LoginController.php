@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController as UserController;
+
 
 class LoginController extends Controller
 {
@@ -46,16 +48,23 @@ class LoginController extends Controller
         if ($this->attemptLogin($request)) {
             $user = $this->guard()->user();
             $user->generateToken();
-
+            $userdata = $user->toArray();
+            $detailuser = (new UserController)->getDetailsWithoutAuth($user);
+            $userdata["data_pahlawan"] = $detailuser;
             return response()->json([
-                'data' => $user->toArray(),
-            ]);
+                'success' => true,
+                'message' => 'User login succesfully',
+                'data' => $userdata],
+              200);
         }
 
-        $email = $request->input('email');
+        //$email = $request->input('email');
+        //return response if login failure
         return response()->json([
-            'data' => $email,
-        ]);;
+            'success' => false,
+            'message' => 'User login failure',
+            'data' => 'User/password wrong'],
+          500);;
     }
 
     public function logout(Request $request)
@@ -65,11 +74,21 @@ class LoginController extends Controller
         //$tok = $user->remember_token;
         if ($user) {
             //$user->generateToken();
-            return response()->json(['data' => 'theres user'], 200);
-            $user->remember_token = null;
+            $user->api_token = null;
             $user->save();
+            return response()->json([
+              'success' => true,
+              'message' => 'User logout success',
+              'data' => 'User logged out'],
+            200);
         }
 
-        return response()->json(['data' => 'success logout'], 200);
+        //return response if logout failure
+        return response()->json([
+          'success' => false,
+          'message' => 'User logout failure',
+          'data' => 'Already logged out/Token false'],
+          500);
     }
+
 }

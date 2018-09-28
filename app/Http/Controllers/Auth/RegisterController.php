@@ -93,8 +93,7 @@ class RegisterController extends Controller
       // observers, such as sending a confirmation email or any
       // code that needs to be run as soon as the user is created.
       //event(new Registered($user = $this->create($request->all())));
-
-      // After the user is created, he's logged in.
+      //
       $user = $this->create($request->all());
       //return response()->json(['data' => $user->toArray()], 201);
 
@@ -112,6 +111,7 @@ class RegisterController extends Controller
   {
       $user->generateToken();
 
+      //return response if successfully registered
       return response()->json([
         'success' => true,
         'message' => 'User created succesfully',
