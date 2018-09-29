@@ -42,9 +42,24 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 
 Route::group(['middleware' => 'auth:api'], function(){
+
+    $_CAMPAIGN = "campaign";
+
     Route::post('logout', 'Auth\LoginController@logout');
     Route::post('testdemo', 'Test\TestController@test');
     Route::post('userdetail', 'UserController@getDetails');
+
+    /*
+    CAMPAIGNS
+    */
+    Route::post("$_CAMPAIGN/campaign-list/all", 'CampaignsController@getCampaignsList');
+    Route::post("$_CAMPAIGN/campaign-list/active", 'CampaignsController@getCampaignsListActive');
+    Route::post("$_CAMPAIGN/campaign-list/detail", 'CampaignsController@getCampaignsDetail');
+    Route::post("$_CAMPAIGN/campaign-list/create", 'CampaignsController@createCampaign');
+    Route::post("$_CAMPAIGN/campaign-list/delete", 'CampaignsController@deleteCampaign');
+
+
+
 });
 
 // Route::middleware('auth:api')->post('logout', function (Request $request) {
