@@ -27,116 +27,85 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
-                    {{--Waktu--}}
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">Waktu</h3>
-                        </div>
-                        <div class="card-body table-responsive pad text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-info">Today So Far</button>
-                                <button type="button" class="btn btn-success">Minggu Ini</button>
-                                <button type="button" class="btn btn-danger">Bulan Ini</button>
-                            </div>
-                        </div>
-                    </div>
-                    {{--end waktu--}}
-
-                    {{--total tiket terjual--}}
-                    <div class="small-box bg-info">
+                    {{--total user berdonasi--}}
+                    <div class="small-box bg-success-gradient">
                         <div class="inner">
                             <h3>
                                 <sup style="font-size: 20px">
                                     <i class="fa fa-arrow-up"></i>
                                 </sup>
-                                2453
+                                102.453
                             </h3>
 
-                            <p>Total Tiket Terjual</p>
+                            <p>Total User Berdonasi / Melihat Iklan</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-dollar"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    {{--end total user berdonasi--}}
+
+                    {{--total user terdaftar--}}
+                    <div class="small-box bg-primary-gradient">
+                        <div class="inner">
+                            <h3>
+                                <sup style="font-size: 20px">
+                                    <i class="fa fa-arrow-up"></i>
+                                </sup>
+                                2.453
+                            </h3>
+
+                            <p>Total User Terdaftar</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    {{--end total user terdaftar--}}
+
+
+                    {{--total user NGO terdaftar--}}
+                    <div class="small-box bg-info-gradient">
+                        <div class="inner">
+                            <h3>
+                                <sup style="font-size: 20px">
+                                    <i class="fa fa-arrow-up"></i>
+                                </sup>
+                                2.453
+                            </h3>
+
+                            <p>Total User NGO / User Verified Terdaftar</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-check-circle-o"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                    {{--end total user NGO terdaftar--}}
+
+                    {{--total ads content terdaftar--}}
+                    <div class="small-box bg-secondary-gradient">
+                        <div class="inner">
+                            <h3>
+                                <sup style="font-size: 20px">
+                                    <i class="fa fa-arrow-up"></i>
+                                </sup>
+                                2.453
+                            </h3>
+
+                            <p>Total Ads Content Terdaftar</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
-                    {{--end totaltiket terjual--}}
-
-                    {{--per kategori--}}
-                    <div class="card card-primary card-outline">
-                        <div class="card-header border-transparent">
-                            <h3 class="card-title">Per Kategori</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-widget="collapse">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                                {{--<button type="button" class="btn btn-tool" data-widget="remove">--}}
-                                    {{--<i class="fa fa-times"></i>--}}
-                                {{--</button>--}}
-                            </div>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table m-0">
-                                    <tbody>
-                                    <tr>
-                                        <td>Wisnus Laki-laki: </td>
-                                        <td>
-                                            <h3>
-                                                <span class="badge badge-danger">
-                                                    1320
-                                                </span>
-                                            </h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wisnus Perempuan: </td>
-                                        <td>
-                                            <h3>
-                                                <span class="badge badge-danger">
-                                                    370
-                                                </span>
-                                            </h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wisman Laki-laki: </td>
-                                        <td>
-                                            <h3>
-                                                <span class="badge badge-danger">
-                                                    465
-                                                </span>
-                                            </h3>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Wisman Perempuan: </td>
-                                        <td>
-                                            <h3>
-                                                <span class="badge badge-danger">
-                                                    78
-                                                </span>
-                                            </h3>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.card-body -->
-                        {{--<div class="card-footer clearfix">--}}
-                            {{--<a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>--}}
-                            {{--<a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>--}}
-                        {{--</div>--}}
-                        <!-- /.card-footer -->
-                    </div>
-                    {{--end per kategori--}}
+                    {{--end total ads content terdaftar--}}
 
                 </div>
-                {{-- end tiket terjual --}}
+
 
 
                 <div class="col-lg-8">
@@ -144,7 +113,7 @@
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fa fa-bar-chart-o"></i>
-                                Pengunjung Saat Ini
+                                Pendaftar User Saat Ini (Coming Soon)
                             </h3>
 
                             <div class="card-tools">
@@ -162,109 +131,39 @@
 
                     </div>
 
-                    <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="fa fa-bar-chart-o"></i>
-                                Pengunjung Saat Ini
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="col-md-12">
-                                <p class="text-center">
-                                    {{--<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>--}}
-                                </p>
-
-                                <div class="chart">
-                                    <!-- Sales Chart Canvas -->
-                                    <canvas id="salesChart" height="232" style="height: 186px; width: 796px;" width="995"></canvas>
-                                </div>
-                                <!-- /.chart-responsive -->
-                            </div>
-
-                            {{--<h6 class="card-title">Special title treatment</h6>--}}
-
-                            {{--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-                            {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-md-6 -->
-            </div>
-            {{--end row 1--}}
-
-            {{--start row 2--}}
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card card-primary card-outline">
+                    <div class="card card-warning card-outline">
                         <div class="card-footer" style="display: block;">
                             <div class="row">
                                 <div class="col-sm-3 col-6">
                                     <div class="description-block border-right">
 
                                         <div class="row">
-                                            <div class="col-lg-1">
-                                                <span class="description-percentage" style="color: white;">
-                                                    .
-                                                </span>
-                                              <h1 class="description-header text-right">
-                                                  <i class="fa fa-money text-right"></i>
-                                              </h1>
-                                                <span class="description-text" style="color: white;">
-                                                    .
-                                                </span>
-                                            </div>
-
-                                            <div class="col-lg-11">
-                                                <span class="description-percentage text-success">
-                                                    <i class="fa fa-caret-up"></i> 17%
-                                                </span>
-
-                                                <h5 class="description-header">
-                                                    Rp. 12.902.000
-                                                </h5>
-
-                                                <span class="description-text">
-                                                    Total Uang
-                                                </span>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-sm-3 col-6">
-                                    <div class="description-block border-right">
-                                        <div class="row">
-                                            <div class="col-lg-1">
-                                                <span class="description-percentage" style="color: white;">
-                                                    .
-                                                </span>
-                                                <h1 class="description-header text-right">
+                                            <div class="col-lg-12">
+                                                <button type="button" class="btn btn-block btn-outline-primary">
+                                                    <i class="fa fa-plus-circle text-right"></i>
                                                     <i class="fa fa-user-circle text-right"></i>
-                                                </h1>
-                                                <span class="description-text" style="color: white;">
-                                                    .
-                                                </span>
+                                                    <i class="fa fa-check-circle-o text-right"></i>
+                                                    <br/>
+                                                    Create NGO / Verified
+                                                </button>
                                             </div>
+                                        </div>
 
-                                            <div class="col-lg-11">
-                                                <span class="description-percentage text-warning">
-                                                    <i class="fa fa-caret-left"></i> 0%
-                                                </span>
-
-                                                <h5 class="description-header">
-                                                    Rp. 4.002.000
-                                                </h5>
-
-                                                <span class="description-text">
-                                                    Total Uang dari <br/>
-                                                    Solo Traveler
-                                                </span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-3 col-6">
+                                    <div class="description-block border-right">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button type="button" class="btn btn-block btn-outline-secondary">
+                                                    <i class="fa fa-plus-circle text-right"></i>
+                                                    <i class="fa fa-sticky-note text-right"></i>
+                                                    <br/>
+                                                    Create a campaign
+                                                </button>
                                             </div>
-
                                         </div>
                                     </div>
                                     <!-- /.description-block -->
@@ -273,33 +172,15 @@
                                 <div class="col-sm-3 col-6">
                                     <div class="description-block border-right">
                                         <div class="row">
-                                            <div class="col-lg-1">
-                                                <span class="description-percentage" style="color: white;">
-                                                    .
-                                                </span>
-                                                <h1 class="description-header text-right">
-                                                    <i class="fa fa-group text-right"></i>
-                                                </h1>
-                                                <span class="description-text" style="color: white;">
-                                                    .
-                                                </span>
+                                            <div class="col-lg-12">
+                                                <button type="button" class="btn btn-block btn-outline-info">
+                                                    <i class="fa fa-plus-circle text-right"></i>
+                                                    <i class="fa fa-user-secret text-right"></i>
+                                                    <i class="fa fa-building-o text-right"></i>
+                                                    <br/>
+                                                    Create an Advertiser
+                                                </button>
                                             </div>
-
-                                            <div class="col-lg-11">
-                                                <span class="description-percentage text-success">
-                                                    <i class="fa fa-caret-up"></i> 20%
-                                                </span>
-
-                                                <h5 class="description-header">
-                                                    Rp. 7.508.000
-                                                </h5>
-
-                                                <span class="description-text">
-                                                    Total Uang <br/>
-                                                    dari Grup
-                                                </span>
-                                            </div>
-
                                         </div>
                                     </div>
                                     <!-- /.description-block -->
@@ -308,33 +189,15 @@
                                 <div class="col-sm-3 col-6">
                                     <div class="description-block">
                                         <div class="row">
-                                            <div class="col-lg-1">
-                                                <span class="description-percentage" style="color: white;">
-                                                    .
-                                                </span>
-                                                <h1 class="description-header text-right">
-                                                    <i class="fa fa-shopping-cart text-right"></i>
-                                                </h1>
-                                                <span class="description-text" style="color: white;">
-                                                    .
-                                                </span>
+                                            <div class="col-lg-12">
+                                                <button type="button" class="btn btn-block btn-outline-success">
+                                                    <i class="fa fa-plus-circle text-right"></i>
+                                                    <i class="fa fa-dollar text-right"></i>
+
+                                                    <br/>
+                                                    Create an Ads content
+                                                </button>
                                             </div>
-
-                                            <div class="col-lg-11">
-                                                <span class="description-percentage text-danger">
-                                                    <i class="fa fa-caret-down"></i> 18%
-                                                </span>
-
-                                                <h5 class="description-header">
-                                                    Rp. 3.508.000
-                                                </h5>
-
-                                                <span class="description-text">
-                                                    Jumlah Biaya <br/>
-                                                    Marketing
-                                                </span>
-                                            </div>
-
                                         </div>
 
                                     </div>
@@ -344,6 +207,163 @@
                             <!-- /.row -->
                         </div>
                     </div>
+
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            {{--end row 1--}}
+
+            {{--start row 2--}}
+            <div class="row">
+                <div class="col-lg-12">
+                    {{--<div class="card card-primary card-outline">--}}
+                        {{--<div class="card-footer" style="display: block;">--}}
+                            {{--<div class="row">--}}
+                                {{--<div class="col-sm-3 col-6">--}}
+                                    {{--<div class="description-block border-right">--}}
+
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-lg-1">--}}
+                                                {{--<span class="description-percentage" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                              {{--<h1 class="description-header text-right">--}}
+                                                  {{--<i class="fa fa-money text-right"></i>--}}
+                                              {{--</h1>--}}
+                                                {{--<span class="description-text" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-11">--}}
+                                                {{--<span class="description-percentage text-success">--}}
+                                                    {{--<i class="fa fa-caret-up"></i> 17%--}}
+                                                {{--</span>--}}
+
+                                                {{--<h5 class="description-header">--}}
+                                                    {{--Rp. 12.902.000--}}
+                                                {{--</h5>--}}
+
+                                                {{--<span class="description-text">--}}
+                                                    {{--Total Uang--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                        {{--</div>--}}
+
+                                    {{--</div>--}}
+                                    {{--<!-- /.description-block -->--}}
+                                {{--</div>--}}
+                                {{--<!-- /.col -->--}}
+                                {{--<div class="col-sm-3 col-6">--}}
+                                    {{--<div class="description-block border-right">--}}
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-lg-1">--}}
+                                                {{--<span class="description-percentage" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                                {{--<h1 class="description-header text-right">--}}
+                                                    {{--<i class="fa fa-user-circle text-right"></i>--}}
+                                                {{--</h1>--}}
+                                                {{--<span class="description-text" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-11">--}}
+                                                {{--<span class="description-percentage text-warning">--}}
+                                                    {{--<i class="fa fa-caret-left"></i> 0%--}}
+                                                {{--</span>--}}
+
+                                                {{--<h5 class="description-header">--}}
+                                                    {{--Rp. 4.002.000--}}
+                                                {{--</h5>--}}
+
+                                                {{--<span class="description-text">--}}
+                                                    {{--Total Uang dari <br/>--}}
+                                                    {{--Solo Traveler--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<!-- /.description-block -->--}}
+                                {{--</div>--}}
+                                {{--<!-- /.col -->--}}
+                                {{--<div class="col-sm-3 col-6">--}}
+                                    {{--<div class="description-block border-right">--}}
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-lg-1">--}}
+                                                {{--<span class="description-percentage" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                                {{--<h1 class="description-header text-right">--}}
+                                                    {{--<i class="fa fa-group text-right"></i>--}}
+                                                {{--</h1>--}}
+                                                {{--<span class="description-text" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-11">--}}
+                                                {{--<span class="description-percentage text-success">--}}
+                                                    {{--<i class="fa fa-caret-up"></i> 20%--}}
+                                                {{--</span>--}}
+
+                                                {{--<h5 class="description-header">--}}
+                                                    {{--Rp. 7.508.000--}}
+                                                {{--</h5>--}}
+
+                                                {{--<span class="description-text">--}}
+                                                    {{--Total Uang <br/>--}}
+                                                    {{--dari Grup--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<!-- /.description-block -->--}}
+                                {{--</div>--}}
+                                {{--<!-- /.col -->--}}
+                                {{--<div class="col-sm-3 col-6">--}}
+                                    {{--<div class="description-block">--}}
+                                        {{--<div class="row">--}}
+                                            {{--<div class="col-lg-1">--}}
+                                                {{--<span class="description-percentage" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                                {{--<h1 class="description-header text-right">--}}
+                                                    {{--<i class="fa fa-shopping-cart text-right"></i>--}}
+                                                {{--</h1>--}}
+                                                {{--<span class="description-text" style="color: white;">--}}
+                                                    {{--.--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                            {{--<div class="col-lg-11">--}}
+                                                {{--<span class="description-percentage text-danger">--}}
+                                                    {{--<i class="fa fa-caret-down"></i> 18%--}}
+                                                {{--</span>--}}
+
+                                                {{--<h5 class="description-header">--}}
+                                                    {{--Rp. 3.508.000--}}
+                                                {{--</h5>--}}
+
+                                                {{--<span class="description-text">--}}
+                                                    {{--Jumlah Biaya <br/>--}}
+                                                    {{--Marketing--}}
+                                                {{--</span>--}}
+                                            {{--</div>--}}
+
+                                        {{--</div>--}}
+
+                                    {{--</div>--}}
+                                    {{--<!-- /.description-block -->--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!-- /.row -->--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             {{--end row 2--}}
