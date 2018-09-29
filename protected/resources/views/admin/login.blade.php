@@ -26,6 +26,7 @@
                     @endif
 
                     <form action="{{ url(action(('PageController@checkLoginRole'))) }}" method="post">
+                        {{ csrf_field() }}
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="username" placeholder="Username">
                             <div class="input-group-append">
@@ -69,7 +70,7 @@
                         <a href="#">I forgot my password</a>
                     </p>
                     <p class="mb-0">
-                        <a href="register.html" class="text-center">Register a new membership</a>
+                        <a href="#" class="text-center">Become partner</a>
                     </p>
                 </div>
                 <!-- /.login-card-body -->
