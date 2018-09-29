@@ -4,7 +4,7 @@
         <img src="{{ URL::asset('img/logo.png') }}"
              alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">Manaya</span>
+        <span class="brand-text font-weight-light">GotongRoyong.in</span>
     </a>
 
     <!-- Sidebar -->
@@ -25,24 +25,6 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-                {{--Dashboard Super Admin--}}
-                @if(Request::is('super-admin/dashboard') || Session::get('superadmin'))
-                <li class="nav-item">
-                    <a href="{{ url('super-admin/dashboard') }}"
-                       class="nav-link {{
-                                Request::is('super-admin/dashboard/*') ? 'active' : '' ||
-                                Request::is('super-admin/dashboard') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-area-chart"></i>
-                        <p>
-                            Dashboard Super Admin
-                        </p>
-                    </a>
-                </li>
-                    @else
-
-                {{--End Dashboard Super Admin--}}
-
                 {{--Dashboard Admin--}}
                 <li class="nav-item">
                     <a href="{{ url('admin/dashboard') }}"
@@ -59,101 +41,93 @@
                 </li>
                 {{--End Dashboard Admin--}}
 
+                {{--Start User NGO--}}
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-check-circle-o"></i>
+                        <p>
+                            Users NGO/Verified
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <i class="fa fa-user-plus nav-icon"></i>
+                                <p>Create a User NGO/Verified </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="fa fa-th-list nav-icon"></i>
+                                <p>List all User NGO/Verified </p>
+                            </a>
+                        </li>
 
-
-                {{--Laporan--}}
-                <li class="nav-header">
-                    LAPORAN
+                    </ul>
                 </li>
+                {{--End of User NGO--}}
 
-                <li class="nav-item">
-                    <a href="{{ url('admin/laporan') }}"
-                       class="nav-link {{
-                                Request::is('admin/laporan/*') ? 'active' : '' ||
-                                Request::is('admin/laporan') ? 'active' : ''
-                                }}">
+                {{--Start of Campaign--}}
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-sticky-note"></i>
-                        <p>1. Laporan Finance</p>
+                        <p>
+                            Campaigns
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <i class="fa fa-plus-circle nav-icon"></i>
+                                <p>Create a campaign</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="fa fa-th-list nav-icon"></i>
+                                <p>List all campaign</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('admin/laporan') }}"
-                       class="nav-link {{
-                                Request::is('admin/laporan/*') ? 'active' : '' ||
-                                Request::is('admin/laporan') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-sticky-note"></i>
-                        <p>2. Laporan Pattern People</p>
+                {{--End of Campaign--}}
+
+                {{--Start Advertising--}}
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-dollar"></i>
+                        <p>
+                            Advertising
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview" style="display: block;">
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">
+                                <i class="fa fa-user-plus nav-icon"></i>
+                                <p>Create an Advertiser</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="fa fa-plus-circle nav-icon"></i>
+                                <p>Create an Ads content</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">
+                                <i class="fa fa-th-list nav-icon"></i>
+                                <p>List all Ads</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                {{--end laporan--}}
+                {{--End of Advertising--}}
 
 
-                {{--big data--}}
-                <li class="nav-header">
-                    BISNIS BIG DATA
-                </li>
 
-                <li class="nav-item">
-                    <a href="{{ url('admin/bisnis') }}"
-                       class="nav-link {{
-                                Request::is('admin/bisnis/*') ? 'active' : '' ||
-                                Request::is('admin/bisnis') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-dashboard"></i>
-                        <p>1. Business Strategy</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('admin/bisnis') }}"
-                       class="nav-link {{
-                                Request::is('admin/bisnis/*') ? 'active' : '' ||
-                                Request::is('admin/bisnis') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-dashboard"></i>
-                        <p>2. Market Share</p>
-                    </a>
-                </li>
-                {{--end big data--}}
-
-
-                {{--big data--}}
-                <li class="nav-header">
-                    PENGATURAN TIKET
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ url('admin/pengaturan-tiket') }}"
-                       class="nav-link {{
-                                Request::is('admin/pengaturan-tiket/*') ? 'active' : '' ||
-                                Request::is('admin/pengaturan-tiket') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-ticket"></i>
-                        <p>1. Ticket</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url('admin/pengaturan-tiket') }}"
-                       class="nav-link {{
-                                Request::is('admin/pengaturan-tiket/*') ? 'active' : '' ||
-                                Request::is('admin/pengaturan-tiket') ? 'active' : ''
-                                }}">
-                        <i class="nav-icon fa fa-ticket"></i>
-                        <p>2. Jumlah Cetak</p>
-                    </a>
-                </li>
-                {{--end big data--}}
-                @endif
-
-                {{--<li class="nav-item">--}}
-                    {{--<a href="#" class="nav-link">--}}
-                        {{--<i class="nav-icon fa fa-th"></i>--}}
-                        {{--<p>--}}
-                            {{--Simple Link--}}
-                            {{--<span class="right badge badge-danger">New</span>--}}
-                        {{--</p>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
