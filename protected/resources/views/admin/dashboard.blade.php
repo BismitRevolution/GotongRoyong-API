@@ -113,7 +113,7 @@
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fa fa-bar-chart-o"></i>
-                                Pendaftar User Saat Ini (Coming Soon)
+                                Donation
                             </h3>
 
                             <div class="card-tools">
@@ -134,7 +134,7 @@
                     <div class="card card-warning card-outline">
                         <div class="card-footer" style="display: block;">
                             <div class="row">
-                                <div class="col-sm-3 col-6">
+                                <div class="col-lg-3">
                                     <div class="description-block border-right">
 
                                         <div class="row">
@@ -144,7 +144,7 @@
                                                     <i class="fa fa-user-circle text-right"></i>
                                                     <i class="fa fa-check-circle-o text-right"></i>
                                                     <br/>
-                                                    Create NGO / Verified
+                                                    Create a User <br/> NGO / Verified
                                                 </button>
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-3 col-6">
+                                <div class="col-lg-3">
                                     <div class="description-block border-right">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -161,7 +161,7 @@
                                                     <i class="fa fa-plus-circle text-right"></i>
                                                     <i class="fa fa-sticky-note text-right"></i>
                                                     <br/>
-                                                    Create a campaign
+                                                    Create a <br/> campaign
                                                 </button>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-3 col-6">
+                                <div class="col-lg-3">
                                     <div class="description-block border-right">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -178,7 +178,7 @@
                                                     <i class="fa fa-user-secret text-right"></i>
                                                     <i class="fa fa-building-o text-right"></i>
                                                     <br/>
-                                                    Create an Advertiser
+                                                    Create an <br/> Advertiser
                                                 </button>
                                             </div>
                                         </div>
@@ -186,7 +186,7 @@
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-3 col-6">
+                                <div class="col-lg-3">
                                     <div class="description-block">
                                         <div class="row">
                                             <div class="col-lg-12">
@@ -195,7 +195,7 @@
                                                     <i class="fa fa-dollar text-right"></i>
 
                                                     <br/>
-                                                    Create an Ads content
+                                                    Create an <br/> Ads content
                                                 </button>
                                             </div>
                                         </div>

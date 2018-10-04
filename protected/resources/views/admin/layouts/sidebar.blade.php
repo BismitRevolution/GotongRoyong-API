@@ -52,7 +52,11 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{ url('admin/create-user-verified') }}"
+                               class="nav-link {{
+                                Request::is('admin/create-user-verified/*') ? 'active' : '' ||
+                                Request::is('admin/create-user-verified') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-user-plus nav-icon"></i>
                                 <p>Create a User NGO/Verified </p>
                             </a>

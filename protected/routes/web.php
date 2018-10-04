@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function () {
         return view('admin.dashboard');
     });
 
+    Route::get('create-user-verified',  'PageUserNGOController@create');
+
     Route::get('laporan',  function () {
         return view('admin.laporan');
     });
