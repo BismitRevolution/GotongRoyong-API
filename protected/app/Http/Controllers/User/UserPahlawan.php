@@ -52,4 +52,8 @@ class UserPahlawan extends Controller
       return $data;
   }
 
+  public function create()
+  {
+    return DB::unprepared(DB::raw("CALL USER_PAHLAWAN_CREATE($this->id_user,'$this->about_me','$this->my_url','$this->instagram_link','$this->twitter_link','$this->fb_link')"));
+  }
 }

@@ -44,4 +44,36 @@ class UserController extends Controller
       return $pahlawan_detail = (new UserPahlawan)->getUserPahlawan($user);
   }
 
+  public function createPahlawan(Request $request, $user)
+  {
+      $hero = new UserPahlawan();
+      $hero->id_user = $user->id;
+      $hero->about_me = $request->about_me;
+      $hero->my_url = $request->my_url;
+      $hero->instagram_link = $request->instagram_link;
+      $hero->twitter_link = $request->twitter_link;
+      $hero->fb_link = $request->fb_link;
+
+      $hero->create();
+      $result = array();
+      $userdata = $user->toArray();
+      if ($user) {
+        $pahlawan_detail = $hero->getUserPahlawan($user);
+        $userdata["data_pahlawan"] = $pahlawan_detail;
+
+        return response()->json([
+          'success' => true,
+          'message' => 'User created successfully',
+          'data' => $userdata,
+        ],200);
+      }
+
+      return response()->json([
+        'success' => false,
+        'message' => 'User created fail',
+        'data' => ''],
+        500);
+
+  }
+
 }

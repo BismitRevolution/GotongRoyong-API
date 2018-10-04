@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use DateTime;
+use App\Http\Controllers\UserController as UserController;
+
 
 
 class RegisterController extends Controller
@@ -110,13 +112,14 @@ class RegisterController extends Controller
   protected function registered(Request $request, $user)
   {
       $user->generateToken();
+      return (new UserController())->createPahlawan($request,$user);
 
       //return response if successfully registered
-      return response()->json([
-        'success' => true,
-        'message' => 'User created succesfully',
-        'data' => $user->toArray()]
-        ,201);
+      // return response()->json([
+      //   'success' => true,
+      //   'message' => 'User created succesfully',
+      //   'data' => $user->toArray()]
+      //   ,201);
   }
 
 }
