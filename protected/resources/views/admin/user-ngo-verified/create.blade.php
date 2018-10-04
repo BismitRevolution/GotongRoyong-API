@@ -99,14 +99,26 @@
                                     </div>
                                 </div>
 
+
                                 <div class="form-group">
-                                    <label for="username">Birth Date</label>
-                                    <input type="text"
-                                           id="username"
-                                           name="username"
-                                           class="form-control"
-                                           placeholder="Input Birth Date">
+                                    <label for="birthdate">
+                                        Birth Date
+                                    </label>
+                                    <div class="input-group date mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" name="tanggal_surat"
+                                               {{--value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"--}}
+                                               class="form-control"
+                                               placeholder="Input Birth Date"
+                                               id="datepicker1">
+                                    </div>
                                 </div>
+
+
                                 <div class="form-group">
                                     <label for="birthplace">Birth Place</label>
                                     <input type="text"
@@ -662,5 +674,27 @@
                 toolbar: { fa: true }
             })
         })
+    </script>
+
+    <script>
+        //Date picker
+        $('#datepicker1').datepicker({
+            autoclose: true,
+            todayHighlight : true,
+            todayBtn : "linked",
+            format : 'yyyy-mm-dd'
+        });
+        $('#datepicker2').datepicker({
+            autoclose: true,
+            todayHighlight : true,
+            todayBtn : "linked",
+            format : 'yyyy-mm-dd'
+        });
+        $('#datepicker3').datepicker({
+            autoclose: true,
+            todayHighlight : true,
+            todayBtn : "linked",
+            format : 'yyyy-mm-dd'
+        });
     </script>
 @endsection

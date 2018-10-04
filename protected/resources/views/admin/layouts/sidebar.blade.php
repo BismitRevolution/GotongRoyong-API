@@ -52,17 +52,21 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="{{ url('admin/create-user-verified') }}"
+                            <a href="{{ url('admin/verified-user/create/') }}"
                                class="nav-link {{
-                                Request::is('admin/create-user-verified/*') ? 'active' : '' ||
-                                Request::is('admin/create-user-verified') ? 'active' : ''
+                                Request::is('admin/verified-user/create/*') ? 'active' : '' ||
+                                Request::is('admin/verified-user/create') ? 'active' : ''
                                 }}">
                                 <i class="fa fa-user-plus nav-icon"></i>
                                 <p>Create a User NGO/Verified </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ url('admin/verified-user/list/') }}"
+                               class="nav-link {{
+                                Request::is('admin/verified-user/list/*') ? 'active' : '' ||
+                                Request::is('admin/verified-user/list') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-th-list nav-icon"></i>
                                 <p>List all User NGO/Verified </p>
                             </a>
@@ -83,13 +87,21 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{ url('admin/campaigns/create/') }}"
+                               class="nav-link {{
+                                Request::is('admin/campaigns/create/*') ? 'active' : '' ||
+                                Request::is('admin/campaigns/create') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-plus-circle nav-icon"></i>
                                 <p>Create a campaign</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ url('admin/campaigns/list/') }}"
+                               class="nav-link {{
+                                Request::is('admin/campaigns/list/*') ? 'active' : '' ||
+                                Request::is('admin/campaigns/list') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-th-list nav-icon"></i>
                                 <p>List all campaign</p>
                             </a>
@@ -109,19 +121,31 @@
                     </a>
                     <ul class="nav nav-treeview" style="display: block;">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
+                            <a href="{{ url('admin/ads/create-advertiser/') }}"
+                               class="nav-link {{
+                                Request::is('admin/ads/create-advertiser/*') ? 'active' : '' ||
+                                Request::is('admin/ads/create-advertiser') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-user-plus nav-icon"></i>
                                 <p>Create an Advertiser</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ url('admin/ads/create-content/') }}"
+                               class="nav-link {{
+                                Request::is('admin/ads/create-content/*') ? 'active' : '' ||
+                                Request::is('admin/ads/create-content') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-plus-circle nav-icon"></i>
                                 <p>Create an Ads content</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/flot.html" class="nav-link">
+                            <a href="{{ url('admin/ads/list-ads/') }}"
+                               class="nav-link {{
+                                Request::is('admin/ads/list-ads/*') ? 'active' : '' ||
+                                Request::is('admin/ads/list-ads') ? 'active' : ''
+                                }}">
                                 <i class="fa fa-th-list nav-icon"></i>
                                 <p>List all Ads</p>
                             </a>

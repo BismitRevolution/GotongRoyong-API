@@ -24,3 +24,14 @@
 <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/select2/select2.min.css') }}">
 <!-- Favicon -->
 <link rel="icon" href="{{ URL::asset('img/logocolor.png') }}">
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/datatables/dataTables.bootstrap4.css') }}">
+
+{{-- datepicker --}}
+<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/datepicker/datepicker3.css') }}">
+
+{{-- script --}}
+<script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('adminlte/plugins/datepicker/bootstrap-datepicker.js') }}"></script>

@@ -1,5 +1,5 @@
 <!-- jQuery -->
-<script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
+{{--<script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>--}}
 <!-- Bootstrap 4 -->
 <script src="{{ URL::asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- FastClick -->
@@ -29,3 +29,9 @@
 </script>
 <!-- Select2 -->
 <script src="{{ URL::asset('adminlte/plugins/select2/select2.full.min.js') }}"></script>
+
+<!-- DataTables -->
+<script src="{{ URL::asset('adminlte/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ URL::asset('adminlte/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>

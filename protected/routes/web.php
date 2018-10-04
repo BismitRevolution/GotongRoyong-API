@@ -35,7 +35,29 @@ Route::prefix('admin')->group(function () {
         return view('admin.dashboard');
     });
 
-    Route::get('create-user-verified',  'PageUserNGOController@create');
+    Route::prefix('verified-user')->group(function () {
+
+        Route::get('create',  'PageUserNGOController@create');
+        Route::get('list',  'PageUserNGOController@list');
+
+    });
+
+    Route::prefix('campaigns')->group(function () {
+
+        Route::get('create',  'PageCampaignsController@create');
+        Route::get('list',  'PageCampaignsController@list');
+
+    });
+
+    Route::prefix('ads')->group(function () {
+
+        Route::get('create-advertiser',  'PageAdsController@create_advertiser');
+        Route::get('create-content',  'PageAdsController@create_content');
+        Route::get('list-ads',  'PageAdsController@list_ads');
+
+    });
+
+
 
     Route::get('laporan',  function () {
         return view('admin.laporan');
