@@ -7,7 +7,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">
-                        <i class="fa fa-user-plus nav-icon"></i>
+                        <i class="fa fa-plus-circle nav-icon"></i>
                         Create an Ads Content
                     </h1>
                 </div><!-- /.col -->
@@ -32,7 +32,7 @@
                                 <p>Create Ads Content Success.</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-user-plus"></i>
+                                <i class="fa fa-plus-circle"></i>
                             </div>
                             <p class="small-box-footer">
                                 -----
@@ -50,156 +50,36 @@
                         <!-- form start -->
                         <form role="form" method="post"
                               enctype="multipart/form-data"
-                              action="{{ url(action('PageUserNGOController@submit_create')) }}">
+                              action="{{ url(action('PageAdsController@submit_content')) }}">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="username">Username*</label>
-                                    <input required type="text"
-                                           id="username"
-                                           name="username"
-                                           class="form-control"
-                                           placeholder="Input Username">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-mail*</label>
-                                    <input required type="email"
-                                           id="email"
-                                           name="email"
-                                           class="form-control"
-                                           placeholder="Input Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">Password*</label>
-                                    <input required type="password"
-                                           id="password"
-                                           name="password"
-                                           class="form-control"
-                                           placeholder="Input Password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="fullname">Full Name*</label>
-                                    <input required type="text"
-                                           id="fullname"
-                                           name="fullname"
-                                           class="form-control"
-                                           placeholder="Input Full Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="role">Role*</label>
-                                    <br/>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="role"
-                                               id="userpahlawan" value="userpahlawan">
-                                        <label class="form-check-label" for="userpahlawan">
-                                            User Pahlawan - NGO/Verified
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input required class="form-check-input"
-                                               type="radio"
-                                               name="role"
-                                               id="admin" value="admin">
-                                        <label class="form-check-label" for="admin">
-                                            Admin
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="role"
-                                               id="advertiser" value="advertiser">
-                                        <label class="form-check-label" for="advertiser">
-                                            Advertiser
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="birthdate">
-                                        Birth Date
+                                    <label for="title_ads">
+                                        Title Ads Content*
                                     </label>
-                                    <div class="input-group date mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text" name="birthdate"
-                                               {{--value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"--}}
-                                               class="form-control"
-                                               placeholder="Input Birth Date"
-                                               id="datepicker1">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="birthplace">Birth Place</label>
-                                    <input type="text"
-                                           id="birthplace"
-                                           name="birthplace"
+                                    <input required type="text"
+                                           id="title_ads"
+                                           name="title_ads"
                                            class="form-control"
-                                           placeholder="Input Birth Place">
+                                           placeholder="Input Title Ads Content">
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <br/>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="gender"
-                                               id="male" value="male">
-                                        <label class="form-check-label"
-                                               for="male">
-                                            Male
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="gender"
-                                               id="female" value="female">
-                                        <label class="form-check-label"
-                                               for="female">
-                                            Female
-                                        </label>
-                                    </div>
-
+                                    <label for="campaigner">Advertiser*</label>
+                                    <select required name="id_advertiser"
+                                            class="form-control select-data">
+                                        <option value="0">
+                                            Select an Advertiser
+                                        </option>
+                                        @foreach ($data_advertisers as $data)
+                                            <option value="{{ $data->id }}">
+                                                {{ $data->advertiser_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="photo"
-                                           class="control-label">
-                                        Photo Profile
-                                    </label>
-
-                                    <input required type="file"
-                                           class="form-control"
-                                           id="photo"
-                                           name="photo" placeholder="Photo">
-
-                                </div>
-
-
-                                <hr/>
-
-                                <div class="form-group">
-                                    <label for="editor1">About User</label>
-                                    <textarea required id="editor1" name="about">
-                                        Tell description about the user...
-                                        .
-                                        .
-                                        .
-                                        .
-                                    </textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="link">Link URL</label>
+                                    <label for="target_url">Target Ads URL</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
@@ -207,80 +87,114 @@
                                             </span>
                                         </div>
                                         <input type="text"
-                                               id="link"
-                                               name="link"
+                                               id="target_url"
+                                               name="target_url"
                                                class="form-control"
-                                               placeholder="Input Link">
+                                               placeholder="Input Target URL">
                                     </div>
                                 </div>
 
+
+
                                 <div class="form-group">
-                                    <label for="link">Instagram Link</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-instagram"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text"
-                                               class="form-control"
-                                               name="instagram"
-                                               placeholder="Input Instagram Link">
-                                    </div>
+                                    <label for="ads_content"
+                                           class="control-label">
+                                        Ads Content (Video/Image)*
+                                    </label>
+
+                                    <input required type="file"
+                                           class="form-control"
+                                           id="ads_content"
+                                           name="ads_content"
+                                           placeholder="Ads Content">
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="bg_img"
+                                           class="control-label">
+                                        Background Image Ads Content
+                                    </label>
+
+                                    <input type="file"
+                                           class="form-control"
+                                           id="bg_img"
+                                           name="bg_img"
+                                           placeholder="Background Image">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="link">Twitter Link</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-twitter"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text"
-                                               class="form-control"
-                                               name="twitter"
-                                               placeholder="Input Twitter Link">
-                                    </div>
+                                    <label for="logo_ads"
+                                           class="control-label">
+                                        Logo Ads*
+                                    </label>
+
+                                    <input required type="file"
+                                           class="form-control"
+                                           id="logo_ads"
+                                           name="logo_ads"
+                                           placeholder="Logo Advertising/er">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="link">Facebook Link</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="fa fa-facebook"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text"
-                                               class="form-control"
-                                               name="facebook"
-                                               placeholder="Input Facebook Link">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="flagverified">Verified User*</label>
+                                    <label for="category">
+                                        Ads Category*
+                                    </label>
                                     <br/>
                                     <div class="form-check-inline">
                                         <input required class="form-check-input"
                                                type="radio"
-                                               name="flagverified"
-                                               id="verified" value="verified">
-                                        <label class="form-check-label" for="verified">
-                                            Verified
+                                               name="category"
+                                               id="image" value="0">
+                                        <label class="form-check-label"
+                                               for="image">
+                                            Image
                                         </label>
                                     </div>
                                     <div class="form-check-inline">
                                         <input class="form-check-input"
                                                type="radio"
-                                               name="flagverified"
-                                               id="not" value="not">
-                                        <label class="form-check-label" for="not">
-                                            Not Verified
+                                               name="category"
+                                               id="video" value="1">
+                                        <label class="form-check-label"
+                                               for="video">
+                                            Video
                                         </label>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="duration">Duration*</label>
+                                    <div class="input-group date mb-3">
+                                        <input required type="number"
+                                               id="duration"
+                                               name="duration"
+                                               class="form-control"
+                                               placeholder="Input Duration">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-clock-o">
+                                                    in seconds
+                                                </i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr/>
+
+                                <div class="form-group">
+                                    <label for="editor1">Ads Description</label>
+                                    <textarea id="editor1" name="description">
+                                        Tell description about the ads content...
+                                        .
+                                        .
+                                        .
+                                        .
+                                    </textarea>
+                                </div>
+
 
 
                             </div>
@@ -416,6 +330,11 @@
             todayHighlight : true,
             todayBtn : "linked",
             format : 'yyyy-mm-dd'
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.select-data').select2();
         });
     </script>
 @endsection

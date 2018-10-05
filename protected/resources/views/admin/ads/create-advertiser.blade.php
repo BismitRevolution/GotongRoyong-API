@@ -64,13 +64,13 @@
                                            placeholder="Input Username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">E-mail
+                                    <label for="email_ads">E-mail
                                         Advertiser/Institute*</label>
                                     <input required type="email"
-                                           id="email"
-                                           name="email"
+                                           id="email_ads"
+                                           name="email_ads"
                                            class="form-control"
-                                           placeholder="Input Email">
+                                           placeholder="Input Email Advertiser">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password*</label>
@@ -81,11 +81,11 @@
                                            placeholder="Input Password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="fullname">Advertiser /
+                                    <label for="advertiser_name">Advertiser /
                                         Institute Name*</label>
                                     <input required type="text"
-                                           id="fullname"
-                                           name="fullname"
+                                           id="advertiser_name"
+                                           name="advertiser_name"
                                            class="form-control"
                                            placeholder="Input Full Name">
                                 </div>
@@ -117,30 +117,59 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="flagverified">Verified User*</label>
-                                    <br/>
-                                    <div class="form-check-inline">
-                                        <input required class="form-check-input"
-                                               type="radio"
-                                               name="flagverified"
-                                               id="verified" value="verified">
-                                        <label class="form-check-label" for="verified">
-                                            Verified
-                                        </label>
-                                    </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="flagverified"
-                                               id="not" value="not">
-                                        <label class="form-check-label" for="not">
-                                            Not Verified
-                                        </label>
-                                    </div>
+                                    <label for="editor1">
+                                        About Advertiser / Institute
+                                    </label>
+                                    <textarea required id="editor1"
+                                              name="advertiser_desc">
+                                        Tell description about the advertiser...
+                                        .
+                                        .
+                                        .
+                                        .
+                                    </textarea>
                                 </div>
 
-                                <hr/>
+                                <div class="form-group">
+                                    <label for="kuota">
+                                        Kuota Ads Content*
+                                    </label>
+                                    <input required type="number"
+                                           id="kuota"
+                                           name="kuota"
+                                           class="form-control"
+                                           placeholder="Input Kuota Ads Content">
+                                </div>
 
+                                <hr style="background-color: blue;"/>
+
+                                <div class="form-group">
+                                    <label for="fullname">
+                                        Name of PIC*</label>
+                                    <input required type="text"
+                                           id="fullname"
+                                           name="fullname"
+                                           class="form-control"
+                                           placeholder="Input Full Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email_pic">E-mail PIC*</label>
+                                    <input required type="email"
+                                           id="email_pic"
+                                           name="email_pic"
+                                           class="form-control"
+                                           placeholder="Input Email of PIC">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="no_hp">No HP PIC*</label>
+                                    <input required type="text"
+                                           id="no_hp"
+                                           name="no_hp"
+                                           class="form-control"
+                                           placeholder="Input No HP of PIC">
+                                </div>
 
                                 <div class="form-group">
                                     <label for="birthdate">
@@ -199,20 +228,7 @@
 
                                 </div>
 
-
-
-                                <div class="form-group">
-                                    <label for="editor1">
-                                        About Advertiser / Institute
-                                    </label>
-                                    <textarea required id="editor1" name="about">
-                                        Tell description about the advertiser...
-                                        .
-                                        .
-                                        .
-                                        .
-                                    </textarea>
-                                </div>
+                                <hr style="background-color: blue;"/>
 
                                 <div class="form-group">
                                     <label for="link">Link URL Profile

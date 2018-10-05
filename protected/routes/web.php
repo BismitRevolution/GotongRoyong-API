@@ -56,7 +56,10 @@ Route::prefix('admin')->group(function () {
     Route::prefix('ads')->group(function () {
 
         Route::get('create-advertiser',  'PageAdsController@create_advertiser');
+        Route::post('submit-advertiser',  'PageAdsController@submit_advertiser');
         Route::get('create-content',  'PageAdsController@create_content');
+        Route::post('submit-content',  'PageAdsController@submit_content');
+        Route::get('edit-content/{id}',  'PageAdsController@edit_content');
         Route::get('list-ads',  'PageAdsController@list_ads');
 
     });
