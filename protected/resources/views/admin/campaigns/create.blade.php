@@ -26,6 +26,26 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
+                @if(Session::get('submit_create_success'))
+                    <div class="col-lg-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <p>
+                                    {{ Session::get('submit_create_success') }}
+                                </p>
+                                <p>Create User Success.</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user-plus"></i>
+                            </div>
+                            <p class="small-box-footer">
+                                -----
+                            </p>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="col-lg-8">
                     <div class="card card-primary">
                         <div class="card-header">
@@ -33,32 +53,29 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" method="post"
+                              enctype="multipart/form-data"
+                              action="{{ url(action('PageCampaignsController@submit_create')) }}">
+                            {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="title">Title Campaign*</label>
                                     <input required type="text"
                                            id="title"
-                                           name="titlee"
+                                           name="title"
                                            class="form-control"
                                            placeholder="Input Title Campaign">
                                 </div>
                                 <div class="form-group">
                                     <label for="campaigner">Campaigner*</label>
-                                    <select name="campaigner"
-
+                                    <select required name="campaigner"
                                             class="form-control select-data">
-                                        @foreach ($users as $data)
-                                            <option value="{{ $data->id }}">
+                                        @foreach ($data_users as $data)
+                                            <option value="{{ $data->id_user }}">
                                                 {{ $data->fullname }}
                                             </option>
                                         @endforeach
                                     </select>
-                                    <input required type="text"
-                                           id="campaigner"
-                                           name="campaigner"
-                                           class="form-control"
-                                           placeholder="Input Campaigner Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="editor1">Description*</label>
@@ -117,18 +134,39 @@
 
                                 <hr/>
 
-                                <div class="form-group">
+                                <div class="form-group" id="dynamic_field">
                                     <label for="photo"
                                            class="control-label">
-                                        Campaign Images
+                                        Campaign Image
                                     </label>
 
-                                    <input required type="file" class="form-control"
-                                           id="photo"
-                                           name="photo" placeholder="Photo">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <input required type="file" class="form-control"
+                                                   id="photo"
+                                                   name="photo[]" placeholder="Photo">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <button type="button"
+                                                    class="btn btn-success">
+                                                <i class="fa fa-check"></i>
+                                            </button>
+                                        </div>
+                                    </div>
 
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="button" name="add"
+                                                id="add"
+                                                class="btn btn-success
+                                                btn-block btn-sm">
+                                            <i class="fa fa-plus-circle"></i>
+                                            add more campaign image
+                                        </button>
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -582,6 +620,78 @@
     <script>
         $(document).ready(function() {
             $('.select-data').select2();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var postURL = "<?php echo url('addmore'); ?>";
+            var i=1;
+
+
+            $('#add').click(function(){
+                i++;
+                $('#dynamic_field').append('' +
+                    ' <div class="row" id="row'+i+'">'+
+                    '<div class="col-lg-8">'+
+                    '<input type="file" class="form-control"'+
+                'name="photo[]" placeholder="Photo">'+
+                    '</div>'+
+                    '<div class="col-lg-4">'+
+                    '<button type="button" name="remove" id="'+i+'"'+
+                    'class="btn btn-danger btn_remove">X</button>'+
+                    '</div>'+
+                    '</div>'+
+                    '');
+                $('.select-data').select2();
+                $( '.uang' ).mask('000.000.000', {reverse: true});
+            });
+
+            $(document).on('click', '.btn_remove', function(){
+                var button_id = $(this).attr("id");
+                $('#row'+button_id+'').remove();
+            });
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            $('#submit').click(function(){
+                $.ajax({
+                    url:postURL,
+                    method:"POST",
+                    data:$('#add_name').serialize(),
+                    type:'json',
+                    success:function(data)
+                    {
+                        if(data.error){
+                            printErrorMsg(data.error);
+                        }else{
+                            i=1;
+                            $('.dynamic-added').remove();
+                            $('#add_name')[0].reset();
+                            $(".print-success-msg").find("ul").html('');
+                            $(".print-success-msg").css('display','block');
+                            $(".print-error-msg").css('display','none');
+                            $(".print-success-msg").find("ul").append('<li>Record Inserted Successfully.</li>');
+                        }
+                    }
+                });
+            });
+
+
+            function printErrorMsg (msg) {
+                $(".print-error-msg").find("ul").html('');
+                $(".print-error-msg").css('display','block');
+                $(".print-success-msg").css('display','none');
+                $.each( msg, function( key, value ) {
+                    $(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+                });
+            }
         });
     </script>
 @endsection
