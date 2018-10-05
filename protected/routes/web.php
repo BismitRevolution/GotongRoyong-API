@@ -38,7 +38,10 @@ Route::prefix('admin')->group(function () {
     Route::prefix('verified-user')->group(function () {
 
         Route::get('create',  'PageUserNGOController@create');
-        Route::get('list',  'PageUserNGOController@list');
+        Route::get('edit/{id}',  'PageUserNGOController@edit');
+        Route::post('submit-create',  'PageUserNGOController@submit_create');
+        Route::post('update',  'PageUserNGOController@update');
+        Route::get('list',  'PageUserNGOController@list_user');
 
     });
 

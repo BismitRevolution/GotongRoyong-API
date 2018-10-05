@@ -7,8 +7,10 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">
-                        <i class="fa fa-user-plus nav-icon"></i>
-                        Create a NGO / Verified User
+                        <a href="{{ url(action('PageUserNGOController@list_user')) }}">
+                            <i class="fa fa-arrow-circle-left nav-icon"></i>
+                        </a>
+                        Edit a NGO / Verified User
                     </h1>
                 </div><!-- /.col -->
 
@@ -22,35 +24,35 @@
         <div class="container-fluid">
             <div class="row">
                 @if(Session::get('submit_create_success'))
-                <div class="col-lg-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <p>
-                                {{ Session::get('submit_create_success') }}
+                    <div class="col-lg-6">
+                        <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <p>
+                                    {{ Session::get('submit_create_success') }}
+                                </p>
+                                <p>Edit User Success.</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user-plus"></i>
+                            </div>
+                            <p class="small-box-footer">
+                                -----
                             </p>
-                            <p>Create User Success.</p>
                         </div>
-                        <div class="icon">
-                            <i class="fa fa-user-plus"></i>
-                        </div>
-                        <p class="small-box-footer">
-                            -----
-                        </p>
                     </div>
-                </div>
                 @endif
 
                 <div class="col-lg-8">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Create a NGO/Verified User</h3>
+                            <h3 class="card-title">Edit a NGO/Verified User</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
                               enctype="multipart/form-data"
-                              action="{{ url(action('PageUserNGOController@submit_create')) }}">
+                              action="{{ url(action('PageUserNGOController@update')) }}">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
@@ -59,7 +61,13 @@
                                            id="username"
                                            name="username"
                                            class="form-control"
+                                           value="{{ $data_user->username }}"
                                            placeholder="Input Username">
+
+                                    <input hidden type="text"
+                                           id="id_user"
+                                           name="id_user"
+                                           value="{{ $data_user->id_user }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-mail*</label>
@@ -67,15 +75,21 @@
                                            id="email"
                                            name="email"
                                            class="form-control"
+                                           value="{{ $data_user->email }}"
                                            placeholder="Input Email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password*</label>
-                                    <input required type="password"
+                                    <label for="password">
+                                        Password
+                                    </label>
+                                    <input type="password"
                                            id="password"
                                            name="password"
                                            class="form-control"
-                                           placeholder="Input Password">
+                                           placeholder="Input New Password">
+                                    <p class="help-block">
+                                        Leave password to use previous password.
+                                    </p>
                                 </div>
                                 <div class="form-group">
                                     <label for="fullname">Full Name*</label>
@@ -83,6 +97,7 @@
                                            id="fullname"
                                            name="fullname"
                                            class="form-control"
+                                           value="{{ $data_user->fullname }}"
                                            placeholder="Input Full Name">
                                 </div>
                                 <div class="form-group">
@@ -92,6 +107,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="role"
+                                               @if($data_user->role == 1) checked @endif
                                                id="userpahlawan" value="userpahlawan">
                                         <label class="form-check-label" for="userpahlawan">
                                             User Pahlawan - NGO/Verified
@@ -101,6 +117,7 @@
                                         <input required class="form-check-input"
                                                type="radio"
                                                name="role"
+                                               @if($data_user->role == 2) checked @endif
                                                id="admin" value="admin">
                                         <label class="form-check-label" for="admin">
                                             Admin
@@ -110,6 +127,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="role"
+                                               @if($data_user->role == 3) checked @endif
                                                id="advertiser" value="advertiser">
                                         <label class="form-check-label" for="advertiser">
                                             Advertiser
@@ -129,7 +147,7 @@
                                             </span>
                                         </div>
                                         <input type="text" name="birthdate"
-                                               {{--value="{{ \Carbon\Carbon::now()->format('Y-m-d') }}"--}}
+                                               value="{{ \Carbon\Carbon::parse($data_user->birthdate)->format('Y-m-d') }}"
                                                class="form-control"
                                                placeholder="Input Birth Date"
                                                id="datepicker1">
@@ -142,6 +160,7 @@
                                     <input type="text"
                                            id="birthplace"
                                            name="birthplace"
+                                           value="{{ $data_user->birthplace }}"
                                            class="form-control"
                                            placeholder="Input Birth Place">
                                 </div>
@@ -152,6 +171,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="gender"
+                                               @if($data_user->gender == 'male') checked @endif
                                                id="male" value="male">
                                         <label class="form-check-label"
                                                for="male">
@@ -162,6 +182,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="gender"
+                                               @if($data_user->gender == 'female') checked @endif
                                                id="female" value="female">
                                         <label class="form-check-label"
                                                for="female">
@@ -177,25 +198,42 @@
                                         Photo Profile
                                     </label>
 
-                                    <input required type="file"
+                                    <input type="file"
                                            class="form-control"
                                            id="photo"
                                            name="photo" placeholder="Photo">
 
+                                    <p class="help-block">
+                                        (Previous Photo)
+                                        <span>
+                                        <a href="{{ URL::asset($data_user->image_profile) }}"
+                                           target="_blank">
+                                            <img src="{{ URL::asset($data_user->image_profile) }}"
+                                                 class="brand-image"
+                                            >
+                                        </a>
+                                            </span>
+                                    </p>
+                                    <p class="help-block">
+                                        Upload new Photo to replace previous Photo
+                                    </p>
                                 </div>
 
 
                                 <hr/>
 
                                 <div class="form-group">
-                                    <label for="editor1">About User</label>
-                                    <textarea required id="editor1" name="about">
-                                        Tell description about the user...
-                                        .
-                                        .
-                                        .
-                                        .
+                                    <label for="about">About User</label>
+                                    <textarea required id="about" name="about">
+                                        Tell about the user..
                                     </textarea>
+                                    <script>
+                                        // Replace the <textarea id="editor1"> with a CKEditor
+                                        // instance, using default configuration.
+                                        CKEDITOR.replace( 'about' );
+                                        CKEDITOR.instances.about.setData( '<p>This is the editor data.</p>' );
+                                    </script>
+
                                 </div>
 
                                 <div class="form-group">
@@ -210,6 +248,7 @@
                                                id="link"
                                                name="link"
                                                class="form-control"
+                                               value="{{ $data_user->my_url }}"
                                                placeholder="Input Link">
                                     </div>
                                 </div>
@@ -225,6 +264,7 @@
                                         <input type="text"
                                                class="form-control"
                                                name="instagram"
+                                               value="{{ $data_user->instagram_link }}"
                                                placeholder="Input Instagram Link">
                                     </div>
                                 </div>
@@ -240,6 +280,7 @@
                                         <input type="text"
                                                class="form-control"
                                                name="twitter"
+                                               value="{{ $data_user->twitter_link }}"
                                                placeholder="Input Twitter Link">
                                     </div>
                                 </div>
@@ -255,6 +296,7 @@
                                         <input type="text"
                                                class="form-control"
                                                name="facebook"
+                                               value="{{ $data_user->fb_link }}"
                                                placeholder="Input Facebook Link">
                                     </div>
                                 </div>
@@ -266,6 +308,7 @@
                                         <input required class="form-check-input"
                                                type="radio"
                                                name="flagverified"
+                                               @if($data_user->flag_verified == 1) checked @endif
                                                id="verified" value="verified">
                                         <label class="form-check-label" for="verified">
                                             Verified
@@ -275,6 +318,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="flagverified"
+                                               @if($data_user->flag_verified == 0) checked @endif
                                                id="not" value="not">
                                         <label class="form-check-label" for="not">
                                             Not Verified
@@ -289,7 +333,7 @@
                             <div class="card-footer">
                                 <button type="submit"
                                         class="btn btn-primary btn-block">
-                                    Submit
+                                    Update
                                 </button>
                             </div>
                         </form>
@@ -373,29 +417,6 @@
         })
     </script>
 
-    <!-- CK Editor -->
-    <script src="{{ URL::asset('adminlte/plugins/ckeditor/ckeditor.js') }}"></script>
-
-    <script>
-        $(function () {
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
-            ClassicEditor
-                .create(document.querySelector('#editor1'))
-                .then(function (editor) {
-                    // The editor instance
-                })
-                .catch(function (error) {
-                    console.error(error)
-                })
-
-            // bootstrap WYSIHTML5 - text editor
-
-            $('.textarea').wysihtml5({
-                toolbar: { fa: true }
-            })
-        })
-    </script>
 
     <script>
         //Date picker
@@ -418,4 +439,40 @@
             format : 'yyyy-mm-dd'
         });
     </script>
+
+    <!-- CK Editor -->
+    <script src="{{ URL::asset('adminlte/plugins/ckeditor/ckeditor.js') }}"></script>
+
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            ClassicEditor
+                .create(document.querySelector('#about'))
+                .then(function (editor) {
+                    // The editor instance
+                    $data = "{!!  $data_user->about_me  !!}";
+                    //$data = '' +
+//                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus erat non ex tempor semper aliquam non felis. Integer et quam mi. Quisque at lacinia felis, nec suscipit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor orci non mauris venenatis, quis commodo lorem interdum. Duis placerat tincidunt velit, semper varius dui tempus non. Pellentesque dictum pulvinar diam in venenatis. Quisque blandit egestas dolor, nec elementum odio pellentesque sed. Curabitur dignissim elementum turpis. Aenean ornare viverra tempus. Ut ac dignissim nunc, in imperdiet libero. Maecenas rutrum nulla ac lobortis cursus.' +
+//                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus erat non ex tempor semper aliquam non felis. Integer et quam mi. Quisque at lacinia felis, nec suscipit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor orci non mauris venenatis, quis commodo lorem interdum. Duis placerat tincidunt velit, semper varius dui tempus non. Pellentesque dictum pulvinar diam in venenatis. Quisque blandit egestas dolor, nec elementum odio pellentesque sed. Curabitur dignissim elementum turpis. Aenean ornare viverra tempus. Ut ac dignissim nunc, in imperdiet libero. Maecenas rutrum nulla ac lobortis cursus.' +
+//                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus erat non ex tempor semper aliquam non felis. Integer et quam mi. Quisque at lacinia felis, nec suscipit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor orci non mauris venenatis, quis commodo lorem interdum. Duis placerat tincidunt velit, semper varius dui tempus non. Pellentesque dictum pulvinar diam in venenatis. Quisque blandit egestas dolor, nec elementum odio pellentesque sed. Curabitur dignissim elementum turpis. Aenean ornare viverra tempus. Ut ac dignissim nunc, in imperdiet libero. Maecenas rutrum nulla ac lobortis cursus.' +
+//                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus erat non ex tempor semper aliquam non felis. Integer et quam mi. Quisque at lacinia felis, nec suscipit purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor orci non mauris venenatis, quis commodo lorem interdum. Duis placerat tincidunt velit, semper varius dui tempus non. Pellentesque dictum pulvinar diam in venenatis. Quisque blandit egestas dolor, nec elementum odio pellentesque sed. Curabitur dignissim elementum turpis. Aenean ornare viverra tempus. Ut ac dignissim nunc, in imperdiet libero. Maecenas rutrum nulla ac lobortis cursus.';
+                    editor.setData($data);
+                })
+                .catch(function (error) {
+                    console.error(error)
+                })
+
+
+            {{--CKEDITOR.instances.editor1.setData('{{ $data_user->about_me }}');--}}
+
+            // bootstrap WYSIHTML5 - text editor
+
+            $('.textarea').wysihtml5({
+                toolbar: { fa: true }
+            })
+        })
+
+    </script>
+
 @endsection

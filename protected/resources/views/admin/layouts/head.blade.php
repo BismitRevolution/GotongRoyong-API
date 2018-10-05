@@ -35,3 +35,4 @@
 {{-- script --}}
 <script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ URL::asset('adminlte/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+
