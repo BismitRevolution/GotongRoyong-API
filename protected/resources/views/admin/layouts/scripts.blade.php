@@ -35,3 +35,5 @@
 <script src="{{ URL::asset('adminlte/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+{{--Masking--}}
+<script src="{{ URL::asset('js/jquery.mask.min.js') }}" type="text/javascript"></script>

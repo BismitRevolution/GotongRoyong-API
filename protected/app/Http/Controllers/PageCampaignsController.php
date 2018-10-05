@@ -21,7 +21,25 @@ class PageCampaignsController extends Controller
     }
 
     public function list_campaign() {
-        return view('admin.campaigns.list-campaign');
+
+        $data_campaigns = DB::table('campaigns')
+            ->join('users', 'users.id', '=', 'campaigns.id_user')
+            ->select('campaigns.*','users.fullname','users.image_profile')
+            ->where('campaigns.flag_active','=',1)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $data_campaign_images = DB::table('campaign_images')
+            ->join('campaigns', 'campaigns.id', '=', 'campaign_images.id_campaign')
+            ->select('campaign_images.*','campaigns.*')
+            ->where('campaigns.flag_active','=',1)
+            ->get();
+
+//        dd($data_campaigns);
+
+        return view('admin.campaigns.list-campaign')
+            ->with('data_campaigns', $data_campaigns)
+            ->with('data_campaign_images', $data_campaign_images);
     }
     public function submit_create(Request $request) {
 
@@ -34,12 +52,14 @@ class PageCampaignsController extends Controller
         $campaign_link = '/'.$request->campaigner.'/'.$title_trf2;
         //end create campaign link
 
+        $target_donation = str_replace('.','',$request->target);
+
         $id_campaign = DB::table('campaigns')->insertGetId(
             [
                 'title'         => $request->title,
                 'id_user'       => $request->campaigner,
                 'description'   => $request->description,
-                'target_donation' => $request->target,
+                'target_donation' => $target_donation,
                 'deadline'      => $request->deadline,
                 'complete_sts'  => 1,
                 'flag_active'   => 1,
