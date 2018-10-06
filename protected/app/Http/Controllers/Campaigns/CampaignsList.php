@@ -26,6 +26,7 @@ use App\Http\Controllers\Controller,
     public $updated_at;
     public $created_by;
     public $updated_by;
+    public $exist;
 
     public function __construct($id = false)
     {
@@ -50,6 +51,7 @@ use App\Http\Controllers\Controller,
               $this->updated_at       = $item->updated_at;
               $this->created_by       = $item->created_by;
               $this->updated_by       = $item->updated_by;
+              $this->exist            = true;
           }
           else{
               $this->exist    = false;
@@ -120,6 +122,34 @@ use App\Http\Controllers\Controller,
   {
     $data = [];
     $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_DETAIL($id)"));
+    foreach($campaigns as $row){
+      $campaign = array(
+              "id"      => $row->id,
+              "title"   => $row->title,
+              "id_user" => $row->id_user,
+              "description" => $row->description,
+              "count_donations" => $row->count_donations,
+              "count_users" => $row->count_users,
+              "count_shares" => $row->count_shares,
+              "target_donation" => $row->target_donation,
+              "deadline" => $row->deadline,
+              "complete_sts" => $row->complete_sts,
+              "flag_active" => $row->flag_active,
+              "campaign_link" => $row->campaign_link,
+              "created_at" => $row->created_at,
+              "updated_at" => $row->updated_at,
+              "created_by" => $row->created_by,
+              "updated_by" => $row->updated_by
+      );
+      array_push($data,$campaign);
+    }
+    return $data;
+  }
+
+  public function getListByUser($idUser)
+  {
+    $data = [];
+    $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_LIST_USER($idUser)"));
     foreach($campaigns as $row){
       $campaign = array(
               "id"      => $row->id,

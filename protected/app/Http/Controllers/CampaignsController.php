@@ -118,8 +118,24 @@ class CampaignsController extends Controller
         'data' => '',
       ],200);
     }
+  }
 
+  public function getCampaignsUser (Request $request)
+  {
+    $data = (new CList())->getListByUser($request->input('id_user'));
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'User Campaigns List',
+          'data' => $data,
+        ],200);
+    }
 
+    return response()->json([
+      'success' => false,
+      'message' => 'No Campaigns',
+      'data' => $data,
+    ],500);
   }
 
 }

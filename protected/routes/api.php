@@ -13,13 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-/* Setup CORS */
+/*
+Setup CORS
+ */
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
-
 Route::get('/', ['as' => 'default', function () {return redirect()->to('http://www.gotongroyong.in');}]);
+
+/*
+Variables
+ */
+$_CAMPAIGN = "campaign";
+
 /*
 Authentication API (no roles yet)
 */
@@ -27,52 +34,45 @@ Route::post("register", 'Auth\RegisterController@register');
 Route::post("login", 'Auth\LoginController@login');
 //Route::post('logout', 'Auth\LoginController@logout');
 
+/*
+Campaigns without Auth
+*/
+Route::post("$_CAMPAIGN/campaign-list/all", 'CampaignsController@getCampaignsList');
+Route::post("$_CAMPAIGN/campaign-list/active", 'CampaignsController@getCampaignsListActive');
+Route::post("$_CAMPAIGN/campaign-list/detail", 'CampaignsController@getCampaignsDetail');
+Route::post("$_CAMPAIGN/campaign-list/user", 'CampaignsController@getCampaignsUser');
+
+/*
+Route Middleware
+ */
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::group(['middleware' => 'auth:api'], function() {
-//     //logout api
-//     Route::post('logout', 'Auth\LoginController@logout');
-//     Route::post('userdetail', 'Auth\LoginController@details');
-//     Route::post('testdemo', 'Auth\LoginController@test');
-//
-//     //Route::post('userdetail', 'Auth\LoginController@details');
-//
-// });
-
 Route::group(['middleware' => 'auth:api'], function(){
 
+    /*
+    Variables
+    */
     $_CAMPAIGN = "campaign";
-
-    Route::post('logout', 'Auth\LoginController@logout');
-    Route::post('testdemo', 'Test\TestController@test');
-    Route::post('userdetail', 'UserController@getDetails');
+    $_DONATES = "donates";
 
     /*
-    CAMPAIGNS
+    Log out etc
+     */
+    Route::post('logout', 'Auth\LoginController@logout');
+    Route::post('testdemo', 'Test\TestController@test');
+    Route::post('userdet  ail', 'UserController@getDetails');
+
+    /*
+    CAMPAIGNS with Auth
     */
-    Route::post("$_CAMPAIGN/campaign-list/all", 'CampaignsController@getCampaignsList');
-    Route::post("$_CAMPAIGN/campaign-list/active", 'CampaignsController@getCampaignsListActive');
-    Route::post("$_CAMPAIGN/campaign-list/detail", 'CampaignsController@getCampaignsDetail');
     Route::post("$_CAMPAIGN/campaign-list/create", 'CampaignsController@createCampaign');
     Route::post("$_CAMPAIGN/campaign-list/delete", 'CampaignsController@deleteCampaign');
 
-
+    /*
+    CAMPAIGN ADS DONATES
+     */
+    Route::post("$_DONATES/campaign-ads/create", 'CamAdsDonatesController@createDonates');
 
 });
-
-// Route::middleware('auth:api')->post('logout', function (Request $request) {
-//         $user = auth()->user();
-//         //$user = Auth::guard('api')->user();
-//         //$user = $this->guard()->user();
-//         //$tok = $user->remember_token;
-//         if ($user) {
-//             //$user->generateToken();
-//             return response()->json(['data' => 'theres user'], 200);
-//             $user->remember_token = null;
-//             $user->save();
-//         }
-//
-//         return response()->json(['data' => 'success logout'], 200);
-// });
