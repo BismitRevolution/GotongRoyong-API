@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth:api'], function(){
      */
     Route::post('logout', 'Auth\LoginController@logout');
     Route::post('testdemo', 'Test\TestController@test');
-    Route::post('userdet  ail', 'UserController@getDetails');
+    Route::post('userdetail', 'UserController@getDetails');
 
     /*
     CAMPAIGNS with Auth
@@ -74,5 +74,6 @@ Route::group(['middleware' => 'auth:api'], function(){
     CAMPAIGN ADS DONATES
      */
     Route::post("$_DONATES/campaign-ads/create", 'CamAdsDonatesController@createDonates');
+    Route::post("$_DONATES/campaign-ads/donate-success",'CamAdsDonatesController@updateDonations');
 
 });

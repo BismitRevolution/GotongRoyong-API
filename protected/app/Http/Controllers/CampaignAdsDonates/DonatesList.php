@@ -48,6 +48,26 @@ use App\Http\Controllers\Controller,
 
     public function create()
     {
-      return DB::unprepared(DB::raw("CALL CAMPAIGNS_ADS_DONATES_INSERT($this->id_campaign,$this->id_user,$this->id_ads,'$this->device')"));
+      $data = array();
+      $datadonation = DB::select(DB::raw("CALL CAMPAIGNS_ADS_DONATES_INSERT($this->id_campaign,$this->id_user,$this->id_ads,'$this->device')"));
+      foreach($datadonation as $row){
+        $item = array(
+                "id"      => $row->id,
+                "id_campaign"   => $row->id_campaign,
+                "id_user" => $row->id_user,
+                "id_ads" => $row->id_ads,
+                "device" => $row->device,
+                "click_target_url" => $row->click_target_url,
+                "created_at" => $row->created_at,
+                "updated_at" => $row->updated_at
+        );
+        $data = $item;
+      }
+      return $data;
+    }
+
+    public function donateSuccess()
+    {
+      return DB::unprepared(DB::raw("CALL CAMPAIGNS_ADS_UPDATE_DONATES_SUCCESS($this->id_campaign,$this->id_user)"));
     }
   }

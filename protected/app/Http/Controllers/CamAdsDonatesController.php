@@ -14,27 +14,46 @@ class CamAdsDonatesController extends Controller
 {
   public function createDonates(Request $request)
   {
+    $user = Auth::guard('api')->user();
     $donation = new DList();
     $content = $request->all();
-    $donation->id_user = $content['id_user'];
+    $donation->id_user = $user->id;
     $donation->id_campaign = $content['id_campaign'];
 
     $ads = new AdsContent();
-    $arr = $ads->getRandom($content['id_user']);
+    $arr = $ads->getRandom($user->id);
     $donation->id_ads = $arr['id'];
-
     $donation->device = $content['device'];
 
-    $donation->create();
-
+    $data_donation = $donation->create();
     $data = [];
-    array_push($data,$arr);
+
+    $data['donation_data'] = $data_donation;
+
+    $data['ads_data'] = $arr;
+
     return response()->json([
         'success' => true,
-        'message' => 'Campaigns List',
+        'message' => 'Campaign Donation and Random Ads Detail',
         'data' => $data,
     ],200);
 
   }
 
+  public function updateDonations(Request $request)
+  {
+    $user = Auth::guard('api')->user();
+    $donation = new DList();
+    $donation->id_campaign = $request->input('id_campaign');
+    $donation->id_user = $user->id;
+    $donation->donateSuccess();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Donation successful',
+        'data' => '',
+    ],200);
+
+
+  }
 }

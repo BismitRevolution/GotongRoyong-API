@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Campaigns;
 use App\Http\Controllers\Controller,
   Illuminate\Support\Facades\DB as DB,
   App\User,
-  Illuminate\Http\Request;
+  Illuminate\Http\Request,
+  App\Http\Controllers\Campaigns\CampaignsImage as CImage;
+
 
   class CampaignsList extends Controller
   {
@@ -67,6 +69,9 @@ use App\Http\Controllers\Controller,
       $data = [];
       $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST`()"));
       foreach($campaigns as $row){
+        $images = new CImage;
+        $images->id_campaign = $row->id;
+        $list_img = $images->getImage();
         $campaign = array(
                 "id"      => $row->id,
                 "title"   => $row->title,
@@ -83,7 +88,8 @@ use App\Http\Controllers\Controller,
                 "created_at" => $row->created_at,
                 "updated_at" => $row->updated_at,
                 "created_by" => $row->created_by,
-                "updated_by" => $row->updated_by
+                "updated_by" => $row->updated_by,
+                "list_images" => $list_img
         );
         array_push($data,$campaign);
       }
@@ -95,6 +101,9 @@ use App\Http\Controllers\Controller,
     $data = [];
     $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST_ACTIVE`()"));
     foreach($campaigns as $row){
+      $images = new CImage;
+      $images->id_campaign = $row->id;
+      $list_img = $images->getImage();
       $campaign = array(
               "id"      => $row->id,
               "title"   => $row->title,
@@ -111,7 +120,8 @@ use App\Http\Controllers\Controller,
               "created_at" => $row->created_at,
               "updated_at" => $row->updated_at,
               "created_by" => $row->created_by,
-              "updated_by" => $row->updated_by
+              "updated_by" => $row->updated_by,
+              "list_images" => $list_img
       );
       array_push($data,$campaign);
     }
@@ -123,6 +133,9 @@ use App\Http\Controllers\Controller,
     $data = [];
     $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_DETAIL($id)"));
     foreach($campaigns as $row){
+      $images = new CImage;
+      $images->id_campaign = $row->id;
+      $list_img = $images->getImage();
       $campaign = array(
               "id"      => $row->id,
               "title"   => $row->title,
@@ -139,7 +152,8 @@ use App\Http\Controllers\Controller,
               "created_at" => $row->created_at,
               "updated_at" => $row->updated_at,
               "created_by" => $row->created_by,
-              "updated_by" => $row->updated_by
+              "updated_by" => $row->updated_by,
+              "list_images" => $list_img
       );
       array_push($data,$campaign);
     }
@@ -151,6 +165,9 @@ use App\Http\Controllers\Controller,
     $data = [];
     $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_LIST_USER($idUser)"));
     foreach($campaigns as $row){
+      $images = new CImage;
+      $images->id_campaign = $row->id;
+      $list_img = $images->getImage();
       $campaign = array(
               "id"      => $row->id,
               "title"   => $row->title,
@@ -167,7 +184,9 @@ use App\Http\Controllers\Controller,
               "created_at" => $row->created_at,
               "updated_at" => $row->updated_at,
               "created_by" => $row->created_by,
-              "updated_by" => $row->updated_by
+              "updated_by" => $row->updated_by,
+              "list_images" => $list_img
+
       );
       array_push($data,$campaign);
     }
