@@ -80,6 +80,7 @@ class PageUserNGOController extends Controller
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
             ->where('users_pahlawan.flag_verified','=',1)
+            ->orderBy('created_at','desc')
             ->get();
 
         return view('admin.user-ngo-verified.list-user')

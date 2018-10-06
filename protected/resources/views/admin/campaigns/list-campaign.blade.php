@@ -27,11 +27,30 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                    @if(Session::get('submit_update_success'))
+                        <div class="col-lg-6">
+                            <!-- small box -->
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <p>
+                                        {{ Session::get('submit_update_success') }}
+                                    </p>
+                                    <p>Update Campaign Success.</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-user-plus"></i>
+                                </div>
+                                <p class="small-box-footer">
+                                    -----
+                                </p>
+                            </div>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fa fa-th-list nav-icon"></i>
-                                List All NGO/Verified Users
+                                List All Campaigns
                             </h3>
 
                             {{--<div class="card-tools">--}}
@@ -49,208 +68,70 @@
                             <table class="table table-hover" id="tableusers">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reason</th>
+                                    <th>#</th>
+                                    <th class="text-nowrap">Campaigner</th>
+                                    <th class="text-nowrap">Created At</th>
+                                    <th class="text-nowrap">Title</th>
+                                    <th class="text-nowrap">Description</th>
+                                    <th class="text-nowrap">Target Donation</th>
+                                    <th class="text-nowrap">Deadline</th>
+                                    <th class="text-nowrap">Status</th>
+                                    <th class="text-nowrap">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr><tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr><tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
+                                @for($j=0,$i=1;$i<=count($data_campaigns);$i++,$j++)
+                                    <tr>
+                                        <td>{{ $i }}</td>
+                                        <td>
+                                <img src="{{ URL::asset($data_campaigns[$j]->image_profile) }}"
+                                     class="brand-image">
+                                            {{ $data_campaigns[$j]->fullname }}
+                                        </td>
+                                        <td>
+                                            {{\Carbon\Carbon::parse($data_campaigns[$j]
+                                                                        ->created_at)
+                                                                        ->diffForHumans()  }}
+                                        </td>
+                                        <td>{{ str_limit($data_campaigns[$j]->title,30) }}</td>
+                                        <td>
+                                            {{ str_limit(strip_tags($data_campaigns[$j]
+                                                            ->description),30) }}
+                                        </td>
+
+                                        <td>
+                                            <p class="uang">
+                                            {{ $data_campaigns[$j]->target_donation }}
+                                            </p>
+                                        </td>
+                                        <td>
+                                            {{\Carbon\Carbon::parse($data_campaigns[$j]
+                                                                        ->deadline)
+                                                                        ->toFormattedDateString()  }}
+                                        </td>
+                                        <td>
+                                            @if($data_campaigns[$j]->complete_sts == 0)
+                                                Completed
+                                                @elseif($data_campaigns[$j]->complete_sts == 1)
+                                                Not Completed Yet
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <button type="button"
+                                                    onclick="window.location= '{{ url(action('PageUserNGOController@edit',$data_campaigns[$j]->id_user)) }}'"
+                                                    class="btn btn-primary btn-sm">Edit
+                                            </button>
+
+                                            <input type="hidden" name="id_user"
+                                                   value="{{ $data_campaigns[$j]->id_user }}">
+                                            <button class="btn btn-danger btn-sm" type="submit">
+                                                Delete
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+                                @endfor
 
 
                                 </tbody>
@@ -269,313 +150,6 @@
 @endsection
 
 @section('new-scripts')
-
-    <!-- Page script -->
-    <script>
-        $(function () {
-            /*
-             * Flot Interactive Chart
-             * -----------------------
-             */
-            // We use an inline data source in the example, usually data would
-            // be fetched from a server
-            var data        = [],
-                totalPoints = 100
-
-            function getRandomData() {
-
-                if (data.length > 0) {
-                    data = data.slice(1)
-                }
-
-                // Do a random walk
-                while (data.length < totalPoints) {
-
-                    var prev = data.length > 0 ? data[data.length - 1] : 50,
-                        y    = prev + Math.random() * 10 - 5
-
-                    if (y < 0) {
-                        y = 0
-                    } else if (y > 100) {
-                        y = 100
-                    }
-
-                    data.push(y)
-                }
-
-                // Zip the generated y values with the x values
-                var res = []
-                for (var i = 0; i < data.length; ++i) {
-                    res.push([i, data[i]])
-                }
-
-                return res
-            }
-
-            var interactive_plot = $.plot('#interactive', [getRandomData()], {
-                grid  : {
-                    borderColor: '#f3f3f3',
-                    borderWidth: 1,
-                    tickColor  : '#f3f3f3'
-                },
-                series: {
-                    shadowSize: 0, // Drawing is faster without shadows
-                    color     : '#3c8dbc'
-                },
-                lines : {
-                    fill : true, //Converts the line chart to area chart
-                    color: '#3c8dbc'
-                },
-                yaxis : {
-                    min : 0,
-                    max : 100,
-                    show: true
-                },
-                xaxis : {
-                    show: true
-                }
-            })
-
-            var updateInterval = 500 //Fetch data ever x milliseconds
-            var realtime       = 'on' //If == to on then fetch data every x seconds. else stop fetching
-            function update() {
-
-                interactive_plot.setData([getRandomData()])
-
-                // Since the axes don't change, we don't need to call plot.setupGrid()
-                interactive_plot.draw()
-                if (realtime === 'on') {
-                    setTimeout(update, updateInterval)
-                }
-            }
-
-            //INITIALIZE REALTIME DATA FETCHING
-            if (realtime === 'on') {
-                update()
-            }
-            //REALTIME TOGGLE
-            $('#realtime .btn').click(function () {
-                if ($(this).data('toggle') === 'on') {
-                    realtime = 'on'
-                }
-                else {
-                    realtime = 'off'
-                }
-                update()
-            })
-            /*
-             * END INTERACTIVE CHART
-             */
-
-
-            /*
-             * LINE CHART
-             * ----------
-             */
-            //LINE randomly generated data
-
-            var sin = [],
-                cos = []
-            for (var i = 0; i < 14; i += 0.5) {
-                sin.push([i, Math.sin(i)])
-                cos.push([i, Math.cos(i)])
-            }
-            var line_data1 = {
-                data : sin,
-                color: '#3c8dbc'
-            }
-            var line_data2 = {
-                data : cos,
-                color: '#00c0ef'
-            }
-            $.plot('#line-chart', [line_data1, line_data2], {
-                grid  : {
-                    hoverable  : true,
-                    borderColor: '#f3f3f3',
-                    borderWidth: 1,
-                    tickColor  : '#f3f3f3'
-                },
-                series: {
-                    shadowSize: 0,
-                    lines     : {
-                        show: true
-                    },
-                    points    : {
-                        show: true
-                    }
-                },
-                lines : {
-                    fill : false,
-                    color: ['#3c8dbc', '#f56954']
-                },
-                yaxis : {
-                    show: true
-                },
-                xaxis : {
-                    show: true
-                }
-            })
-            //Initialize tooltip on hover
-            $('<div class="tooltip-inner" id="line-chart-tooltip"></div>').css({
-                position: 'absolute',
-                display : 'none',
-                opacity : 0.8
-            }).appendTo('body')
-            $('#line-chart').bind('plothover', function (event, pos, item) {
-
-                if (item) {
-                    var x = item.datapoint[0].toFixed(2),
-                        y = item.datapoint[1].toFixed(2)
-
-                    $('#line-chart-tooltip').html(item.series.label + ' of ' + x + ' = ' + y)
-                        .css({
-                            top : item.pageY + 5,
-                            left: item.pageX + 5
-                        })
-                        .fadeIn(200)
-                } else {
-                    $('#line-chart-tooltip').hide()
-                }
-
-            })
-            /* END LINE CHART */
-
-            /*
-             * FULL WIDTH STATIC AREA CHART
-             * -----------------
-             */
-            var areaData = [[2, 88.0], [3, 93.3], [4, 102.0], [5, 108.5], [6, 115.7], [7, 115.6],
-                [8, 124.6], [9, 130.3], [10, 134.3], [11, 141.4], [12, 146.5], [13, 151.7], [14, 159.9],
-                [15, 165.4], [16, 167.8], [17, 168.7], [18, 169.5], [19, 168.0]]
-            $.plot('#area-chart', [areaData], {
-                grid  : {
-                    borderWidth: 0
-                },
-                series: {
-                    shadowSize: 0, // Drawing is faster without shadows
-                    color     : '#00c0ef'
-                },
-                lines : {
-                    fill: true //Converts the line chart to area chart
-                },
-                yaxis : {
-                    show: false
-                },
-                xaxis : {
-                    show: false
-                }
-            })
-
-            /* END AREA CHART */
-
-            /*
-             * BAR CHART
-             * ---------
-             */
-
-            var bar_data = {
-                data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],
-                color: '#3c8dbc'
-            }
-            $.plot('#bar-chart', [bar_data], {
-                grid  : {
-                    borderWidth: 1,
-                    borderColor: '#f3f3f3',
-                    tickColor  : '#f3f3f3'
-                },
-                series: {
-                    bars: {
-                        show    : true,
-                        barWidth: 0.5,
-                        align   : 'center'
-                    }
-                },
-                xaxis : {
-                    mode      : 'categories',
-                    tickLength: 0
-                }
-            })
-            /* END BAR CHART */
-
-            /*
-             * DONUT CHART
-             * -----------
-             */
-
-            var donutData = [
-                {
-                    label: 'Series2',
-                    data : 30,
-                    color: '#3c8dbc'
-                },
-                {
-                    label: 'Series3',
-                    data : 20,
-                    color: '#0073b7'
-                },
-                {
-                    label: 'Series4',
-                    data : 50,
-                    color: '#00c0ef'
-                }
-            ]
-            $.plot('#donut-chart', donutData, {
-                series: {
-                    pie: {
-                        show       : true,
-                        radius     : 1,
-                        innerRadius: 0.5,
-                        label      : {
-                            show     : true,
-                            radius   : 2 / 3,
-                            formatter: labelFormatter,
-                            threshold: 0.1
-                        }
-
-                    }
-                },
-                legend: {
-                    show: false
-                }
-            })
-            /*
-             * END DONUT CHART
-             */
-
-        })
-
-        /*
-         * Custom Label formatter
-         * ----------------------
-         */
-        function labelFormatter(label, series) {
-            return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
-                + label
-                + '<br>'
-                + Math.round(series.percent) + '%</div>'
-        }
-    </script>
-
-
-    {{--<!-- OPTIONAL SCRIPTS -->--}}
-    {{--<script src="{{ URL::asset('adminlte/dist/js/demo.js') }}"></script>--}}
-
-    {{--<!-- PAGE PLUGINS -->--}}
-    {{--<!-- SparkLine -->--}}
-    {{--<script src="{{ URL::asset('adminlte/plugins/sparkline/jquery.sparkline.min.js') }}"></script>--}}
-    {{--<!-- jVectorMap -->--}}
-    {{--<script src="{{ URL::asset('adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>--}}
-    {{--<script src="{{ URL::asset('adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>--}}
-    {{--<!-- SlimScroll 1.3.0 -->--}}
-    {{--<script src="{{ URL::asset('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>--}}
-    <!-- ChartJS 1.0.2 -->
-    <script src="{{ URL::asset('adminlte/plugins/chartjs-old/Chart.min.js') }}"></script>
-
-
-    {{--saleschart--}}
-    <script src="{{ URL::asset('adminlte/dist/js/pages/dashboard2.js') }}">
-
-    </script>
 
     <script>
         $(function () {
@@ -655,6 +229,15 @@
 //                "info": true,
 //                "autoWidth": false
 //            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // Format mata uang.
+
+            $( '.uang' ).mask('000.000.000.000.000.000.000', {reverse: true});
+
         });
     </script>
 @endsection
