@@ -38,7 +38,7 @@
                                     <p>Update Campaign Success.</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-user-plus"></i>
+                                    <i class="fa fa-plus-circle"></i>
                                 </div>
                                 <p class="small-box-footer">
                                     -----
@@ -46,6 +46,25 @@
                             </div>
                         </div>
                     @endif
+                        @if(Session::get('submit_delete_success'))
+                            <div class="col-lg-6">
+                                <!-- small box -->
+                                <div class="small-box bg-danger">
+                                    <div class="inner">
+                                        <p>
+                                            {{ Session::get('submit_delete_success') }}
+                                        </p>
+                                        <p>Update Campaign Success.</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa fa-plus-circle"></i>
+                                    </div>
+                                    <p class="small-box-footer">
+                                        -----
+                                    </p>
+                                </div>
+                            </div>
+                        @endif
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
@@ -117,16 +136,20 @@
                                             @endif
                                         </td>
                                         <td>
+
                                             <button type="button"
-                                                    onclick="window.location= '{{ url(action('PageCampaignsController@edit',$data_campaigns[$j]->id_campaign)) }}'"
+                                                    onclick="window.location= '{{ url(action('PageCampaignsController@edit_campaign',$data_campaigns[$j]->id_campaign)) }}'"
                                                     class="btn btn-primary btn-sm">Edit
                                             </button>
 
-                                            <input type="hidden" name="id_user"
-                                                   value="{{ $data_campaigns[$j]->id_campaign }}">
-                                            <button class="btn btn-danger btn-sm" type="submit">
-                                                Delete
-                                            </button>
+                                            <form method="post" action="{{ url(action('PageCampaignsController@delete_campaign')) }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="id_campaign"
+                                                       value="{{ $data_campaigns[$j]->id_campaign }}">
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
 
                                         </td>
 

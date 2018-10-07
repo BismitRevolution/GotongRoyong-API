@@ -139,6 +139,23 @@ class PageCampaignsController extends Controller
         return redirect()->back();
     }
 
+    public function delete_campaign(Request $request) {
+//        dd($request);
+        DB::table('campaigns')
+            ->where('campaigns.id','=',$request->id_campaign)
+            ->update([
+                'flag_active'   => 0,
+                'updated_at'    => Carbon::now(),
+                'updated_by'    => 1
+            ]);
+
+        $data_campaign_success = DB::table('campaigns')
+            ->where('id',$request->id_campaign)->first();
+
+        Session::flash("submit_delete_success","Campaign berjudul: $data_campaign_success->title . Berhasil di-hapus.");
+        return redirect(url(action('PageCampaignsController@list_campaign')));
+    }
+
     public function update_campaign(Request $request){
 
         if (!is_null($request->file('photo'))) {

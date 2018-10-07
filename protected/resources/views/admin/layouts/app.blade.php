@@ -5,6 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.layouts.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -36,5 +37,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 @yield('new-scripts')
 
+<script>
+    window.Laravel = {!! json_encode([
+           'csrfToken' => csrf_token(),
+       ]) !!};
+</script>
 </body>
 </html>
