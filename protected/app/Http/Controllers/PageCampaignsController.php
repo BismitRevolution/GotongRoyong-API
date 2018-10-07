@@ -20,7 +20,7 @@ class PageCampaignsController extends Controller
         return view('admin.campaigns.create')->with('data_users',$data_users);
     }
 
-    public function edit_campaign($id_campaign) {
+    public function edit($id_campaign) {
 
         $data_campaign = DB::table('campaigns')
             ->join('users', 'users.id', '=', 'campaigns.id_user')
