@@ -202,4 +202,17 @@ use App\Http\Controllers\Controller,
   {
     return DB::unprepared(DB::raw("CALL CAMPAIGNS_DELETE($this->id)"));
   }
+
+  public function countActive()
+  {
+    $datacount = array();
+    $counts = DB::select(DB::raw("CALL COUNT_CAMPAIGNS()"));
+    foreach($counts as $count){
+      $data = array(
+        "total" => $count->total
+      );
+      $datacount = $data;
+    }
+    return $datacount;
+  }
 }

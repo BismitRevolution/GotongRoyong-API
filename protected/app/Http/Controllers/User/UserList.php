@@ -27,8 +27,32 @@ class UserList extends Controller
 
   public function getDetailById($id)
   {
-    $user = User::where('id', $id)->get();
-    $userdata = $user->toArray();
-    return $user;
+    $userdata = array();
+    $users = User::where('id', $id)->get();
+    foreach($users as $row){
+      $user = array(
+        "id"      => $row->id,
+        "username" => $row->username,
+        "fullname" => $row->fullname,
+        "role" => $row->role,
+        "flag_active" => $row->flag_active,
+        "image_profile" => $row->image_profile
+      );
+      $userdata = $user;
+    }
+    return $userdata;
+  }
+
+  public function countActive()
+  {
+    $datacount = array();
+    $counts = DB::select(DB::raw("CALL COUNT_USERS_PAHLAWAN()"));
+    foreach($counts as $count){
+      $data = array(
+        "total" => $count->total
+      );
+      $datacount = $data;
+    }
+    return $datacount;
   }
 }

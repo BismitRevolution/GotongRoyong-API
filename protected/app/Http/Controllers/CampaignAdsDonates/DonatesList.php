@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller,
   Illuminate\Http\Request,
   App\Http\Controllers\Campaigns\CampaignsList as CList,
   App\Http\Controllers\User\UserList as UList;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -92,15 +93,47 @@ use App\Http\Controllers\Controller,
       return $data;
     }
 
-    public function getListCampaign()
+    public function getListCampaign(Request $request)
     {
+      $id_self = Auth::guard('api')->user();
       $data = [];
       $users = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_CAMPAIGN($this->id_campaign)"));
       foreach($users as $row){
-        $ulist = (new UList)->getDetailById($row->id_user);
-        $ulist["jumlah_donasi"] = $row->jumlahdonasi;
-        array_push($data,$ulist);
+        if($row->id_user != $id_self->id){
+          $ulist = (new UList)->getDetailById($row->id_user);
+          $ulist["jumlah_donasi"] = $row->jumlahdonasi;
+          array_push($data,$ulist);
+        }
       }
       return $data;
     }
+
+    public function getListCampaignSelf(Request $request)
+    {
+      $id_self = Auth::guard('api')->user();
+      $data = [];
+      $users = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_CAMPAIGN($this->id_campaign)"));
+      foreach($users as $row){
+        if($row->id_user == $id_self->id){
+          $ulist = (new UList)->getDetailById($row->id_user);
+          $ulist["jumlah_donasi"] = $row->jumlahdonasi;
+          array_push($data,$ulist);
+        }
+      }
+      return $data;
+    }
+
+    public function countActive()
+    {
+      $datacount = array();
+      $counts = DB::select(DB::raw("CALL COUNT_DONATIONS()"));
+      foreach($counts as $count){
+        $data = array(
+          "total" => $count->total
+        );
+        $datacount = $data;
+      }
+      return $datacount;
+    }
+
   }

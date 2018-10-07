@@ -93,12 +93,12 @@ class CamAdsDonatesController extends Controller
   {
     $donation = new DList();
     $donation->id_campaign = $request->input('id_campaign');
-    $data = $donation->getListCampaign();
+    $data = $donation->getListCampaign($request);
 
     if($data){
       return response()->json([
           'success' => true,
-          'message' => 'Users Participation in Campaign',
+          'message' => 'Users Participated in Campaign',
           'data' => $data,
         ],200);
     }
@@ -109,4 +109,64 @@ class CamAdsDonatesController extends Controller
       'data' => $data,
     ],500);
   }
+
+  public function getListByCampaignSelf(Request $request)
+  {
+    $donation = new DList();
+    $donation->id_campaign = $request->input('id_campaign');
+    $data = $donation->getListCampaignSelf($request);
+
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'This User Participation in This Campaign',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No User Participation',
+      'data' => $data,
+    ],500);
+  }
+
+  public function countDonations(Request $request)
+  {
+    $data = (new DList())->countActive();
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Total Donations',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No Donation',
+      'data' => $data,
+    ],500);
+  }
+
+  public function countMoney(Request $request)
+  {
+    $data = 100000000;
+
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Total Money Result',
+          'data' => ['total' => $data],
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No Money Result',
+      'data' => $data,
+    ],500);
+  }
+
+
 }

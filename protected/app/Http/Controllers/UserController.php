@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\User\UserPahlawan as UserPahlawan;
+use App\Http\Controllers\User\UserList as UList;
 
 class UserController extends Controller
 {
@@ -73,7 +74,36 @@ class UserController extends Controller
         'message' => 'User created fail',
         'data' => ''],
         500);
+  }
 
+  public function countUsers(Request $request)
+  {
+    $data = (new UList())->countActive();
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Total User Pahlawans',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No User',
+      'data' => $data,
+    ],500);
+  }
+
+  public function getDetailById(Request $request)
+  {
+    $data = (new UList())->getDetailById($request->input("id"));
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Total User Pahlawans',
+          'data' => $data,
+        ],200);
+    }
   }
 
 }

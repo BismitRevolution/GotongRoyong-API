@@ -138,5 +138,22 @@ class CampaignsController extends Controller
     ],500);
   }
 
+  public function countCampaign (Request $request)
+  {
+    $data = (new CList())->countActive();
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Total Campaigns',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No Campaigns',
+      'data' => $data,
+    ],500);
+  }
 
 }
