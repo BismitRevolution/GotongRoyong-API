@@ -42,6 +42,7 @@ Route::prefix('admin')->group(function () {
         Route::post('submit-create',  'PageUserNGOController@submit_create');
         Route::post('update',  'PageUserNGOController@update');
         Route::get('list',  'PageUserNGOController@list_user');
+        Route::post('delete-user',  'PageUserNGOController@delete_user');
 
     });
 
@@ -65,6 +66,7 @@ Route::prefix('admin')->group(function () {
         Route::get('edit-content/{id}',  'PageAdsController@edit_content');
         Route::post('update-content',  'PageAdsController@update_content');
         Route::get('list-ads',  'PageAdsController@list_ads');
+        Route::post('delete-ads','PageAdsController@delete_ads');
 
     });
 

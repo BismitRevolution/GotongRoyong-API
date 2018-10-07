@@ -83,6 +83,7 @@ class PageUserNGOController extends Controller
         $data_users = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
+            ->where('users.flag_active','=',1)
             ->where('users_pahlawan.flag_verified','=',1)
             ->orderBy('created_at','desc')
             ->get();
@@ -96,6 +97,7 @@ class PageUserNGOController extends Controller
         $data_user = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
+            ->where('users.flag_active','=',1)
             ->where('users_pahlawan.flag_verified','=',1)
             ->where('users.id','=',$id_user)
             ->first();
@@ -127,7 +129,10 @@ class PageUserNGOController extends Controller
                     'users.updated_at'    => Carbon::now(),
                     'users.image_profile' => $url_file
                 ]);
+
+
         }
+
 
         if(!is_null($request->password)) {
             $data_user = DB::table('users')
@@ -140,6 +145,7 @@ class PageUserNGOController extends Controller
                     'users.password'      => bcrypt($request->password)
                 ]);
         }
+
 
         $role_save = 0;
         if ($request->role == "userpahlawan") {
@@ -160,10 +166,8 @@ class PageUserNGOController extends Controller
         $about_trf1 = str_replace('’',"'",$request->about);
         $about_trf = str_replace('"',"'",$about_trf1);
 
+//        dd($request);
         $data_user = DB::table('users')
-            ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
-            ->select('users.*', 'users_pahlawan.*')
-            ->where('users_pahlawan.flag_verified','=',1)
             ->where('users.id','=',$request->id_user)
             ->update([
                 'users.username'      => $request->username,
@@ -175,6 +179,11 @@ class PageUserNGOController extends Controller
                 'users.gender'        => $request->gender,
                 'users.flag_active'   => 1,
                 'users.updated_at'    => Carbon::now(),
+            ]);
+
+        $data_user_pahlawan = DB::table('users_pahlawan')
+            ->where('users_pahlawan.id_user','=',$request->id_user)
+            ->update([
                 'users_pahlawan.id_user'           => $request->id_user,
                 'users_pahlawan.about_me'          => $about_trf,
                 'users_pahlawan.my_url'            => $request->link,
@@ -184,11 +193,10 @@ class PageUserNGOController extends Controller
                 'users_pahlawan.flag_verified'     => $flag_verified_save
             ]);
 
-
+//        dd($request);
         $data_user_success = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
-            ->where('users_pahlawan.flag_verified','=',1)
             ->where('users.id','=',$request->id_user)
             ->first();
 
@@ -196,6 +204,22 @@ class PageUserNGOController extends Controller
         Session::flash("submit_update_success","User Pahlawan (NGO User) bernama $data_user_success->fullname berhasil di-update dan telah masuk ke database.");
 
 
+        return redirect(url(action('PageUserNGOController@list_user')));
+    }
+
+    public function delete_user(Request $request) {
+
+        DB::table('users')
+            ->where('users.id','=',$request->id_user)
+            ->update([
+                'flag_active'   => 0,
+                'updated_at'    => Carbon::now()
+            ]);
+
+        $data_users_success = DB::table('users')
+            ->where('id',$request->id_user)->first();
+
+        Session::flash("submit_delete_success","User bernama: $data_users_success->fullname . Berhasil di-hapus.");
         return redirect(url(action('PageUserNGOController@list_user')));
     }
 }

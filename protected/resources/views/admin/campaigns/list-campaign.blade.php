@@ -54,7 +54,7 @@
                                         <p>
                                             {{ Session::get('submit_delete_success') }}
                                         </p>
-                                        <p>Update Campaign Success.</p>
+                                        <p>Delete Campaign Success.</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fa fa-plus-circle"></i>
@@ -144,6 +144,8 @@
 
                                             <form method="post" action="{{ url(action('PageCampaignsController@delete_campaign')) }}">
                                                 {{ csrf_field() }}
+                                                <input type="hidden" name="id_user"
+                                                       value="{{ $data_campaigns[$j]->id_user }}">
                                                 <input type="hidden" name="id_campaign"
                                                        value="{{ $data_campaigns[$j]->id_campaign }}">
                                                 <button class="btn btn-danger btn-sm" type="submit">

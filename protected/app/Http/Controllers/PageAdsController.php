@@ -166,6 +166,8 @@ class PageAdsController extends Controller
             ->with('data_ads_contents',$data_ads_contents);
     }
 
+
+
     public function update_content(Request $request) {
 
         //start file ads content
@@ -247,6 +249,23 @@ class PageAdsController extends Controller
 
         $data_ads_content_success = DB::table('advertisers')->where('id',$request->id_advertiser)->first();
         Session::flash("submit_update_success","Content Ads milik $data_ads_content_success->advertiser_name berhasil di-update dan telah masuk ke database.");
+        return redirect(url(action('PageAdsController@list_ads')));
+    }
+
+    public function delete_ads(Request $request) {
+//        dd($request);
+        DB::table('ads_contents')
+            ->where('ads_contents.id','=',$request->id_ads_contents)
+            ->update([
+                'ads_contents.updated_at'       => Carbon::now(),
+                'ads_contents.flag_active'      => 0
+            ]);
+
+        $data_ads = DB::table('ads_contents')
+            ->where('id',$request->id_ads_contents)->first();
+
+        Session::flash("submit_delete_success","Ads Content berjudul: $data_ads->title_content . Berhasil di-hapus.");
+
         return redirect(url(action('PageAdsController@list_ads')));
     }
 }

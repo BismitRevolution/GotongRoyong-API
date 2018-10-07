@@ -46,6 +46,25 @@
                             </div>
                         </div>
                     @endif
+                        @if(Session::get('submit_delete_success'))
+                            <div class="col-lg-6">
+                                <!-- small box -->
+                                <div class="small-box bg-danger">
+                                    <div class="inner">
+                                        <p>
+                                            {{ Session::get('submit_delete_success') }}
+                                        </p>
+                                        <p>Delete User NGO Success.</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa fa-user-plus"></i>
+                                    </div>
+                                    <p class="small-box-footer">
+                                        -----
+                                    </p>
+                                </div>
+                            </div>
+                        @endif
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
@@ -97,11 +116,14 @@
                                                     class="btn btn-primary btn-sm">Edit
                                             </button>
 
-                                            <input type="hidden" name="id_user"
-                                                   value="{{ $data_users[$j]->id_user }}">
-                                            <button class="btn btn-danger btn-sm" type="submit">
-                                                Delete
-                                            </button>
+                                            <form method="post" action="{{ url(action('PageUserNGOController@delete_user')) }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="id_user"
+                                                       value="{{ $data_users[$j]->id_user }}">
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
 
                                         </td>
                                         

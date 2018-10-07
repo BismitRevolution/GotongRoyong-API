@@ -123,16 +123,6 @@
                                             Admin
                                         </label>
                                     </div>
-                                    <div class="form-check-inline">
-                                        <input class="form-check-input"
-                                               type="radio"
-                                               name="role"
-                                               @if($data_user->role == 3) checked @endif
-                                               id="advertiser" value="advertiser">
-                                        <label class="form-check-label" for="advertiser">
-                                            Advertiser
-                                        </label>
-                                    </div>
                                 </div>
 
 
