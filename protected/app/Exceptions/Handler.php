@@ -55,14 +55,14 @@ class Handler extends ExceptionHandler
             ], 404);
         }
 
-        //return parent::render($request, $exception);
-        return response()->json(
-           [
-             'success' => false,
-             'message' => '401 Unauthenticated',
-             'data' => 'Please Login first'
-           ], 401
-        );
+        return parent::render($request, $exception);
+        // return response()->json(
+        //    [
+        //      'success' => false,
+        //      'message' => '401 Unauthenticated',
+        //      'data' => 'Please Login first'
+        //    ], 401
+        // );
     }
 
     protected function unauthenticated($request, AuthenticationException $exception)

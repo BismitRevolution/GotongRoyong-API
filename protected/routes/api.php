@@ -75,5 +75,7 @@ Route::group(['middleware' => 'auth:api'], function(){
      */
     Route::post("$_DONATES/campaign-ads/create", 'CamAdsDonatesController@createDonates');
     Route::post("$_DONATES/campaign-ads/donate-success",'CamAdsDonatesController@updateDonations');
+    Route::post("$_DONATES/campaign-ads/target-url",'CamAdsDonatesController@clickUrl');
+    Route::post("$_DONATES/campaign-ads/user-participation",'CamAdsDonatesController@getListByUser');
 
 });

@@ -5,7 +5,11 @@ namespace App\Http\Controllers\CampaignAdsDonates;
 use App\Http\Controllers\Controller,
   Illuminate\Support\Facades\DB as DB,
   App\User,
-  Illuminate\Http\Request;
+  Illuminate\Http\Request,
+  App\Http\Controllers\Campaigns\CampaignsList as CList,
+  App\Http\Controllers\User\UserList as UList;
+
+
 
   class DonatesList extends Controller
   {
@@ -69,5 +73,34 @@ use App\Http\Controllers\Controller,
     public function donateSuccess()
     {
       return DB::unprepared(DB::raw("CALL CAMPAIGNS_ADS_UPDATE_DONATES_SUCCESS($this->id_campaign,$this->id_user)"));
+    }
+
+    public function updateClickUrl()
+    {
+      return DB::unprepared(DB::raw("CALL CAMPAIGN_ADS_DONATES_CLICK_URL($this->id)"));
+    }
+
+    public function getListUser()
+    {
+      $data = [];
+      $campaigns = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_USER($this->id_user)"));
+      foreach($campaigns as $row){
+        $clist = (new CList)->getDetail($row->id_campaign);
+        $clist["jumlah_donasi"] = $row->jumlahdonasi;
+        array_push($data,$clist);
+      }
+      return $data;
+    }
+
+    public function getListCampaign()
+    {
+      $data = [];
+      $users = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_CAMPAIGN($this->id_campaign)"));
+      foreach($users as $row){
+        $ulist = (new CList)->getDetail($row->id_campaign);
+        $ulist["jumlah_donasi"] = $row->jumlahdonasi;
+        array_push($data,$clist);
+      }
+      return $data;
     }
   }

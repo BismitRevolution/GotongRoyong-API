@@ -53,7 +53,46 @@ class CamAdsDonatesController extends Controller
         'message' => 'Donation successful',
         'data' => '',
     ],200);
+  }
 
+  public function clickUrl(Request $request)
+  {
+    $donation = new DList();
+    $donation->id = $request->input('id_donation');
+    $donation->updateClickUrl();
 
+    return response()->json([
+        'success' => true,
+        'message' => 'Click Target Url update successful',
+        'data' => '',
+    ],200);
+  }
+
+  public function getListByUser(Request $request)
+  {
+    $donation = new DList();
+    $donation->id_user = $request->input('id_user');
+    $data = $donation->getListUser();
+
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Campaigns Participation By User',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No Campaign Participation By User',
+      'data' => $data,
+    ],500);
+  }
+
+  public function getListByCampaign(Request $request)
+  {
+    $donation = new DList();
+    $donation->id_campaign = $request->input('id_campaign');
+    $data = $donation->getListCampaign();
   }
 }

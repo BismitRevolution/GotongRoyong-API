@@ -130,7 +130,7 @@ use App\Http\Controllers\Controller,
 
   public function getDetail($id)
   {
-    $data = [];
+    $data = array();
     $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_DETAIL($id)"));
     foreach($campaigns as $row){
       $images = new CImage;
@@ -155,7 +155,7 @@ use App\Http\Controllers\Controller,
               "updated_by" => $row->updated_by,
               "list_images" => $list_img
       );
-      array_push($data,$campaign);
+      $data = $campaign;
     }
     return $data;
   }
