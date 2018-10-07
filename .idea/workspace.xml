@@ -4,6 +4,7 @@
     <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/routes/web.php" afterPath="$PROJECT_DIR$/protected/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PageCampaignsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PageCampaignsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="200">
+              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="25" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
@@ -28,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="33" />
+            <state relative-caret-position="209">
+              <caret line="53" column="78" lean-forward="false" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -42,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding>
                 <element signature="e#34#48#0#PHP" expanded="true" />
               </folding>
@@ -54,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/ads/list-ads.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
-              <caret line="47" column="26" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
+              <caret line="47" column="26" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
               <folding>
                 <marker date="1538882350252" expanded="true" signature="5401:5512" ph="..." />
                 <marker date="1538882350252" expanded="true" signature="5412:5508" ph="..." />
@@ -67,8 +68,8 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+            <state relative-caret-position="104">
+              <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -78,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+              <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -98,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="325">
-              <caret line="245" column="15" lean-forward="true" selection-start-line="235" selection-start-column="8" selection-end-line="245" selection-end-column="15" />
+              <caret line="245" column="15" lean-forward="false" selection-start-line="235" selection-start-column="8" selection-end-line="245" selection-end-column="15" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
@@ -125,11 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>success</find>
-      <find>succes</find>
-      <find>logo</find>
-      <find>duration</find>
-      <find>id_ads_con</find>
       <find>urul</find>
       <find>d</find>
       <find>&quot;desc</find>
@@ -139,7 +135,6 @@
       <find>editor</find>
       <find>editor1</find>
       <find>trf</find>
-      <find>&lt;form</find>
       <find>image</find>
       <find>submit</find>
       <find>id_cam</find>
@@ -155,6 +150,12 @@
       <find>render</find>
       <find>401</find>
       <find>edit</find>
+      <find>data_user</find>
+      <find>&lt;form</find>
+      <find>update_</find>
+      <find>update(</find>
+      <find>list_cam</find>
+      <find>edit_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,14 +182,14 @@
         <option value="$PROJECT_DIR$/protected/resources/views/admin/ads/create-content.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/ads/list-ads.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/ads/edit-content.blade.php" />
-        <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/edit.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
-        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
+        <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/protected/routes/web.php" />
+        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
       </list>
     </option>
   </component>
@@ -200,10 +201,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="689" />
-    <option name="y" value="4" />
-    <option name="width" value="1104" />
-    <option name="height" value="1057" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -590,25 +591,25 @@
       <workItem from="1538808390485" duration="7000000" />
       <workItem from="1538820029392" duration="3414000" />
       <workItem from="1538835092873" duration="7480000" />
-      <workItem from="1538887208233" duration="4566000" />
+      <workItem from="1538887208233" duration="5670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91329000" />
+    <option name="totallyTimeSpent" value="92433000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="689" y="4" width="1104" height="1057" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22413793" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12473348" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3601286" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -919,14 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="102" column="65" lean-forward="false" selection-start-line="102" selection-start-column="65" selection-end-line="102" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/ads/edit-content.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -951,7 +944,7 @@
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/ads/list-ads.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
-          <caret line="47" column="26" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
+          <caret line="47" column="26" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="47" selection-end-column="26" />
           <folding>
             <marker date="1538882350252" expanded="true" signature="5401:5512" ph="..." />
             <marker date="1538882350252" expanded="true" signature="5412:5508" ph="..." />
@@ -960,18 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -987,38 +972,54 @@
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
-          <caret line="245" column="15" lean-forward="true" selection-start-line="235" selection-start-column="8" selection-end-line="245" selection-end-column="15" />
+          <caret line="245" column="15" lean-forward="false" selection-start-line="235" selection-start-column="8" selection-end-line="245" selection-end-column="15" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding>
             <element signature="e#34#48#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="33" />
+        <state relative-caret-position="104">
+          <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="200">
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="25" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="53" column="78" lean-forward="false" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
