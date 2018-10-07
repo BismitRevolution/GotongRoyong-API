@@ -52,6 +52,7 @@ Route::prefix('admin')->group(function () {
         Route::post('submit-create',  'PageCampaignsController@submit_create');
         Route::get('list-campaign',  'PageCampaignsController@list_campaign');
         Route::post('update-campaign','PageCampaignsController@update_campaign' );
+        Route::post('delete','PageCampaignsController@delete_campaign' );
 
     });
 
