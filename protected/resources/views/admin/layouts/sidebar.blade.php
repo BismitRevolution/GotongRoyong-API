@@ -100,6 +100,7 @@
                             <a href="{{ url('admin/campaigns/list/') }}"
                                class="nav-link {{
                                 Request::is('admin/campaigns/list/*') ? 'active' : '' ||
+                                Request::is('admin/campaigns/edit/*') ? 'active' : '' ||
                                 Request::is('admin/campaigns/list') ? 'active' : ''
                                 }}">
                                 <i class="fa fa-th-list nav-icon"></i>
@@ -144,6 +145,7 @@
                             <a href="{{ url('admin/ads/list-ads/') }}"
                                class="nav-link {{
                                 Request::is('admin/ads/list-ads/*') ? 'active' : '' ||
+                                Request::is('admin/ads/list-ads/*/*') ? 'active' : '' ||
                                 Request::is('admin/ads/list-ads') ? 'active' : ''
                                 }}">
                                 <i class="fa fa-th-list nav-icon"></i>

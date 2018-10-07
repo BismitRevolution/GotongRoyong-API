@@ -35,10 +35,10 @@
                                     <p>
                                         {{ Session::get('submit_update_success') }}
                                     </p>
-                                    <p>Update Campaign Success.</p>
+                                    <p>Update Ads Content Success.</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-user-plus"></i>
+                                    <i class="fa fa-plus-circle"></i>
                                 </div>
                                 <p class="small-box-footer">
                                     -----

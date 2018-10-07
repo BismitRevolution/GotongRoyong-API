@@ -60,9 +60,13 @@ class PageUserNGOController extends Controller
             $flag_verified_save = 0;
         }
 
+//        $about_trf = str_replace('"',"'",$request->about);
+        $about_trf1 = str_replace('’',"'",$request->about);
+        $about_trf = str_replace('"',"'",$about_trf1);
+
         DB::table('users_pahlawan')->insert([
             'id_user'           => $id_user,
-            'about_me'          => $request->about,
+            'about_me'          => $about_trf,
             'my_url'            => $request->link,
             'instagram_link'    => $request->instagram,
             'twitter_link'      => $request->twitter,
@@ -153,6 +157,8 @@ class PageUserNGOController extends Controller
             $flag_verified_save = 0;
         }
 
+        $about_trf1 = str_replace('’',"'",$request->about);
+        $about_trf = str_replace('"',"'",$about_trf1);
 
         $data_user = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
@@ -170,7 +176,7 @@ class PageUserNGOController extends Controller
                 'users.flag_active'   => 1,
                 'users.updated_at'    => Carbon::now(),
                 'users_pahlawan.id_user'           => $request->id_user,
-                'users_pahlawan.about_me'          => $request->about,
+                'users_pahlawan.about_me'          => $about_trf,
                 'users_pahlawan.my_url'            => $request->link,
                 'users_pahlawan.instagram_link'    => $request->instagram,
                 'users_pahlawan.twitter_link'      => $request->twitter,

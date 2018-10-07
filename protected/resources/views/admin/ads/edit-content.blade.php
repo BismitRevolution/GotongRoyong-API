@@ -7,8 +7,10 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">
-                        <i class="fa fa-plus-circle nav-icon"></i>
-                        Create an Ads Content
+                        <a href="{{ url(action('PageAdsController@list_ads')) }}">
+                            <i class="fa fa-arrow-circle-left nav-icon"></i>
+                        </a>
+                        Edit an Ads Content
                     </h1>
                 </div><!-- /.col -->
 
@@ -44,13 +46,13 @@
                 <div class="col-lg-8">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Create an Ads Content</h3>
+                            <h3 class="card-title">Edit an Ads Content</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form role="form" method="post"
                               enctype="multipart/form-data"
-                              action="{{ url(action('PageAdsController@submit_content')) }}">
+                              action="{{ url(action('PageAdsController@update_content')) }}">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
@@ -61,15 +63,18 @@
                                            id="title_ads"
                                            name="title_ads"
                                            class="form-control"
+                                           value="{{ $data_ads_contents->title_content }}"
                                            placeholder="Input Title Ads Content">
+                                    <input hidden name="id_ads_contents" value="{{ $data_ads_contents->id_ads_contents }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="campaigner">Advertiser*</label>
                                     <select required name="id_advertiser"
                                             class="form-control select-data">
-                                        <option value="0">
-                                            Select an Advertiser
+                                        <option value="{{ $data_ads_contents->id_advertiser }}">
+                                            {{ $data_ads_contents->advertiser_name }}
                                         </option>
+
                                         @foreach ($data_advertisers as $data)
                                             <option value="{{ $data->id }}">
                                                 {{ $data->advertiser_name }}
@@ -90,51 +95,70 @@
                                                id="target_url"
                                                name="target_url"
                                                class="form-control"
+                                               value="{{ $data_ads_contents->target_url }}"
                                                placeholder="Input Target URL">
                                     </div>
                                 </div>
 
 
-
+                                <hr style="background-color: blue"/>
                                 <div class="form-group">
                                     <label for="ads_content"
                                            class="control-label">
-                                        Ads Content (Video/Image)*
+                                        Ads Content (Video/Image)
                                     </label>
-
-                                    <input required type="file"
+                                    <p>Leave it empty to use current ads content file</p>
+                                    <input type="file"
                                            class="form-control"
                                            id="ads_content"
                                            name="ads_content"
                                            placeholder="Ads Content">
+                                    <a href="{{ URL::asset($data_ads_contents->content_url) }}"
+                                       target="_blank">
+                                        View current ads content
+                                    </a>
                                 </div>
-
+                                <hr style="background-color: blue"/>
 
                                 <div class="form-group">
                                     <label for="bg_img"
                                            class="control-label">
                                         Background Image Ads Content
                                     </label>
-
+                                    <p>Leave it empty to use
+                                        current background image ads content file</p>
                                     <input type="file"
                                            class="form-control"
                                            id="bg_img"
                                            name="bg_img"
                                            placeholder="Background Image">
+                                    <a href="{{ URL::asset($data_ads_contents->bg_img_url) }}"
+                                       target="_blank">
+                                        View current background image ads content
+                                    </a>
                                 </div>
+
+                                <hr style="background-color: blue"/>
 
                                 <div class="form-group">
                                     <label for="logo_ads"
                                            class="control-label">
                                         Logo Ads*
                                     </label>
-
-                                    <input required type="file"
+                                    <p>Leave it empty to use
+                                        current logo ads</p>
+                                    <input type="file"
                                            class="form-control"
                                            id="logo_ads"
                                            name="logo_ads"
                                            placeholder="Logo Advertising/er">
+                                    <a href="{{ URL::asset($data_ads_contents->logo_url) }}"
+                                       target="_blank">
+                                        View current logo ads
+                                    </a>
                                 </div>
+
+                                <hr style="background-color: blue"/>
 
                                 <div class="form-group">
                                     <label for="category">
@@ -145,6 +169,7 @@
                                         <input required class="form-check-input"
                                                type="radio"
                                                name="category"
+                                               @if($data_ads_contents->ads_category == 0) checked @endif
                                                id="image" value="0">
                                         <label class="form-check-label"
                                                for="image">
@@ -155,6 +180,7 @@
                                         <input class="form-check-input"
                                                type="radio"
                                                name="category"
+                                               @if($data_ads_contents->ads_category == 1) checked @endif
                                                id="video" value="1">
                                         <label class="form-check-label"
                                                for="video">
@@ -169,6 +195,7 @@
                                         <input required type="number"
                                                id="duration"
                                                name="duration"
+                                               value="{{ $data_ads_contents->duration }}"
                                                class="form-control"
                                                placeholder="Input Duration">
                                         <div class="input-group-append">
@@ -298,6 +325,8 @@
                 .create(document.querySelector('#editor1'))
                 .then(function (editor) {
                     // The editor instance
+
+                    editor.setData("{!!  $data_ads_contents->description  !!}");
                 })
                 .catch(function (error) {
                     console.error(error)
