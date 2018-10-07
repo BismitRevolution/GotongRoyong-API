@@ -97,9 +97,9 @@ use App\Http\Controllers\Controller,
       $data = [];
       $users = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_CAMPAIGN($this->id_campaign)"));
       foreach($users as $row){
-        $ulist = (new CList)->getDetail($row->id_campaign);
+        $ulist = (new UList)->getDetailById($row->id_user);
         $ulist["jumlah_donasi"] = $row->jumlahdonasi;
-        array_push($data,$clist);
+        array_push($data,$ulist);
       }
       return $data;
     }

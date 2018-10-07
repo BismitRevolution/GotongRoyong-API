@@ -29,6 +29,6 @@ class UserList extends Controller
   {
     $user = User::where('id', $id)->get();
     $userdata = $user->toArray();
-    return $userdata;
+    return $user;
   }
 }

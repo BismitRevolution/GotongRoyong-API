@@ -94,5 +94,19 @@ class CamAdsDonatesController extends Controller
     $donation = new DList();
     $donation->id_campaign = $request->input('id_campaign');
     $data = $donation->getListCampaign();
+
+    if($data){
+      return response()->json([
+          'success' => true,
+          'message' => 'Users Participation in Campaign',
+          'data' => $data,
+        ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'No User Participation',
+      'data' => $data,
+    ],500);
   }
 }
