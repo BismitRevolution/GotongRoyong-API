@@ -38,7 +38,7 @@
                         <!-- form start -->
                         <form role="form" method="post"
                               enctype="multipart/form-data"
-                              action="{{ url(action('PageCampaignsController@submit_create')) }}">
+                              action="{{ url(action('PageCampaignsController@update_campaign')) }}">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
@@ -49,6 +49,7 @@
                                            class="form-control"
                                            value="{{ $data_campaign->title }}"
                                            placeholder="Input Title Campaign">
+                                    <input hidden name="id_campaign" value="{{ $data_campaign->id_campaign }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="campaigner">Campaigner*</label>
@@ -125,16 +126,33 @@
                                 <div class="form-group" id="dynamic_field">
                                     <label for="photo"
                                            class="control-label">
-                                        Campaign Image
+                                        Campaign Image(s)
                                     </label>
 
                                     <div class="row">
-                                        <div class="col-lg-8">
-                                            <input required type="file" class="form-control"
+                                        <div class="col-lg-5">
+                                            <ul class="list-group">
+                                                @for($j=1,$i=0;$i<count($data_campaign_images);$i++,$j++)
+                                                    <li class="list-group-item">
+                                                        <a href="{{ URL::asset($data_campaign_images[$i]->img_url) }}" target="_blank">
+                                                            View Current Image Campaign #{{$j}}
+                                                        </a>
+                                                    </li>
+                                                @endfor
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-lg-8 col-sm-8 col-md-8">
+                                            <input type="file" class="form-control"
                                                    id="photo"
                                                    name="photo[]" placeholder="Photo">
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-4 col-sm-4 col-sm-4">
                                             <button type="button"
                                                     class="btn btn-success">
                                                 <i class="fa fa-check"></i>
@@ -157,13 +175,15 @@
                                 </div>
 
 
+
+
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit"
                                         class="btn btn-primary btn-block">
-                                    Submit
+                                    Update
                                 </button>
                             </div>
                         </form>
@@ -260,6 +280,8 @@
                 .create(document.querySelector('#editor1'))
                 .then(function (editor) {
                     // The editor instance
+
+                    editor.setData("{!!  $data_campaign->description  !!}");
                 })
                 .catch(function (error) {
                     console.error(error)

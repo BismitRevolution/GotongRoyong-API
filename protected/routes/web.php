@@ -45,12 +45,13 @@ Route::prefix('admin')->group(function () {
 
     });
 
-    Route::prefix('campaigns')->group(function () {
+    Route::prefix('kampanye')->group(function () {
 
         Route::get('create',  'PageCampaignsController@create');
-        Route::get('edit/{id}',  'PageCampaignsController@edit');
+        Route::get('edit-campaign/{id}',  'PageCampaignsController@edit_campaign');
         Route::post('submit-create',  'PageCampaignsController@submit_create');
         Route::get('list',  'PageCampaignsController@list_campaign');
+        Route::post('update-campaign','PageCampaignsController@update_campaign' );
 
     });
 

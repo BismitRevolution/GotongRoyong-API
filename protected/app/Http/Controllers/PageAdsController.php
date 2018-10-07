@@ -228,7 +228,9 @@ class PageAdsController extends Controller
         }
         //end file logo ads content
 
-        $desc_trf1 = str_replace('’',"'",$request->description);
+        $desc_trf3 = str_replace('”',"'",$request->description);
+        $desc_trf2 = str_replace('“',"'",$desc_trf3);
+        $desc_trf1 = str_replace('’',"'",$desc_trf2);
         $desc_trf = str_replace('"',"'",$desc_trf1);
 
         $data_ads_content = DB::table('ads_contents')
