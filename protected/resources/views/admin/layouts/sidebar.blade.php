@@ -97,11 +97,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/campaigns/list/') }}"
+                            <a href="{{ url('admin/campaigns/list-campaign/') }}"
                                class="nav-link {{
-                                Request::is('admin/campaigns/list/*') ? 'active' : '' ||
-                                Request::is('admin/campaigns/edit/*') ? 'active' : '' ||
-                                Request::is('admin/campaigns/list') ? 'active' : ''
+                                Request::is('admin/campaigns/list-campaign/*') ? 'active' : '' ||
+                                Request::is('admin/campaigns/edit-campaign/*') ? 'active' : '' ||
+                                Request::is('admin/campaigns/list-campaign') ? 'active' : ''
                                 }}">
                                 <i class="fa fa-th-list nav-icon"></i>
                                 <p>List all campaign</p>

@@ -20,7 +20,14 @@ class PageCampaignsController extends Controller
         return view('admin.campaigns.create')->with('data_users',$data_users);
     }
 
-    public function edit($id_campaign) {
+    public function edit_campaign($id_campaign) {
+        $data_users = DB::table('users')
+            ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
+            ->join('campaigns', 'users.id', '=', 'campaigns.id_user')
+            ->select('users.*', 'users_pahlawan.*','campaigns.id as id_campaign')
+            ->where('users_pahlawan.flag_verified','=',1)
+            ->where('campaigns.id','<>',$id_campaign)
+            ->get();
 
         $data_campaign = DB::table('campaigns')
             ->join('users', 'users.id', '=', 'campaigns.id_user')
@@ -35,6 +42,7 @@ class PageCampaignsController extends Controller
             ->get();
 
         return view('admin.campaigns.edit')
+            ->with('data_users',$data_users)
             ->with('data_campaign',$data_campaign)
             ->with('data_campaign_images',$data_campaign_images);
     }
@@ -102,21 +110,21 @@ class PageCampaignsController extends Controller
                 if (!is_null($request->file('photo')[$i])) {
 
                     //start save campaign images
-                    $destinationPath = 'Uploads/campaign-images/'.$request->campaigner.
-                        '/'.Carbon::now()->timestamp.'/'.$i;
+        $destinationPath = 'Uploads/campaign-images/'.$request->campaigner.
+            '/'.Carbon::now()->timestamp;
 
-                    $moves = $request->file('photo')[$i]
-                        ->move($destinationPath,
-                            $request->file('photo')[$i]
-                                ->getClientOriginalName());
-                    $url_file = "Uploads/campaign-images/".$request->campaigner.
-                        "/".Carbon::now()->timestamp.'/'.$i.
-                        "/{$request->file('photo')[$i]->getClientOriginalName()}";
+        $moves = $request->file('photo')[$i]
+            ->move($destinationPath,
+                $request->file('photo')[$i]
+                    ->getClientOriginalName());
+        $url_file = "Uploads/campaign-images/".$request->campaigner.
+            "/".Carbon::now()->timestamp.
+            "/{$request->file('photo')[$i]->getClientOriginalName()}";
 
-                    DB::table('campaign_images')->insert([
-                        'id_campaign'       => $id_campaign,
-                        'img_url'           => $url_file
-                    ]);
+        DB::table('campaign_images')->insert([
+            'id_campaign'       => $id_campaign,
+            'img_url'           => $url_file
+        ]);
                     //end of save campaign images
 
                 }
@@ -136,11 +144,9 @@ class PageCampaignsController extends Controller
         if (!is_null($request->file('photo'))) {
             for ($i=0;$i<count($request->file('photo'));$i++) {
                 if (!is_null($request->file('photo')[$i])) {
-
                     //start save campaign images
                     $destinationPath = 'Uploads/campaign-images/'.$request->campaigner.
                         '/'.Carbon::now()->timestamp.'/'.$i;
-
                     $moves = $request->file('photo')[$i]
                         ->move($destinationPath,
                             $request->file('photo')[$i]
@@ -148,34 +154,28 @@ class PageCampaignsController extends Controller
                     $url_file = "Uploads/campaign-images/".$request->campaigner.
                         "/".Carbon::now()->timestamp.'/'.$i.
                         "/{$request->file('photo')[$i]->getClientOriginalName()}";
-
                     DB::table('campaign_images')->insert([
                         'id_campaign'       => $request->id_campaign,
                         'img_url'           => $url_file
                     ]);
                     //end of save campaign images
-
                 }
                 //end if
             }
             //end for
         }
         //end if
-
         $target_donation = str_replace('.','',$request->target);
-
         //start create campaign link
         $title_lower = str_limit(strtolower($request->title),50);
         $title_trf = str_replace(' ', '-',$title_lower);
         $title_trf2 = str_replace('.', '',$title_trf);
         $campaign_link = '/'.$request->campaigner.'/'.$title_trf2;
         //end create campaign link
-
         $desc_trf3 = str_replace('”',"'",$request->description);
         $desc_trf2 = str_replace('“',"'",$desc_trf3);
         $desc_trf1 = str_replace('’',"'",$desc_trf2);
         $desc_trf = str_replace('"',"'",$desc_trf1);
-
         $data_campaign = DB::table('campaigns')
             ->where('campaigns.id','=',$request->id_campaign)
             ->update([
@@ -191,13 +191,12 @@ class PageCampaignsController extends Controller
                 'updated_by'    => 1
             ]);
 
-
-
         $data_campaign_success = DB::table('campaigns')
             ->where('id',$request->id_campaign)->first();
 
-        Session::flash("submit_update_success","Campaign berjudul $data_campaign_success->title berhasil di-update dan telah masuk ke database.");
-
+        Session::flash("submit_update_success","Campaign berjudul $data_campaign_success->title . Berhasil di-update dan telah masuk ke database.");
         return redirect(url(action('PageCampaignsController@list_campaign')));
+
+
     }
 }
