@@ -118,12 +118,12 @@
                                         </td>
                                         <td>
                                             <button type="button"
-                                                    onclick="window.location= '{{ url(action('PageUserNGOController@edit',$data_campaigns[$j]->id_user)) }}'"
+                                                    onclick="window.location= '{{ url(action('PageCampaignsController@edit',$data_campaigns[$j]->id_campaign)) }}'"
                                                     class="btn btn-primary btn-sm">Edit
                                             </button>
 
                                             <input type="hidden" name="id_user"
-                                                   value="{{ $data_campaigns[$j]->id_user }}">
+                                                   value="{{ $data_campaigns[$j]->id_campaign }}">
                                             <button class="btn btn-danger btn-sm" type="submit">
                                                 Delete
                                             </button>

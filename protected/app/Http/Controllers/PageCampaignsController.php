@@ -20,11 +20,38 @@ class PageCampaignsController extends Controller
         return view('admin.campaigns.create')->with('data_users',$data_users);
     }
 
+    public function edit($id_campaign) {
+        $data_users = DB::table('users')
+            ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
+            ->join('campaigns', 'users.id', '=', 'campaigns.id_user')
+            ->select('users.*', 'users_pahlawan.*','campaigns.id as id_campaign')
+            ->where('users_pahlawan.flag_verified','=',1)
+            ->where('campaigns.id','<>',$id_campaign)
+            ->get();
+
+        $data_campaign = DB::table('campaigns')
+            ->join('users', 'users.id', '=', 'campaigns.id_user')
+            ->select('campaigns.*','users.fullname','users.image_profile','campaigns.id as id_campaign','users.id as id_user')
+            ->where('campaigns.flag_active','=',1)
+            ->where('campaigns.id','=',$id_campaign)
+            ->first();
+
+        $data_campaign_images = DB::table('campaign_images')
+            ->select('campaign_images.*')
+            ->where('campaign_images.id_campaign','=',$id_campaign)
+            ->get();
+
+        return view('admin.campaigns.edit')
+            ->with('data_users',$data_users)
+            ->with('data_campaign',$data_campaign)
+            ->with('data_campaign_images',$data_campaign_images);
+    }
+
     public function list_campaign() {
 
         $data_campaigns = DB::table('campaigns')
             ->join('users', 'users.id', '=', 'campaigns.id_user')
-            ->select('campaigns.*','users.fullname','users.image_profile')
+            ->select('campaigns.*','users.fullname','users.image_profile','campaigns.id as id_campaign')
             ->where('campaigns.flag_active','=',1)
             ->orderBy('created_at', 'desc')
             ->get();
@@ -34,8 +61,6 @@ class PageCampaignsController extends Controller
             ->select('campaign_images.*','campaigns.*')
             ->where('campaigns.flag_active','=',1)
             ->get();
-
-//        dd($data_campaigns);
 
         return view('admin.campaigns.list-campaign')
             ->with('data_campaigns', $data_campaigns)
