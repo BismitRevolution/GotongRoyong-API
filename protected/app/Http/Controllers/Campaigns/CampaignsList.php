@@ -7,9 +7,10 @@ use App\Http\Controllers\Controller,
   App\User,
   Illuminate\Http\Request,
   App\Http\Controllers\Campaigns\CampaignsImage as CImage;
+use Carbon\Carbon;
 
 
-  class CampaignsList extends Controller
+class CampaignsList extends Controller
   {
 
     public $id;
@@ -67,33 +68,49 @@ use App\Http\Controllers\Controller,
     public function getList()
     {
       $data = [];
-      $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST`()"));
+//      $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST`()"));
+    $campaigns = DB::table('campaigns')
+        ->join('users', 'campaigns.id_user', '=', 'users.id')
+        ->join('users_pahlawan', 'campaigns.id_user', '=', 'users_pahlawan.id_user')
+        ->select('users_pahlawan.flag_verified','users.fullname', 'campaigns.id as id_campaign',
+            'users.image_profile','campaigns.title','campaigns.count_donations','campaigns.count_users','campaigns.count_shares', 'campaigns.created_at',
+            'campaigns.target_donation','campaigns.deadline','campaigns.complete_sts','campaigns.campaign_link')
+        ->where('users.flag_active','=',1)
+        ->where('campaigns.flag_active','=',1)
+        ->orderBy('campaigns.created_at','desc')
+        ->get();
+
+        $item_id=1;
       foreach($campaigns as $row){
         $images = new CImage;
-        $images->id_campaign = $row->id;
+        $images->id_campaign = $row->id_campaign;
         $list_img = $images->getImage();
+        $date_deadline = Carbon::parse($row->deadline);
+        $now = Carbon::now();
+        $diff_deadline = $date_deadline->diffInDays($now);
+
         $campaign = array(
-                "id"      => $row->id,
-                "title"   => $row->title,
-                "id_user" => $row->id_user,
-                "description" => $row->description,
-                "count_donations" => $row->count_donations,
-                "count_users" => $row->count_users,
-                "count_shares" => $row->count_shares,
-                "target_donation" => $row->target_donation,
-                "deadline" => $row->deadline,
-                "complete_sts" => $row->complete_sts,
-                "flag_active" => $row->flag_active,
+                "item_id"           => $item_id,
+                "id_campaign"       => $row->id_campaign,
+
+                "title"             => $row->title,
+                "campaigner_user"   => $row->fullname,
+                "image_profile"     => $row->image_profile,
+                "flag_verified_user" => $row->flag_verified,
+                "count_donations"   => $row->count_donations,
+                "count_users"       => $row->count_users,
+                "count_shares"      => $row->count_shares,
+                "target_donation"   => $row->target_donation,
+                "deadline"          => $diff_deadline,
+                "complete_sts"      => $row->complete_sts,
                 "campaign_link" => $row->campaign_link,
                 "created_at" => $row->created_at,
-                "updated_at" => $row->updated_at,
-                "created_by" => $row->created_by,
-                "updated_by" => $row->updated_by,
                 "list_images" => $list_img
         );
         array_push($data,$campaign);
+        $item_id++;
       }
-      return $data;
+      return collect($data);
     }
 
   public function getListActive()

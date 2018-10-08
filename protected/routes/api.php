@@ -33,8 +33,8 @@ $_DONATES = "donates";
 /*
 Authentication API (no roles yet)
 */
-Route::post("$_AUTH/register", 'Auth\RegisterControllerAPI@register');
-Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@login');
+Route::post("$_AUTH/register", 'Auth\RegisterController@register');
+Route::post("$_AUTH/login", 'Auth\LoginController@loginAPI');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
 //Route::post('logout', 'Auth\LoginController@logout');
 
@@ -46,6 +46,7 @@ Route::post("$_CAMPAIGN/campaign-list/active", 'CampaignsController@getCampaigns
 Route::post("$_CAMPAIGN/campaign-list/detail", 'CampaignsController@getCampaignsDetail');
 Route::post("$_CAMPAIGN/campaign-list/user", 'CampaignsController@getCampaignsUser');
 Route::post("$_CAMPAIGN/campaign-list/total", 'CampaignsController@countCampaign');
+Route::get("$_CAMPAIGN/campaign-list/paginate", 'CampaignsController@getCampaignsListPaginate');
 
 /*
 Campaign Ads Donate
@@ -72,7 +73,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     /*
     User
      */
-    Route::post("$_AUTH/logout", 'Auth\LoginControllerAPI@logout');
+    Route::post("$_AUTH/logout", 'Auth\LoginController@logoutAPI');
     Route::post("$_AUTH/user/testdemo", 'Test\TestController@test');
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
 

@@ -4,13 +4,55 @@ namespace App\Http\Controllers;
 use App\User as User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Campaigns\CampaignsList as CList;
 use DateTime;
+use Illuminate\Support\Facades\Input;
 
 
 class CampaignsController extends Controller
 {
+    function collection_paginate($items, $per_page)
+    {
+        $page   = Input::get('page', 1);
+        $offset = ($page * $per_page) - $per_page;
+
+        return new LengthAwarePaginator(
+            $items->forPage($page, $per_page)->values(),
+            $items->count(),
+            $per_page,
+            Paginator::resolveCurrentPage(),
+            ['path' => Paginator::resolveCurrentPath()]
+        );
+    }
+
+    public function getCampaignsListPaginate(Request $request)
+    {
+
+        $data = (new CList)->getList();
+
+        $page = Input::get('page', 1); // Get the ?page=1 from the url
+        $perPage = 10; // Number of items per page
+        $offset = ($page * $perPage) - $perPage;
+
+        if($data) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Campaigns List',
+                'data' =>
+                    $this->collection_paginate($data,10),
+            ], 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'No Campaigns',
+            'data' => $data,
+        ],500);
+
+    }
 
   public function getCampaignsList(Request $request)
   {

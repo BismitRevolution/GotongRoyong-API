@@ -4,11 +4,56 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Campaigns\CampaignsList as CList;
 
 class PageCampaignsController extends Controller
 {
+    function collection_paginate($items, $per_page)
+    {
+        $page   = Input::get('page', 1);
+        $offset = ($page * $per_page) - $per_page;
+
+        return new LengthAwarePaginator(
+            $items->forPage($page, $per_page)->values(),
+            $items->count(),
+            $per_page,
+            Paginator::resolveCurrentPage(),
+            ['path' => Paginator::resolveCurrentPath()]
+        );
+    }
+
+    public function getCampaignsListPaginate(Request $request)
+    {
+
+        $data = (new CList)->getList();
+
+        $page = Input::get('page', 1); // Get the ?page=1 from the url
+        $perPage = 10; // Number of items per page
+        $offset = ($page * $perPage) - $perPage;
+
+        if($data) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Campaigns List',
+                'data' =>
+                    $this->collection_paginate($data,10),
+            ], 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'No Campaigns',
+            'data' => $data,
+        ],500);
+
+    }
+
+
     public function create() {
         $data_users = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
