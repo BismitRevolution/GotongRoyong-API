@@ -37,6 +37,13 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('admin/dashboard');
+        }
+
         $this->validateLogin($request);
         if ($this->attemptLogin($request)) {
             $user = $this->guard()->user();
@@ -44,7 +51,7 @@ class LoginController extends Controller
             $userdata = $user->toArray();
             $detailuser = (new UserController)->getDetailsWithoutAuth($user);
             $userdata["data_pahlawan"] = $detailuser;
-            return view('admin.dashboard')->with('response',
+            return redirect('admin/dashboard')->with('response',
                 response()->json([
                     'success' => true,
                     'message' => 'User login succesfully',

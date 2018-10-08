@@ -14,19 +14,25 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-
 Route::get('/', function () {
-    return view('admin.login');
+    if(is_null(Auth::user())) {
+        return redirect(url('/login'));
+    } else {
+        return redirect(url('/admin/dashboard'));
+    }
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/', function () {
+//    return view('admin.login');
+//});
 
 Route::post('/checklogin', 'PageController@checkLoginRole');
 
-Route::prefix('super-admin')->group(function () {
-
-    Route::get('dashboard',  function () {
-        return view('admin.super-dashboard');
-    });
-
+Route::get('admin',  function () {
+    return redirect('admin/dashboard');
 });
 
 Route::prefix('admin')->group(function () {
@@ -86,9 +92,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get("campaign-list/paginate", 'PageCampaignsController@getCampaignsListPaginate');
