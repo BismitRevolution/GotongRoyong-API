@@ -46,7 +46,7 @@ Route::post("$_CAMPAIGN/campaign-list/active", 'CampaignsController@getCampaigns
 Route::post("$_CAMPAIGN/campaign-list/detail", 'CampaignsController@getCampaignsDetail');
 Route::post("$_CAMPAIGN/campaign-list/user", 'CampaignsController@getCampaignsUser');
 Route::post("$_CAMPAIGN/campaign-list/total", 'CampaignsController@countCampaign');
-Route::get("$_CAMPAIGN/campaign-list/paginate", 'CampaignsController@getCampaignsListPaginate');
+Route::post("$_CAMPAIGN/campaign-list/paginate", 'CampaignsController@getCampaignsListPaginate');
 
 /*
 Campaign Ads Donate
