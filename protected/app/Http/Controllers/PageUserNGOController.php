@@ -222,4 +222,37 @@ class PageUserNGOController extends Controller
         Session::flash("submit_delete_success","User bernama: $data_users_success->fullname . Berhasil di-hapus.");
         return redirect(url(action('PageUserNGOController@list_user')));
     }
+
+    public function getUserPaginate(){
+        $data_users = DB::table('users')
+            ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
+//            ->select('users.*', 'users_pahlawan.*')
+            ->select(
+                'users.id as id_user',
+                'users.fullname',
+                'users_pahlawan.flag_verified',
+                'users.image_profile',
+                'users_pahlawan.fb_link',
+                'users_pahlawan.twitter_link',
+                'users_pahlawan.instagram_link',
+                'users_pahlawan.count_donations',
+                'users_pahlawan.count_campaign_owned')
+            ->where('users.flag_active','=',1)
+            ->orderBy('created_at','desc')
+            ->paginate(10);
+
+        if($data_users) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Users Active List Pagination',
+                'data' => $data_users
+            ], 200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'No Users',
+            'data' => $data_users,
+        ],500);
+    }
 }

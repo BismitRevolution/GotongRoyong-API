@@ -22,6 +22,8 @@ Route::get('/', function () {
     }
 });
 
+Route::get('/users/pahlawan/paginate','PageUserNGOController@getUserPaginate');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
