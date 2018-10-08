@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController as UserController;
 
-class LoginController extends Controller
+class LoginControllerAPI extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -33,35 +33,9 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+//        $this->middleware('guest')->except('logout');
     }
-    public function login(Request $request)
-    {
-//        dd('a');
-        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended('admin/dashboard');
-        }
-
-        $this->validateLogin($request);
-        if ($this->attemptLogin($request)) {
-            $user = $this->guard()->user();
-            $user->generateToken();
-            $userdata = $user->toArray();
-            $detailuser = (new UserController)->getDetailsWithoutAuth($user);
-            $userdata["data_pahlawan"] = $detailuser;
-            return redirect('admin/dashboard');
-        }
-        //$email = $request->input('email');
-        //return response if login failure
-        return response()->json([
-            'success' => false,
-            'message' => 'User login failure',
-            'data' => 'User/password wrong'],
-            500);
-    }
     public function loginAPI(Request $request)
     {
 //        dd('a');
@@ -87,22 +61,15 @@ class LoginController extends Controller
             500);
     }
 
-    public function logout(Request $request) {
-//        dd('a');
-        Auth::logout();
-        return redirect('/login');
-    }
-
     public function logoutAPI(Request $request)
     {
 
-//        dd('a');
         $user = Auth::guard('api')->user();
         //$user = $this->guard()->user();
         //$tok = $user->remember_token;
         if ($user) {
             //$user->generateToken();
-            Auth::logout();
+//            Auth::logout();
             $user->api_token = null;
             $user->save();
             return response()->json([

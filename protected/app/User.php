@@ -35,4 +35,19 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    public function getRememberToken()
+    {
+        return $this->api_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->api_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'api_token';
+    }
 }
