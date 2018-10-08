@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController as UserController;
 
 
 
-class RegisterController extends Controller
+class RegisterControllerAPI extends Controller
 {
     /*
     |--------------------------------------------------------------------------

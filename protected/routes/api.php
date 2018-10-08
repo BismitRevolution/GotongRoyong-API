@@ -33,8 +33,8 @@ $_DONATES = "donates";
 /*
 Authentication API (no roles yet)
 */
-Route::post("$_AUTH/register", 'Auth\RegisterController@register');
-Route::post("$_AUTH/login", 'Auth\LoginController@login');
+Route::post("$_AUTH/register", 'Auth\RegisterControllerAPI@register');
+Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@login');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
 //Route::post('logout', 'Auth\LoginController@logout');
 
@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     /*
     User
      */
-    Route::post("$_AUTH/logout", 'Auth\LoginController@logout');
+    Route::post("$_AUTH/logout", 'Auth\LoginControllerAPI@logout');
     Route::post("$_AUTH/user/testdemo", 'Test\TestController@test');
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
 

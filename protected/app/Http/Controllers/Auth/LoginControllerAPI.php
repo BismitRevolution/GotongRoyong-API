@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController as UserController;
 
 
-class LoginController extends Controller
+class LoginControllerAPI extends Controller
 {
     /*
     |--------------------------------------------------------------------------
