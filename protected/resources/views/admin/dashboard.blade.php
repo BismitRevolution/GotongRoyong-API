@@ -139,7 +139,9 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <button type="button" class="btn btn-block btn-outline-primary">
+                                                <button type="button"
+                                                        onclick="window.location= '{{ url(action('PageUserNGOController@create')) }}'"
+                                                        class="btn btn-block btn-outline-primary">
                                                     <i class="fa fa-plus-circle text-right"></i>
                                                     <i class="fa fa-user-circle text-right"></i>
                                                     <i class="fa fa-check-circle-o text-right"></i>
@@ -157,7 +159,9 @@
                                     <div class="description-block border-right">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <button type="button" class="btn btn-block btn-outline-secondary">
+                                                <button type="button"
+                                                        onclick="window.location= '{{ url(action('PageCampaignsController@create')) }}'"
+                                                        class="btn btn-block btn-outline-secondary">
                                                     <i class="fa fa-plus-circle text-right"></i>
                                                     <i class="fa fa-sticky-note text-right"></i>
                                                     <br/>

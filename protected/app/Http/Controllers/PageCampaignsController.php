@@ -14,6 +14,7 @@ class PageCampaignsController extends Controller
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
             ->where('users_pahlawan.flag_verified','=',1)
+            ->where('users.flag_active','=',1)
             ->get();
 
 
@@ -26,6 +27,7 @@ class PageCampaignsController extends Controller
             ->join('campaigns', 'users.id', '=', 'campaigns.id_user')
             ->select('users.*', 'users_pahlawan.*','campaigns.id as id_campaign')
             ->where('users_pahlawan.flag_verified','=',1)
+            ->where('users.flag_active','=',1)
             ->where('campaigns.id','<>',$id_campaign)
             ->get();
 
@@ -134,6 +136,11 @@ class PageCampaignsController extends Controller
         }
         //end if
 
+        DB::table('users_pahlawan')
+            ->where('users_pahlawan.id_user', $request->campaigner)
+            ->update([
+                'count_campaign_owned'=> DB::raw('count_campaign_owned+1')
+            ]);
 
         Session::flash('submit_create_success','Campaign berhasil dibuat dan telah masuk ke database.');
         return redirect()->back();
@@ -147,6 +154,12 @@ class PageCampaignsController extends Controller
                 'flag_active'   => 0,
                 'updated_at'    => Carbon::now(),
                 'updated_by'    => 1
+            ]);
+
+        DB::table('users_pahlawan')
+            ->where('users_pahlawan.id_user', $request->id_user)
+            ->update([
+                'count_campaign_owned'=> DB::raw('count_campaign_owned-1')
             ]);
 
         $data_campaign_success = DB::table('campaigns')
