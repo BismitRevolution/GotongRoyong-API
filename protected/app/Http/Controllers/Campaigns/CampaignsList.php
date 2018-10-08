@@ -69,7 +69,7 @@ class CampaignsList extends Controller
     {
       $data = [];
 //      $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST`()"));
-    $campaigns = DB::table('campaigns')
+      $campaigns = DB::table('campaigns')
         ->join('users', 'campaigns.id_user', '=', 'users.id')
         ->join('users_pahlawan', 'campaigns.id_user', '=', 'users_pahlawan.id_user')
         ->select('users_pahlawan.flag_verified','users.fullname', 'campaigns.id as id_campaign',
@@ -80,7 +80,7 @@ class CampaignsList extends Controller
         ->orderBy('campaigns.created_at','desc')
         ->get();
 
-        $item_id=1;
+      $item_id=1;
       foreach($campaigns as $row){
         $images = new CImage;
         $images->id_campaign = $row->id_campaign;
@@ -92,7 +92,6 @@ class CampaignsList extends Controller
         $campaign = array(
                 "item_id"           => $item_id,
                 "id_campaign"       => $row->id_campaign,
-
                 "title"             => $row->title,
                 "campaigner_user"   => $row->fullname,
                 "image_profile"     => $row->image_profile,
@@ -125,7 +124,7 @@ class CampaignsList extends Controller
               "id"      => $row->id,
               "title"   => $row->title,
               "id_user" => $row->id_user,
-              "description" => $row->description,
+              //"description" => $row->description,
               "count_donations" => $row->count_donations,
               "count_users" => $row->count_users,
               "count_shares" => $row->count_shares,
@@ -189,7 +188,7 @@ class CampaignsList extends Controller
               "id"      => $row->id,
               "title"   => $row->title,
               "id_user" => $row->id_user,
-              "description" => $row->description,
+              //"description" => $row->description,
               "count_donations" => $row->count_donations,
               "count_users" => $row->count_users,
               "count_shares" => $row->count_shares,

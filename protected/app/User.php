@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'fullname' ,'birthdate', 'birthplace', 'gender', 'role', 'flag_active',
+        'username', 'email', 'password', 'fullname' ,'birthdate', 'birthplace', 'gender', 'role', 'flag_active', 'image_profile',
     ];
 
     /**
@@ -34,5 +34,20 @@ class User extends Authenticatable
         $this->save();
 
         return $this->api_token;
+    }
+
+    public function getRememberToken()
+    {
+        return $this->api_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->api_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'api_token';
     }
 }

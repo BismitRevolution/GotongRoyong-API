@@ -31,10 +31,10 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -67,6 +67,7 @@ class LoginController extends Controller
             'data' => 'User/password wrong'],
             500);
     }
+
     public function loginAPI(Request $request)
     {
         $this->validateLogin($request);
@@ -104,6 +105,7 @@ class LoginController extends Controller
         if ($user) {
             //$user->generateToken();
             $user->api_token = null;
+            //$user->remember_token = null;
             $user->save();
             return response()->json([
                 'success' => true,
