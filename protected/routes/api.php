@@ -78,6 +78,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_AUTH/user/logout", 'Auth\LoginControllerAPI@logoutAPI');
     Route::post("$_AUTH/user/testdemo", 'Test\TestController@test');
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
+    Route::post("users/pahlawan/paginate",'PageUserNGOController@getUserPaginate');
 
     /*
     CAMPAIGNS with Auth
