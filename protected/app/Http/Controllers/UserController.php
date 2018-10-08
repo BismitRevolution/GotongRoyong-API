@@ -96,14 +96,21 @@ class UserController extends Controller
 
   public function getDetailById(Request $request)
   {
-    $data = (new UList())->getDetailById($request->input("id"));
-    if($data){
+    $user = (new UList())->getDetailById($request->input("id"));
+    if($user){
+      $pahlawan_detail = (new UserPahlawan)->getUserPahlawanById($user["id"]);
+      $user["data_pahlawan"] = $pahlawan_detail;
       return response()->json([
           'success' => true,
-          'message' => 'Total User Pahlawans',
-          'data' => $data,
+          'message' => 'User Detail',
+          'data' => $user,
         ],200);
     }
+    return response()->json([
+      'success' => false,
+      'message' => 'No User',
+      'data' => $user,
+    ],500);
   }
 
 }

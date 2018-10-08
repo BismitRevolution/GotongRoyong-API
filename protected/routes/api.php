@@ -36,6 +36,8 @@ Authentication API (no roles yet)
 Route::post("$_AUTH/register", 'Auth\RegisterController@register');
 Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@loginAPI');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
+Route::post("$_AUTH/user/detail", 'UserController@getDetailById');
+
 //Route::post('logout', 'Auth\LoginController@logout');
 
 /*
@@ -92,6 +94,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_DONATES/campaign-ads/user-participation",'CamAdsDonatesController@getListByUser');
     Route::post("$_DONATES/campaign-ads/campaign-participation",'CamAdsDonatesController@getListByCampaign');
     Route::post("$_DONATES/campaign-ads/campaign-participation-self",'CamAdsDonatesController@getListByCampaignSelf');
-
-
-

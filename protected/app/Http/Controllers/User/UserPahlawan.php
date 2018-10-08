@@ -52,6 +52,29 @@ class UserPahlawan extends Controller
       return $data;
   }
 
+  public function getUserPahlawanById($id_user)
+  {
+    $data = array();
+    $pahlawan_detail = DB::select(DB::raw("CALL USER_PAHLAWAN_DETAIL($id_user)"));
+    foreach($pahlawan_detail as $row){
+        $item = array(
+            "id"              => $row->id,
+            "id_user"         => $row->id_user,
+            "count_shares"    => $row->count_shares,
+            "count_campaigns" => $row->count_campaigns,
+            "count_donations" => $row->count_donations,
+            "about_me"        => $row->about_me,
+            "my_url"          => $row->my_url,
+            "instagram_link"  => $row->instagram_link,
+            "twitter_link"    => $row->twitter_link,
+            "fb_link"         => $row->fb_link,
+            "flag_verified"   => $row->flag_verified
+        );
+        $data = $item;
+    }
+    return $data;
+  }
+
   public function create()
   {
     return DB::unprepared(DB::raw("CALL USER_PAHLAWAN_CREATE($this->id_user,'$this->about_me','$this->my_url','$this->instagram_link','$this->twitter_link','$this->fb_link')"));
