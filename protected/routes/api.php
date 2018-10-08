@@ -34,7 +34,7 @@ $_DONATES = "donates";
 Authentication API (no roles yet)
 */
 Route::post("$_AUTH/register", 'Auth\RegisterController@register');
-Route::post("$_AUTH/login", 'Auth\LoginController@loginAPI');
+Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@loginAPI');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
 //Route::post('logout', 'Auth\LoginController@logout');
 
@@ -61,7 +61,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:api'], function(){
+
 
     /*
     Variables
@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     /*
     User
      */
-    Route::post("$_AUTH/logout", 'Auth\LoginController@logoutAPI');
+    Route::post("$_AUTH/user/logout", 'Auth\LoginControllerAPI@logoutAPI');
     Route::post("$_AUTH/user/testdemo", 'Test\TestController@test');
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
 
@@ -94,4 +94,4 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post("$_DONATES/campaign-ads/campaign-participation-self",'CamAdsDonatesController@getListByCampaignSelf');
 
 
-});
+

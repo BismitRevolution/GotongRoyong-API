@@ -14,6 +14,7 @@ class CamAdsDonatesController extends Controller
 {
   public function createDonates(Request $request)
   {
+
     $user = Auth::guard('api')->user();
     $donation = new DList();
     $content = $request->all();
@@ -22,6 +23,7 @@ class CamAdsDonatesController extends Controller
 
     $ads = new AdsContent();
     $arr = $ads->getRandom($user->id);
+
     $donation->id_ads = $arr['id'];
     $donation->device = $content['device'];
 
