@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController as UserController;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -56,11 +57,8 @@ class LoginController extends Controller
         }
         //$email = $request->input('email');
         //return response if login failure
-        return response()->json([
-            'success' => false,
-            'message' => 'User login failure',
-            'data' => 'User/password wrong'],
-            500);
+        Session::flash('gagal','Data tidak terdapat di database');
+        return redirect('/login');
     }
 
     public function loginAPI(Request $request)
@@ -89,7 +87,6 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request) {
-//        dd('a');
         Auth::logout();
         return redirect('/login');
     }

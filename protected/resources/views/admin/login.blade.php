@@ -89,8 +89,8 @@
 
                         {{--<a href="#">I forgot my password</a>--}}
                     </p>
-                    <p class="mb-0">
-                        <a href="http://gotongroyong.in" class="text-center">Become partner</a>
+                    <p class="mb-1">
+                        <a class="btn btn-link" target="_blank" href="http://gotongroyong.in" >Become partner</a>
                     </p>
                 </div>
                 <!-- /.login-card-body -->

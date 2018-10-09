@@ -1,8 +1,18 @@
 <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-        <h5>Rohmat Taufik</h5>
-        <p>Admin</p>
+        <h5>
+            {{ Auth::user()->fullname }}
+        </h5>
+        <p>
+            @if(Auth::user()->role == 1)
+                User Pahlawan
+            @elseif(Auth::user()->role == 2)
+                Admin
+            @elseif(Auth::user()->role == 3)
+                Advertiser
+            @endif
+        </p>
         {{--<button type="button" onclick="window.location='/'" class="btn btn-danger">--}}
             {{--Logout--}}
         {{--</button>--}}
