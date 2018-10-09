@@ -59,4 +59,28 @@ class UserList extends Controller
     }
     return $datacount;
   }
+
+  public function getUsername($username)
+  {
+    $userdata = array();
+    $users = User::where('username', $username)->get();
+    foreach($users as $row){
+      $user = array(
+        "id"      => $row->id,
+        "username" => $row->username,
+        "fullname" => $row->fullname,
+        "birthplace" => $row->birthplace,
+        "birthdate" => $row->birthdate,
+        "gender" => $row->gender,
+        "role" => $row->role,
+        "flag_active" => $row->flag_active,
+        "created_at" => $row->created_at,
+        "image_profile" => $row->image_profile
+      );
+      $userdata = $user;
+    }
+    return $userdata;
+  }
+
+  
 }

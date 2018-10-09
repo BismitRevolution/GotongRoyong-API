@@ -36,7 +36,6 @@ class UserPahlawan extends Controller
       foreach($pahlawan_detail as $row){
           $item = array(
               "id"              => $row->id,
-              "id_user"         => $row->id_user,
               "count_shares"    => $row->count_shares,
               "count_campaigns" => $row->count_campaigns,
               "count_donations" => $row->count_donations,
@@ -59,7 +58,6 @@ class UserPahlawan extends Controller
     foreach($pahlawan_detail as $row){
         $item = array(
             "id"              => $row->id,
-            "id_user"         => $row->id_user,
             "count_shares"    => $row->count_shares,
             "count_campaigns" => $row->count_campaigns,
             "count_donations" => $row->count_donations,

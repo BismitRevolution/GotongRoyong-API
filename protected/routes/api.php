@@ -37,6 +37,8 @@ Route::post("$_AUTH/register", 'Auth\RegisterController@register');
 Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@loginAPI');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
 Route::post("$_AUTH/user/detail", 'UserController@getDetailById');
+Route::post("$_AUTH/user/detail-username", 'UserController@getUserByUsername');
+
 
 //Route::post('logout', 'Auth\LoginController@logout');
 
@@ -79,7 +81,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_AUTH/user/testdemo", 'Test\TestController@test');
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
     Route::post("users/pahlawan/paginate",'PageUserNGOController@getUserPaginate');
-
+    Route::post("$_AUTH/user/update", 'UserController@updateUser');
     /*
     CAMPAIGNS with Auth
     */

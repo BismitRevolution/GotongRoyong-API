@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\User\UserPahlawan as UserPahlawan;
 use App\Http\Controllers\User\UserList as UList;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use DateTime;
+
+
 
 class UserController extends Controller
 {
@@ -145,6 +149,61 @@ class UserController extends Controller
             'message' => 'No Users',
             'data' => $data_users,
         ],500);
+    }
+
+    public function getUserByUsername(Request $request)
+    {
+      $user = (new UList())->getUsername($request->input("username"));
+      if($user){
+        $pahlawan_detail = (new UserPahlawan)->getUserPahlawanById($user["id"]);
+        $user["data_pahlawan"] = $pahlawan_detail;
+        return response()->json([
+            'success' => true,
+            'message' => 'User Detail',
+            'data' => $user,
+          ],200);
+      }
+      return response()->json([
+        'success' => false,
+        'message' => 'No User',
+        'data' => $user,
+      ],500);
+    }
+
+    public function updateUser(Request $request)
+    {
+      $user = Auth::guard('api')->user();
+      if($user->email != $request->input("email")){
+        $cekEmail= User::where('email', $request->input("email"))->get();
+        if(count($cekEmail) > 0){
+          return response()->json([
+              'success' => false,
+              'message' => 'Email already exist',
+              'data' => ''
+            ],500);
+        }
+      }
+
+      $originalDate = $request->input("birthdate");
+      $date = new DateTime($originalDate);
+
+      $user->fullname = $request->input("fullname");
+      $user->birthdate = $date->format('Y-m-d');
+      $user->birthplace = $request->input("birthplace");
+      $user->email = $request->input("email");
+      $user->password = Hash::make($request->input("password"));
+      $user->gender = $request->input("gender");
+
+      $user->save();
+
+      return response()->json([
+          'success' => true,
+          'message' => 'Update user successfull',
+          'data' => '',
+        ],500);
+
+
+
     }
 
 }
