@@ -98,9 +98,11 @@ class PageCampaignsController extends Controller
 
         $data_campaigns = DB::table('campaigns')
             ->join('users', 'users.id', '=', 'campaigns.id_user')
-            ->select('campaigns.*','users.fullname','users.image_profile','campaigns.id as id_campaign')
+            ->select('campaigns.title', 'campaigns.created_at as campaign_created_at',
+                'campaigns.target_donation', 'campaigns.deadline', 'campaigns.complete_sts', 'campaigns.id_user',
+                'users.fullname','users.image_profile','campaigns.id as id_campaign')
             ->where('campaigns.flag_active','=',1)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('campaign_created_at', 'desc')
             ->get();
 
         $data_campaign_images = DB::table('campaign_images')

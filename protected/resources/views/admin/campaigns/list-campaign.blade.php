@@ -88,10 +88,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th class="text-nowrap">Photo User</th>
                                     <th class="text-nowrap">Campaigner</th>
                                     <th class="text-nowrap">Created At</th>
                                     <th class="text-nowrap">Title</th>
-                                    <th class="text-nowrap">Description</th>
                                     <th class="text-nowrap">Target Donation</th>
                                     <th class="text-nowrap">Deadline</th>
                                     <th class="text-nowrap">Status</th>
@@ -103,20 +103,18 @@
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>
-                                <img src="{{ URL::asset($data_campaigns[$j]->image_profile) }}"
-                                     class="brand-image">
+                                            <img src="{{ URL::asset($data_campaigns[$j]->image_profile) }}"
+                                                 class="brand-image">
+                                        </td>
+                                        <td>
                                             {{ $data_campaigns[$j]->fullname }}
                                         </td>
                                         <td>
                                             {{\Carbon\Carbon::parse($data_campaigns[$j]
-                                                                        ->created_at)
+                                                                        ->campaign_created_at)
                                                                         ->diffForHumans()  }}
                                         </td>
-                                        <td>{{ str_limit($data_campaigns[$j]->title,30) }}</td>
-                                        <td>
-                                            {{ str_limit(strip_tags($data_campaigns[$j]
-                                                            ->description),30) }}
-                                        </td>
+                                        <td>{{ str_limit($data_campaigns[$j]->title,50) }}</td>
 
                                         <td>
                                             <p class="uang">
