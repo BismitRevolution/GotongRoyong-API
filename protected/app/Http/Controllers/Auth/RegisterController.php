@@ -54,7 +54,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
+            //'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -68,28 +68,50 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $originalDate = $data['birthdate'];
-        $date = new DateTime($originalDate);
+        // $originalDate = $data['birthdate'];
+        // $date = new DateTime($originalDate);
 
         return User::create([
-            'username' => $data['username'],
+            //'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'fullname' => $data['fullname'],
-            'birthdate' => $date->format('Y-m-d'),
-            'birthplace' => $data['birthplace'],
-            'gender' => $data['gender'],
-            'role' => $data['role'],
-            'flag_active' => $data['flag_active'],
+            'fullname' => "My Full Name",
+            //'birthdate' => $date->format('Y-m-d'),
+            //'birthplace' => $data['birthplace'],
+            //'gender' => $data['gender'],
+            'role' => 1,
+            'flag_active' => 1,
         ]);
     }
 
     public function register(Request $request)
     {
+
+      $cekEmail= User::where('email', $request->input("email"))->get();
+      if(count($cekEmail) > 0){
+        return response()->json([
+            'success' => false,
+            'message' => 'Email already exist',
+            'data' => ''
+          ],500);
+      }
+
       // Here the request is validated. The validator method is located
       // inside the RegisterController, and makes sure the name, email
       // password and password_confirmation fields are required.
       $this->validator($request->all())->validate();
+
+
+
+      // $cekUsername= User::where('username', $request->input("username"))->get();
+      // if(count($cekUsername) > 0){
+      //   return response()->json([
+      //       'success' => false,
+      //       'message' => 'Username already exist',
+      //       'data' => ''
+      //     ],500);
+      // }
+
 
       // A Registered event is created and will trigger any relevant
       // observers, such as sending a confirmation email or any

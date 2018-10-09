@@ -54,11 +54,11 @@ class UserController extends Controller
   {
       $hero = new UserPahlawan();
       $hero->id_user = $user->id;
-      $hero->about_me = $request->about_me;
-      $hero->my_url = $request->my_url;
-      $hero->instagram_link = $request->instagram_link;
-      $hero->twitter_link = $request->twitter_link;
-      $hero->fb_link = $request->fb_link;
+      $hero->about_me = "Welcome to my GotongRoyong.in profile !";
+      $hero->my_url = "myurlabc.com";
+      //$hero->instagram_link = "instagram.com/myprofile";
+      //$hero->twitter_link = $request->twitter_link;
+      //$hero->fb_link = $request->fb_link;
 
       $hero->create();
       $result = array();
@@ -184,15 +184,28 @@ class UserController extends Controller
         }
       }
 
+      if($user->username != $request->input("username")){
+        $cekUsername= User::where('username', $request->input("username"))->get();
+        if(count($cekUsername) > 0){
+          return response()->json([
+              'success' => false,
+              'message' => 'Username already exist',
+              'data' => ''
+            ],500);
+        }
+      }
+
+
       $originalDate = $request->input("birthdate");
       $date = new DateTime($originalDate);
-
+      $user->username = $request->input("username");
       $user->fullname = $request->input("fullname");
       $user->birthdate = $date->format('Y-m-d');
       $user->birthplace = $request->input("birthplace");
       $user->email = $request->input("email");
       $user->password = Hash::make($request->input("password"));
       $user->gender = $request->input("gender");
+      $user->image_profile = $request->input("image_profile");
 
       $user->save();
 
@@ -201,6 +214,20 @@ class UserController extends Controller
           'message' => 'Update user successfull',
           'data' => '',
         ],500);
+    }
+
+    public function updateUserPahlawan(Request $request)
+    {
+      $user = Auth::guard('api')->user();
+      $hero = new UserPahlawan();
+      $hero->id_user = $user->id;
+      $hero->about_me =  $request->input("about_me");
+      $hero->my_url =  $request->input("my_url");
+      $hero->instagram_link = $request->input("instagram_link");
+      $hero->twitter_link = $request->input("twitter_link");
+      $hero->fb_link = $request->input("fb_link");
+
+      $hero->update();
 
 
 
