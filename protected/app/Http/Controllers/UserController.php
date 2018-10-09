@@ -226,10 +226,14 @@ class UserController extends Controller
       $hero->instagram_link = $request->input("instagram_link");
       $hero->twitter_link = $request->input("twitter_link");
       $hero->fb_link = $request->input("fb_link");
-
+      $hero->flag_verified = $request->input("flag_verified");
       $hero->update();
 
-
+      return response()->json([
+          'success' => true,
+          'message' => 'Update user pahlawan successfull',
+          'data' => '',
+        ],500);
 
     }
 
