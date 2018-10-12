@@ -100,3 +100,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_DONATES/campaign-ads/user-participation",'CamAdsDonatesController@getListByUser');
     Route::post("$_DONATES/campaign-ads/campaign-participation",'CamAdsDonatesController@getListByCampaign');
     Route::post("$_DONATES/campaign-ads/campaign-participation-self",'CamAdsDonatesController@getListByCampaignSelf');
+    Route::post("$_DONATES/campaign-ads/share-success",'CamAdsDonatesController@updateDonationShare');

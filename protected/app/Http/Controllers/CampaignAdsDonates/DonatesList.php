@@ -136,4 +136,9 @@ use Illuminate\Support\Facades\Auth;
       return $datacount;
     }
 
+    public function shareSuccess()
+    {
+      return DB::unprepared(DB::raw("CALL CAMPAIGN_ADS_UPDATE_SHARE_SUCCESS($this->id_campaign,$this->id_user)"));
+    }
+
   }

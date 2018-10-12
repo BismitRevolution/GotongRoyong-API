@@ -16,45 +16,61 @@ class CamAdsDonatesController extends Controller
   {
 
     $user = Auth::guard('api')->user();
-    $donation = new DList();
-    $content = $request->all();
-    $donation->id_user = $user->id;
-    $donation->id_campaign = $content['id_campaign'];
+    if($user){
+      $donation = new DList();
+      $content = $request->all();
+      $donation->id_user = $user->id;
+      $donation->id_campaign = $content['id_campaign'];
 
-    $ads = new AdsContent();
-    $arr = $ads->getRandom($user->id);
+      $ads = new AdsContent();
+      $arr = $ads->getRandom($user->id);
 
-    $donation->id_ads = $arr['id'];
-    $donation->device = $content['device'];
+      $donation->id_ads = $arr['id'];
+      $donation->device = $content['device'];
 
-    $data_donation = $donation->create();
-    $data = [];
+      $data_donation = $donation->create();
+      $data = [];
 
-    $data['donation_data'] = $data_donation;
+      $data['donation_data'] = $data_donation;
 
-    $data['ads_data'] = $arr;
+      $data['ads_data'] = $arr;
+
+      return response()->json([
+          'success' => true,
+          'message' => 'Campaign Donation and Random Ads Detail',
+          'data' => $data,
+      ],201);
+    }
 
     return response()->json([
-        'success' => true,
-        'message' => 'Campaign Donation and Random Ads Detail',
-        'data' => $data,
-    ],201);
+      'success' => false,
+      'message' => 'Create donation failure',
+      'data' => 'User already logged out/Token false'],
+      500);
 
   }
 
   public function updateDonations(Request $request)
   {
     $user = Auth::guard('api')->user();
-    $donation = new DList();
-    $donation->id_campaign = $request->input('id_campaign');
-    $donation->id_user = $user->id;
-    $donation->donateSuccess();
+    if($user) {
+      $donation = new DList();
+      $donation->id_campaign = $request->input('id_campaign');
+      $donation->id_user = $user->id;
+      $donation->donateSuccess();
+
+      return response()->json([
+          'success' => true,
+          'message' => 'Donation successful',
+          'data' => '',
+      ],200);
+    }
 
     return response()->json([
-        'success' => true,
-        'message' => 'Donation successful',
-        'data' => '',
-    ],200);
+      'success' => false,
+      'message' => 'Update donation failure',
+      'data' => 'User already logged out/Token false'],
+      500);
   }
 
   public function clickUrl(Request $request)
@@ -154,7 +170,6 @@ class CamAdsDonatesController extends Controller
   public function countMoney(Request $request)
   {
     $data = 100000000;
-
     if($data){
       return response()->json([
           'success' => true,
@@ -170,5 +185,27 @@ class CamAdsDonatesController extends Controller
     ],500);
   }
 
+  public function updateDonationShare(Request $request)
+  {
+    $user = Auth::guard('api')->user();
+    if($user) {
+      $donation = new DList();
+      $donation->id_campaign = $request->input('id_campaign');
+      $donation->id_user = $user->id;
+      $donation->shareSuccess();
+
+      return response()->json([
+          'success' => true,
+          'message' => 'Share donation successful',
+          'data' => '',
+      ],200);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'Share donation failure',
+      'data' => 'User already logged out/Token false'],
+      500);
+  }
 
 }
