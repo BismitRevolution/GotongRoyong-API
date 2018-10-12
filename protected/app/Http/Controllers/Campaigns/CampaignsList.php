@@ -231,4 +231,9 @@ class CampaignsList extends Controller
     }
     return $datacount;
   }
+
+  public function complete()
+  {
+    return DB::unprepared(DB::raw("CALL CAMPAIGN_UPDATE_COMPLETE_STATUS($this->id)"));
+  }
 }

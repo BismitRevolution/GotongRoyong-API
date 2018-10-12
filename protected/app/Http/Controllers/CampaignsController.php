@@ -198,4 +198,30 @@ class CampaignsController extends Controller
     ],500);
   }
 
+  public function completeStatus(Request $request)
+  {
+      $campaign = new CList($request->input('id'));
+      if($campaign){
+        if($campaign->complete_sts == 0){
+          $campaign->complete();
+          return response()->json([
+              'success' => true,
+              'message' => 'Campaign is completed',
+              'data' => '',
+            ],200);
+        }
+        return response()->json([
+          'success' => false,
+          'message' => 'Campaign already completed',
+          'data' => '',
+        ],500);
+      }
+
+      return response()->json([
+        'success' => false,
+        'message' => 'No Campaign',
+        'data' => '',
+      ],500);
+  }
+
 }

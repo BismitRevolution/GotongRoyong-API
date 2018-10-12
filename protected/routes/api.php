@@ -73,6 +73,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     $_AUTH = "auth";
     $_CAMPAIGN = "campaign";
     $_DONATES = "donates";
+    $_LOG = "log";
 
     /*
     User
@@ -90,6 +91,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     */
     Route::post("$_CAMPAIGN/campaign-list/create", 'CampaignsController@createCampaign');
     Route::post("$_CAMPAIGN/campaign-list/delete", 'CampaignsController@deleteCampaign');
+    Route::post("$_CAMPAIGN/campaign-list/complete", 'CampaignsController@completeStatus');
 
     /*
     CAMPAIGN ADS DONATES
@@ -101,3 +103,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_DONATES/campaign-ads/campaign-participation",'CamAdsDonatesController@getListByCampaign');
     Route::post("$_DONATES/campaign-ads/campaign-participation-self",'CamAdsDonatesController@getListByCampaignSelf');
     Route::post("$_DONATES/campaign-ads/share-success",'CamAdsDonatesController@updateDonationShare');
+
+    /*
+    LOG USERS
+     */
+    Route::post("$_LOG/create", 'LogUsersController@createLog');
