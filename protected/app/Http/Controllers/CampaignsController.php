@@ -140,7 +140,7 @@ class CampaignsController extends Controller
       'success' => true,
       'message' => 'Campaign created successfully',
       'data' => '',
-    ],200);
+    ],201);
   }
 
   public function deleteCampaign(Request $request)

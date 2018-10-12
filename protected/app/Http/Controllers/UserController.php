@@ -173,68 +173,83 @@ class UserController extends Controller
     public function updateUser(Request $request)
     {
       $user = Auth::guard('api')->user();
-      if($user->email != $request->input("email")){
-        $cekEmail= User::where('email', $request->input("email"))->get();
-        if(count($cekEmail) > 0){
-          return response()->json([
-              'success' => false,
-              'message' => 'Email already exist',
-              'data' => ''
-            ],500);
+      if($user){
+        if($user->email != $request->input("email")){
+          $cekEmail= User::where('email', $request->input("email"))->get();
+          if(count($cekEmail) > 0){
+            return response()->json([
+                'success' => false,
+                'message' => 'Email already exist',
+                'data' => ''
+              ],500);
+          }
         }
-      }
 
-      if($user->username != $request->input("username")){
-        $cekUsername= User::where('username', $request->input("username"))->get();
-        if(count($cekUsername) > 0){
-          return response()->json([
-              'success' => false,
-              'message' => 'Username already exist',
-              'data' => ''
-            ],500);
+        if($user->username != $request->input("username")){
+          $cekUsername= User::where('username', $request->input("username"))->get();
+          if(count($cekUsername) > 0){
+            return response()->json([
+                'success' => false,
+                'message' => 'Username already exist',
+                'data' => ''
+              ],500);
+          }
         }
+
+        $originalDate = $request->input("birthdate");
+        $date = new DateTime($originalDate);
+        $user->username = $request->input("username");
+        $user->fullname = $request->input("fullname");
+        $user->birthdate = $date->format('Y-m-d');
+        $user->birthplace = $request->input("birthplace");
+        $user->email = $request->input("email");
+        $user->password = Hash::make($request->input("password"));
+        $user->gender = $request->input("gender");
+        $user->image_profile = $request->input("image_profile");
+
+        $user->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Update user successfull',
+            'data' => '',
+          ],500);
       }
-
-
-      $originalDate = $request->input("birthdate");
-      $date = new DateTime($originalDate);
-      $user->username = $request->input("username");
-      $user->fullname = $request->input("fullname");
-      $user->birthdate = $date->format('Y-m-d');
-      $user->birthplace = $request->input("birthplace");
-      $user->email = $request->input("email");
-      $user->password = Hash::make($request->input("password"));
-      $user->gender = $request->input("gender");
-      $user->image_profile = $request->input("image_profile");
-
-      $user->save();
 
       return response()->json([
-          'success' => true,
-          'message' => 'Update user successfull',
-          'data' => '',
-        ],500);
+        'success' => false,
+        'message' => 'Update user failure',
+        'data' => 'Already logged out/Token false'],
+        500);
+
     }
 
     public function updateUserPahlawan(Request $request)
     {
       $user = Auth::guard('api')->user();
-      $hero = new UserPahlawan();
-      $hero->id_user = $user->id;
-      $hero->about_me =  $request->input("about_me");
-      $hero->my_url =  $request->input("my_url");
-      $hero->instagram_link = $request->input("instagram_link");
-      $hero->twitter_link = $request->input("twitter_link");
-      $hero->fb_link = $request->input("fb_link");
-      $hero->flag_verified = $request->input("flag_verified");
-      $hero->update();
+      if($user) {
+        $hero = new UserPahlawan();
+        $hero->id_user = $user->id;
+        $hero->about_me =  $request->input("about_me");
+        $hero->my_url =  $request->input("my_url");
+        $hero->instagram_link = $request->input("instagram_link");
+        $hero->twitter_link = $request->input("twitter_link");
+        $hero->fb_link = $request->input("fb_link");
+        $hero->flag_verified = $request->input("flag_verified");
+        $hero->update();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Update user pahlawan successfull',
+            'data' => '',
+          ],500);
+      }
 
       return response()->json([
-          'success' => true,
-          'message' => 'Update user pahlawan successfull',
-          'data' => '',
-        ],500);
-
+        'success' => false,
+        'message' => 'Update user pahlawan failure',
+        'data' => 'Already logged out/Token false'],
+        500);
     }
 
 }

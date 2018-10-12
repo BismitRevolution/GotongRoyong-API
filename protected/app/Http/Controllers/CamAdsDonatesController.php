@@ -38,7 +38,7 @@ class CamAdsDonatesController extends Controller
         'success' => true,
         'message' => 'Campaign Donation and Random Ads Detail',
         'data' => $data,
-    ],200);
+    ],201);
 
   }
 
