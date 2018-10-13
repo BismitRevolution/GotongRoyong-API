@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
     public $click_target_url;
     public $created_at;
     public $updated_at;
+    public $id_campaign_ads_donate;
     public $exist;
 
     public function __construct($id = false)
@@ -40,6 +41,7 @@ use Illuminate\Support\Facades\Auth;
               $this->device           = $item->device;
               $this->created_at       = $item->created_at;
               $this->updated_at       = $item->updated_at;
+              $this->id_campaign_ads_donate = $item->id_campaign_ads_donate;
               $this->exist            = true;
           }
           else{
@@ -73,7 +75,10 @@ use Illuminate\Support\Facades\Auth;
 
     public function donateSuccess()
     {
-      return DB::unprepared(DB::raw("CALL CAMPAIGNS_ADS_UPDATE_DONATES_SUCCESS($this->id_campaign,$this->id_user)"));
+      return DB::unprepared(DB::raw("CALL CAMPAIGNS_ADS_UPDATE_DONATES_SUCCESS(
+                                                                $this->id_campaign,
+                                                                $this->id_user,
+                                                                $this->id_campaign_ads_donate)"));
     }
 
     public function updateClickUrl()

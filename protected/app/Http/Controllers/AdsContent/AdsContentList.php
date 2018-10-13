@@ -59,6 +59,7 @@ use App\Http\Controllers\Controller,
       $data = array();
       $ads = DB::select(DB::raw("CALL ADS_CONTENTS_RANDOM($id_user)"));
       foreach($ads as $item){
+
         $content = array(
                 "id"      => $item->id,
                 "id_advertiser"  => $item->id_advertiser,

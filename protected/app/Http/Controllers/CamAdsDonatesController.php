@@ -56,6 +56,7 @@ class CamAdsDonatesController extends Controller
     if($user) {
       $donation = new DList();
       $donation->id_campaign = $request->input('id_campaign');
+      $donation->id_campaign_ads_donate = $request->input('id_donation');
       $donation->id_user = $user->id;
       $donation->donateSuccess();
 
