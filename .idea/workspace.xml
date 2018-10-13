@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar-right.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar-right.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/login.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/layouts/app.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,22 +15,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="60" column="31" lean-forward="false" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
-              <folding>
-                <element signature="e#43#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
+            <state relative-caret-position="1564">
               <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
               <folding />
             </state>
@@ -56,18 +38,18 @@
       <file leaf-file-name="app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/layouts/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="153">
               <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-469">
-              <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+            <state relative-caret-position="272">
+              <caret line="204" column="46" lean-forward="false" selection-start-line="204" selection-start-column="46" selection-end-line="204" selection-end-column="46" />
               <folding>
                 <marker date="1539102891695" expanded="true" signature="31973:32051" ph="..." />
               </folding>
@@ -75,24 +57,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list-campaign.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php">
+      <file leaf-file-name="AdsContentController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="126" column="98" lean-forward="false" selection-start-line="126" selection-start-column="98" selection-end-line="126" selection-end-column="98" />
+            <state relative-caret-position="357">
+              <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
-                <marker date="1539096071531" expanded="true" signature="5729:5842" ph="..." />
-                <marker date="1539096071531" expanded="true" signature="6482:6584" ph="..." />
+                <element signature="e#39#60#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php">
+      <file leaf-file-name="AdsContentList.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="48" />
+            <state relative-caret-position="405">
+              <caret line="68" column="51" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="98" column="73" lean-forward="false" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CamAdsDonatesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/CamAdsDonatesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -103,9 +104,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#form#0;n#div#0;n#aside#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,18 +112,8 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageCampaignsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="101" column="111" lean-forward="false" selection-start-line="101" selection-start-column="111" selection-end-line="101" selection-end-column="111" />
+            <state relative-caret-position="238">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,9 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>logo</find>
-      <find>auth.</find>
-      <find>logina</find>
       <find>regis</find>
       <find>login</find>
       <find>logincontrollerapi</find>
@@ -164,6 +150,9 @@
       <find>lara</find>
       <find>larave</find>
       <find>fullna</find>
+      <find>donate</find>
+      <find>donates/campaign-ads/create</find>
+      <find>createdo</find>
     </findStrings>
     <dirStrings>
       <dir>D:\ONEDRIVE\PROJECTS\GOTONGROYONG\code\v1\api\protected</dir>
@@ -207,7 +196,6 @@
         <option value="$PROJECT_DIR$/protected/app/User.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageUserNGOController.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/protected/routes/api.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php" />
@@ -217,6 +205,8 @@
         <option value="$PROJECT_DIR$/protected/resources/views/admin/login.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/protected/routes/api.php" />
+        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php" />
       </list>
     </option>
   </component>
@@ -248,7 +238,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -642,6 +631,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -764,25 +754,26 @@
       <workItem from="1538946134462" duration="22309000" />
       <workItem from="1539075135715" duration="303000" />
       <workItem from="1539085737674" duration="1085000" />
-      <workItem from="1539093758705" duration="2727000" />
+      <workItem from="1539093758705" duration="3625000" />
+      <workItem from="1539266271113" duration="671000" />
+      <workItem from="1539411894588" duration="2117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130359000" />
+    <option name="totallyTimeSpent" value="134045000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22068231" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583067" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583067" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -968,9 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#50#223#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1000,32 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="76" column="43" lean-forward="false" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/CamAdsDonatesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="e#39#60#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="7" column="46" lean-forward="false" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1074,21 +1036,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="2" lean-forward="false" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#46#74#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1104,7 +1055,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
+        <state relative-caret-position="1598">
           <caret line="101" column="111" lean-forward="false" selection-start-line="101" selection-start-column="111" selection-end-line="101" selection-end-column="111" />
           <folding />
         </state>
@@ -1112,7 +1063,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
+        <state relative-caret-position="2142">
           <caret line="126" column="98" lean-forward="false" selection-start-line="126" selection-start-column="98" selection-end-line="126" selection-end-column="98" />
           <folding>
             <marker date="1539096071531" expanded="true" signature="5729:5842" ph="..." />
@@ -1123,7 +1074,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
+        <state relative-caret-position="306">
           <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="48" />
           <folding />
         </state>
@@ -1133,23 +1084,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#aside#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
+        <state relative-caret-position="1564">
           <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
           <folding />
         </state>
@@ -1165,7 +1114,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="153">
           <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding />
         </state>
@@ -1173,11 +1122,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-469">
-          <caret line="147" column="57" lean-forward="false" selection-start-line="147" selection-start-column="57" selection-end-line="147" selection-end-column="57" />
+        <state relative-caret-position="272">
+          <caret line="204" column="46" lean-forward="false" selection-start-line="204" selection-start-column="46" selection-end-line="204" selection-end-column="46" />
           <folding>
             <marker date="1539102891695" expanded="true" signature="31973:32051" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="98" column="73" lean-forward="false" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/CamAdsDonatesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="e#39#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/AdsContent/AdsContentList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="68" column="51" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
