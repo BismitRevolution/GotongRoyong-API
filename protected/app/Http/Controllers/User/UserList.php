@@ -19,6 +19,10 @@ class UserList extends Controller
   public $gender;
   public $role;
   public $flag_active;
+  public $image_profile;
+  public $id_fb;
+  public $id_google;
+  public $bg_image_profile;
 
   public function __construct()
   {
@@ -40,7 +44,10 @@ class UserList extends Controller
         "role" => $row->role,
         "flag_active" => $row->flag_active,
         "created_at" => $row->created_at,
-        "image_profile" => $row->image_profile
+        "image_profile" => $row->image_profile,
+        "id_fb" => $row->id_fb,
+        "id_google" => $row->id_google,
+        "bg_image_profile" => $row->bg_image_profile
       );
       $userdata = $user;
     }
@@ -75,12 +82,15 @@ class UserList extends Controller
         "role" => $row->role,
         "flag_active" => $row->flag_active,
         "created_at" => $row->created_at,
-        "image_profile" => $row->image_profile
+        "image_profile" => $row->image_profile,
+        "id_fb" => $row->id_fb,
+        "id_google" => $row->id_google,
+        "bg_image_profile" => $row->bg_image_profile
       );
       $userdata = $user;
     }
     return $userdata;
   }
 
-  
+
 }

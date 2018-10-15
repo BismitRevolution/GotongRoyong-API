@@ -238,14 +238,13 @@ class UserController extends Controller
   {
     if ($request->has('image_profile')) {
 
-      $imgUrl = $request->get('image_profile');
       $destinationPath = 'Uploads/user-photo-profile/'.Carbon::now()->timestamp;
 
       $moves = $request->file('image_profile')
           ->move($destinationPath,
               $request->file('image_profile')
                   ->getClientOriginalName());
-      $url_file = "Uploads/user-photo-profile/".Carbon::now()->timestamp."/{$request->file('image_profile')->getClientOriginalName()}";
+      $url_file = $destinationPath."/".$request->file('image_profile')->getClientOriginalName();
 
       $user = Auth::guard('api')->user();
       if($user){
@@ -270,8 +269,43 @@ class UserController extends Controller
       'message' => 'Update user image failure',
       'data' => 'No file image'],
       500);
+  }
 
+  public function updateBgImgProfile(Request $request)
+  {
+    if ($request->has('bg_image_profile')) {
 
+      $destinationPath = 'Uploads/bg-profile/'.Carbon::now()->timestamp;
+
+      $moves = $request->file('bg_image_profile')
+          ->move($destinationPath,
+              $request->file('bg_image_profile')
+                  ->getClientOriginalName());
+      $url_file = $destinationPath."/".$request->file('bg_image_profile')->getClientOriginalName();
+
+      $user = Auth::guard('api')->user();
+      if($user){
+        $user->bg_image_profile = $url_file;
+        $user->save();
+
+        return response()->json([
+          'success' => true,
+          'message' => 'Update user background image profile success',
+          'data' => $user->bg_image_profile],
+          200);
+      }
+      return response()->json([
+        'success' => false,
+        'message' => 'Update user background image failure',
+        'data' => 'Already logged out/Token false'],
+        500);
+    }
+
+    return response()->json([
+      'success' => false,
+      'message' => 'Update user background image failure',
+      'data' => 'No file image'],
+      500);
   }
 
     // public function updateUserPahlawan(Request $request)
