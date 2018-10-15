@@ -83,7 +83,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post("$_AUTH/user/self-detail", 'UserController@getDetails');
     Route::post("users/pahlawan/paginate",'PageUserNGOController@getUserPaginate');
     Route::post("$_AUTH/user/update", 'UserController@updateUser');
-    Route::post("$_AUTH/user/update-pahlawan", 'UserController@updateUserPahlawan');
+    
+    //Route::post("$_AUTH/user/update-pahlawan", 'UserController@updateUserPahlawan');
 
 
     /*
