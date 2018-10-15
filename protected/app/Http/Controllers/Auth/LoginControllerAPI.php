@@ -39,9 +39,12 @@ class LoginControllerAPI extends Controller
     public function loginAPI(Request $request)
     {
 //        dd('a');
+
         $this->validateLogin($request);
+//        dd($this->attemptLogin($request));
         if ($this->attemptLogin($request)) {
             $user = $this->guard()->user();
+//            dd($user);
             $user->generateToken();
             $userdata = $user->toArray();
             $detailuser = (new UserController)->getDetailsWithoutAuth($user);
@@ -83,6 +86,58 @@ class LoginControllerAPI extends Controller
             'success' => false,
             'message' => 'User logout failure',
             'data' => 'Already logged out/Token false'],
+            500);
+    }
+
+    public function loginFB(Request $request)
+    {
+        $cekIDFB= User::where('id_fb', $request->input("id_fb"))->first();
+
+        if($cekIDFB != null){
+
+            $user = $cekIDFB;
+            $user->generateToken();
+            $userdata = $user->toArray();
+            $detailuser = (new UserController)->getDetailsWithoutAuth($user);
+            $userdata["data_pahlawan"] = $detailuser;
+            return response()->json([
+                'success' => true,
+                'message' => 'User login by FB succesfully',
+                'data' => $userdata
+            ],
+                200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'User login failure',
+            'data' => 'User data wrong'],
+            500);
+    }
+
+    public function loginGoogle(Request $request)
+    {
+        $cekIDGoogle = User::where('id_google', $request->input("id_google"))->first();
+
+        if($cekIDGoogle != null){
+
+            $user = $cekIDGoogle;
+            $user->generateToken();
+            $userdata = $user->toArray();
+            $detailuser = (new UserController)->getDetailsWithoutAuth($user);
+            $userdata["data_pahlawan"] = $detailuser;
+            return response()->json([
+                'success' => true,
+                'message' => 'User login by Google succesfully',
+                'data' => $userdata
+            ],
+                200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'User login failure',
+            'data' => 'User data wrong'],
             500);
     }
 }

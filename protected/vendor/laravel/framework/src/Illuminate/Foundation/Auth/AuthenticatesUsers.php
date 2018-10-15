@@ -68,6 +68,19 @@ trait AuthenticatesUsers
     }
 
     /**
+     * Validate the user login request by FB.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLoginFB(Request $request)
+    {
+        $this->validate($request, [
+            $this->userfb() => 'required|string'
+        ]);
+    }
+
+    /**
      * Attempt to log the user into the application.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -77,6 +90,12 @@ trait AuthenticatesUsers
     {
         return $this->guard()->attempt(
             $this->credentials($request), $request->filled('remember')
+        );
+    }
+    protected function attemptLoginFB(Request $request)
+    {
+        return $this->guard()->attempt(
+            $this->credentialsFB($request), $request->filled('remember')
         );
     }
 
@@ -89,6 +108,10 @@ trait AuthenticatesUsers
     protected function credentials(Request $request)
     {
         return $request->only($this->username(), 'password');
+    }
+    protected function credentialsFB(Request $request)
+    {
+        return $request->only($this->userfb());
     }
 
     /**
@@ -142,6 +165,16 @@ trait AuthenticatesUsers
     public function username()
     {
         return 'email';
+    }
+
+    /**
+     * Get the login userfb id_fb to be used by the controller.
+     *
+     * @return string
+     */
+    public function userfb()
+    {
+        return 'id_fb';
     }
 
     /**

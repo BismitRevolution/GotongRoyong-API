@@ -33,8 +33,12 @@ $_DONATES = "donates";
 /*
 Authentication API (no roles yet)
 */
+Route::post("$_AUTH/register/google", 'Auth\RegisterController@registerByGoogle');
+Route::post("$_AUTH/register/fb", 'Auth\RegisterController@registerByFB');
 Route::post("$_AUTH/register", 'Auth\RegisterController@register');
 Route::post("$_AUTH/login", 'Auth\LoginControllerAPI@loginAPI');
+Route::post("$_AUTH/login/fb", 'Auth\LoginControllerAPI@loginFB');
+Route::post("$_AUTH/login/google", 'Auth\LoginControllerAPI@loginGoogle');
 Route::post("$_AUTH/user/total", 'UserController@countUsers');
 Route::post("$_AUTH/user/detail", 'UserController@getDetailById');
 Route::post("$_AUTH/user/detail-username", 'UserController@getUserByUsername');

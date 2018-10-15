@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User as User;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -130,6 +132,108 @@ class RegisterController extends Controller
       return $this->registered($request, $user);
       //?:redirect($this->redirectPath());
   }
+
+  public function createByFB(array $data){
+      // $originalDate = $data['birthdate'];
+      // $date = new DateTime($originalDate);
+
+      return User::create(
+          [
+              'username'      => "yourusername",
+              'email'         => $data['email'],
+              'id_fb'         => $data['id_fb'],
+              'fullname'      => $data['fullname'],
+              'role'          => 1,
+              'birthdate'     => $data['birthdate'],
+              'birthplace'    => $data['birthplace'],
+              'gender'        => $data['gender'],
+              'image_profile' => $data['image_profile'],
+              'flag_active'   => 1,
+              'created_at'    => Carbon::now(),
+              'updated_at'    => Carbon::now()
+          ]);
+  }
+
+  public function registerByFB(Request $request) {
+      $cekEmail= User::where('email', $request->input("email"))->get();
+      if(count($cekEmail) > 0) {
+          return response()->json([
+              'success' => false,
+              'message' => 'Email already exist',
+              'data' => ''
+          ], 500);
+      }
+
+      $cekIDFB= User::where('id_fb', $request->input("id_fb"))->get();
+      if(count($cekIDFB) > 0){
+          return response()->json([
+              'success' => false,
+              'message' => 'ID FB already exist',
+              'data' => ''
+          ],500);
+      }
+
+      $user = $this->createByFB($request->all());
+
+      $this->guard()->login($user);
+
+      // And finally this is the hook that we want. If there is no
+      // registered() method or it returns null, redirect him to
+      // some other URL. In our case, we just need to implement
+      // that method to return the correct response.
+      return $this->registered($request, $user);
+  }
+
+    public function createByGoogle(array $data){
+        // $originalDate = $data['birthdate'];
+        // $date = new DateTime($originalDate);
+
+        return User::create(
+            [
+                'username'      => "yourusername",
+                'email'         => $data['email'],
+                'id_google'         => $data['id_google'],
+                'fullname'      => $data['fullname'],
+                'role'          => 1,
+                'birthdate'     => $data['birthdate'],
+                'birthplace'    => $data['birthplace'],
+                'gender'        => $data['gender'],
+                'image_profile' => $data['image_profile'],
+                'flag_active'   => 1,
+                'created_at'    => Carbon::now(),
+                'updated_at'    => Carbon::now()
+            ]);
+    }
+
+    public function registerByGoogle(Request $request) {
+        $cekEmail= User::where('email', $request->input("email"))->get();
+        if(count($cekEmail) > 0) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email already exist',
+                'data' => ''
+            ], 500);
+        }
+
+        $cekIDGoogle = User::where('id_google', $request->input("id_google"))->get();
+        if(count($cekIDGoogle) > 0){
+            return response()->json([
+                'success' => false,
+                'message' => 'ID Google already exist',
+                'data' => ''
+            ],500);
+        }
+
+        $user = $this->createByGoogle($request->all());
+
+        $this->guard()->login($user);
+
+        // And finally this is the hook that we want. If there is no
+        // registered() method or it returns null, redirect him to
+        // some other URL. In our case, we just need to implement
+        // that method to return the correct response.
+        return $this->registered($request, $user);
+    }
 
   protected function registered(Request $request, $user)
   {
