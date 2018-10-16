@@ -23,6 +23,7 @@ class PageController extends Controller
 
     public function mail() {
 
+//        dd('a');
         $dataEmail = array(
             'name'=>'Luthfi',
             'newpass'=>'123456'
@@ -34,7 +35,7 @@ class PageController extends Controller
             $dataEmail, function($message) use($user) {
                 $message->to('luthviar.b@gmail.com', $user->fullname)->subject
                 ('[GotongRoyong] Informasi Ganti Password');
-                $message->from('luthviar.a@gmail.com','Admin GotongRoyong');
+                $message->from('support@gotongroyong.in','Admin GotongRoyong');
             });
 
         return 'Email was sent';
