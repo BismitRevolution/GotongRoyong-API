@@ -33,7 +33,7 @@ class PageController extends Controller
 
         Mail::send(['html'=>'email.view-verify'],
             $dataEmail, function($message) use($user) {
-                $message->to('luthviar.b@gmail.com', $user->fullname)->subject
+                $message->to('luthviar.a@gmail.com', $user->fullname)->subject
                 ('[GotongRoyong] Informasi Ganti Password');
                 $message->from('support@gotongroyong.in','Admin GotongRoyong');
             });

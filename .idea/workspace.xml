@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/.env" afterPath="$PROJECT_DIR$/protected/.env" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -214,8 +215,8 @@
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/CamAdsDonatesController.php" />
         <option value="$PROJECT_DIR$/protected/routes/api.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php" />
-        <option value="$PROJECT_DIR$/protected/.env" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageController.php" />
+        <option value="$PROJECT_DIR$/protected/.env" />
       </list>
     </option>
   </component>
@@ -511,12 +512,12 @@
       <workItem from="1539436440558" duration="616000" />
       <workItem from="1539520021808" duration="1194000" />
       <workItem from="1539580754266" duration="12115000" />
-      <workItem from="1539667030815" duration="6987000" />
+      <workItem from="1539667030815" duration="7161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160214000" />
+    <option name="totallyTimeSpent" value="160388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1932" height="1055" extended-state="0" />
