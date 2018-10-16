@@ -22,6 +22,8 @@ Route::get('/', function () {
     }
 });
 
+Route::get('/send/email', 'PageController@mail');
+
 Route::get('/users/pahlawan/paginate','PageUserNGOController@getUserPaginate');
 
 Auth::routes();

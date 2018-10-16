@@ -117,4 +117,6 @@ class LoginController extends Controller
             'data' => 'Already logged out/Token false'],
             500);
     }
+
+
 }
