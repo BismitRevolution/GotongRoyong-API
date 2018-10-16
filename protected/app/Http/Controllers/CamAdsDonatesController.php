@@ -129,6 +129,27 @@ class CamAdsDonatesController extends Controller
     ],500);
   }
 
+    public function getListByCampaignNoLogin(Request $request)
+    {
+        $donation = new DList();
+        $donation->id_campaign = $request->input('id_campaign');
+        $data = $donation->getListCampaignNoLogin($request);
+
+        if($data){
+            return response()->json([
+                'success' => true,
+                'message' => 'Users Participated in Campaign',
+                'data' => $data,
+            ],200);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'No User Participation',
+            'data' => $data,
+        ],500);
+    }
+
   public function getListByCampaignSelf(Request $request)
   {
     $donation = new DList();

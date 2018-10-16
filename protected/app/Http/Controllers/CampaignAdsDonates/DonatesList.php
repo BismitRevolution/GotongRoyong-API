@@ -113,6 +113,18 @@ use Illuminate\Support\Facades\Auth;
       return $data;
     }
 
+      public function getListCampaignNoLogin(Request $request)
+      {
+          $data = [];
+          $users = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_CAMPAIGN($this->id_campaign)"));
+          foreach($users as $row){
+              $ulist = (new UList)->getDetailById($row->id_user);
+              $ulist["jumlah_donasi"] = $row->jumlahdonasi;
+              array_push($data,$ulist);
+          }
+          return $data;
+      }
+
     public function getListCampaignSelf(Request $request)
     {
       $id_self = Auth::guard('api')->user();

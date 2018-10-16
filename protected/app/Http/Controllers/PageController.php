@@ -30,17 +30,12 @@ class PageController extends Controller
 
         $user = User::where('id',112)->first();
 
-//        dd($user->fullname);
         Mail::send(['html'=>'email.view-verify'],
             $dataEmail, function($message) use($user) {
                 $message->to('luthviar.b@gmail.com', $user->fullname)->subject
                 ('[GotongRoyong] Informasi Ganti Password');
                 $message->from('luthviar.a@gmail.com','Admin GotongRoyong');
             });
-
-
-//        $name = 'Krunal';
-//        Mail::to('luthviar.b@gmail.com')->send(new SendMailable($name));
 
         return 'Email was sent';
     }
