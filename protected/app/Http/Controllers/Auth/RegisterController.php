@@ -104,21 +104,21 @@ class RegisterController extends Controller
       $this->validator($request->all())->validate();
 
     // Start Send Email Token
-        $dataEmail = array(
-            'name'=>'Luthfi',
-            'newpass'=>'123456'
-        );
-
-        $user = User::where('id',112)->first();
-
-        Mail::send(['html'=>'email.view-verify'],
-            $dataEmail, function($message) use($user) {
-                $message->to('luthviar.b@gmail.com', $user->fullname)->subject
-                ('[GotongRoyong] Informasi Ganti Password');
-                $message->from('luthviar.a@gmail.com','Admin GotongRoyong');
-            });
-
-        return 'Email was sent';
+//        $dataEmail = array(
+//            'name'=>'Luthfi',
+//            'newpass'=>'123456'
+//        );
+//
+//        $user = User::where('id',112)->first();
+//
+//        Mail::send(['html'=>'email.view-verify'],
+//            $dataEmail, function($message) use($user) {
+//                $message->to('luthviar.b@gmail.com', $user->fullname)->subject
+//                ('[GotongRoyong] Informasi Ganti Password');
+//                $message->from('luthviar.a@gmail.com','Admin GotongRoyong');
+//            });
+//
+//        return 'Email was sent';
     // End Send Email Token
 
 
