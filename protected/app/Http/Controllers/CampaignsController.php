@@ -34,7 +34,7 @@ class CampaignsController extends Controller
         $data = (new CList)->getList();
 
         $page = Input::get('page', 1); // Get the ?page=1 from the url
-        $perPage = 10; // Number of items per page
+        $perPage = 3; // Number of items per page
         $offset = ($page * $perPage) - $perPage;
 
         if($data) {
@@ -42,7 +42,7 @@ class CampaignsController extends Controller
                 'success' => true,
                 'message' => 'Campaigns List',
                 'data' =>
-                    $this->collection_paginate($data,10),
+                    $this->collection_paginate($data,$perPage),
             ], 200);
         }
 

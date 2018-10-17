@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -55,6 +56,7 @@ class PageCampaignsController extends Controller
 
 
     public function create() {
+
         $data_users = DB::table('users')
             ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
             ->select('users.*', 'users_pahlawan.*')
@@ -148,8 +150,8 @@ class PageCampaignsController extends Controller
                 'campaign_link' => $campaign_link,
                 'created_at'    => Carbon::now(),
                 'updated_at'    => Carbon::now(),
-                'created_by'    => 1,
-                'updated_by'    => 1
+                'created_by'    => Auth::user()->id,
+                'updated_by'    => Auth::user()->id
 
             ]
         );

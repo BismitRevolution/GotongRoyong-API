@@ -34,10 +34,10 @@
                                 <p>
                                     {{ Session::get('submit_create_success') }}
                                 </p>
-                                <p>Create User Success.</p>
+                                <p>Create Campaign Success.</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-user-plus"></i>
+                                <i class="fa fa-plus-circle"></i>
                             </div>
                             <p class="small-box-footer">
                                 -----
