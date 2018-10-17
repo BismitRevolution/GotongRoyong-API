@@ -205,7 +205,7 @@ class UserController extends Controller
         $user->birthdate = $date->format('Y-m-d');
         $user->birthplace = $request->input("birthplace");
         $user->email = $request->input("email");
-        $user->password = Hash::make($request->input("password"));
+        //$user->password = Hash::make($request->input("password"));
         $user->gender = $request->input("gender");
         $user->save();
 
