@@ -37,7 +37,7 @@
                                 <p>Create Campaign Success.</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-user-plus"></i>
+                                <i class="fa fa-plus-circle"></i>
                             </div>
                             <p class="small-box-footer">
                                 -----
