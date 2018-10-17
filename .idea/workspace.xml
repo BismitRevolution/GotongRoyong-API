@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/routes/web.php" afterPath="$PROJECT_DIR$/protected/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,28 +17,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="109" column="122" lean-forward="false" selection-start-line="109" selection-start-column="122" selection-end-line="109" selection-end-column="122" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CamAdsDonatesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/CamAdsDonatesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2125">
-              <caret line="131" column="44" lean-forward="false" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="44" />
-              <folding>
-                <element signature="e#39#60#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,16 +25,6 @@
               <folding>
                 <element signature="e#45#66#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DonatesList.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/CampaignAdsDonates/DonatesList.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="115" column="44" lean-forward="false" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="44" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PageController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="193">
@@ -102,21 +73,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/config/mail.php">
+      <file leaf-file-name="PageCampaignsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2176">
-              <caret line="128" column="6" lean-forward="false" selection-start-line="128" selection-start-column="6" selection-end-line="128" selection-end-column="6" />
+            <state relative-caret-position="346">
+              <caret line="159" column="63" lean-forward="false" selection-start-line="159" selection-start-column="63" selection-end-line="159" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageAdsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="203" column="19" lean-forward="false" selection-start-line="203" selection-start-column="19" selection-end-line="203" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="136">
+              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageUserNGOController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageUserNGOController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -126,9 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>carb</find>
-      <find>id_goo</find>
-      <find>this-&gt;user</find>
       <find>ceke</find>
       <find>registerbyf</find>
       <find>attemptl</find>
@@ -156,6 +154,9 @@
       <find>donates/campaign-ads/campaign-participation</find>
       <find>getlistbyca</find>
       <find>header</find>
+      <find>created_by</find>
+      <find>_by</find>
+      <find>create u</find>
     </findStrings>
     <dirStrings>
       <dir>D:\ONEDRIVE\PROJECTS\GOTONGROYONG\code\v1\api\protected</dir>
@@ -174,7 +175,6 @@
         <option value="$PROJECT_DIR$/protected/resources/views/admin/create-ngo-verified.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/head.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/scripts.blade.php" />
-        <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/user-ngo-verified/create.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/ads/create-advertiser.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/ads/create-content.blade.php" />
@@ -193,7 +193,6 @@
         <option value="$PROJECT_DIR$/protected/app/Exceptions/Handler.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageUserNGOController.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/admin/layouts/sidebar-right.blade.php" />
@@ -207,7 +206,6 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/protected/app/Mail/SendMailable.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/protected/routes/web.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/email/view-verify.blade.php" />
         <option value="$PROJECT_DIR$/protected/config/mail.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/CampaignAdsDonates/DonatesList.php" />
@@ -216,6 +214,9 @@
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/protected/.env" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageController.php" />
+        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php" />
+        <option value="$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php" />
+        <option value="$PROJECT_DIR$/protected/routes/web.php" />
       </list>
     </option>
   </component>
@@ -339,6 +340,62 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigns" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -377,6 +434,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Mail" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Campaigns" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -512,15 +647,16 @@
       <workItem from="1539520021808" duration="1194000" />
       <workItem from="1539580754266" duration="12115000" />
       <workItem from="1539667030815" duration="8766000" />
-      <workItem from="1539759239056" duration="60000" />
+      <workItem from="1539759239056" duration="2745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162053000" />
+    <option name="totallyTimeSpent" value="164738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1932" height="1055" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23237179" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -529,7 +665,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -568,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/user-ngo-verified/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10">
@@ -586,14 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="125" column="51" lean-forward="true" selection-start-line="118" selection-start-column="44" selection-end-line="125" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="256" column="23" lean-forward="true" selection-start-line="256" selection-start-column="23" selection-end-line="256" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,14 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="101" column="111" lean-forward="false" selection-start-line="101" selection-start-column="111" selection-end-line="101" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/list-campaign.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2142">
@@ -720,7 +833,7 @@
         <state relative-caret-position="272">
           <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
           <folding>
-            <element signature="e#39#60#0#PHP" expanded="true" />
+            <element signature="e#39#60#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,14 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="52" lean-forward="false" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageUserNGOController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="53" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -774,6 +879,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1144">
           <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -832,7 +938,7 @@
         <state relative-caret-position="1683">
           <caret line="104" column="47" lean-forward="false" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
           <folding>
-            <element signature="e#43#56#0#PHP" expanded="true" />
+            <element signature="e#43#56#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -851,14 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -939,6 +1037,46 @@
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageUserNGOController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="47" column="25" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageAdsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="203" column="19" lean-forward="false" selection-start-line="203" selection-start-column="19" selection-end-line="203" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/PageCampaignsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="159" column="63" lean-forward="false" selection-start-line="159" selection-start-column="63" selection-end-line="159" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/admin/campaigns/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -14,6 +14,10 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
+Route::get('/loaderio-8547e9cdfeac9476051270c256f14488', function (){
+    return redirect(URL::asset('/loaderio-8547e9cdfeac9476051270c256f14488.txt'));
+});
 Route::get('/', function () {
     if(is_null(Auth::user())) {
         return redirect(url('/login'));

@@ -34,7 +34,7 @@
                                 <p>
                                     {{ Session::get('submit_create_success') }}
                                 </p>
-                                <p>Create User Success.</p>
+                                <p>Create Campaign Success.</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-user-plus"></i>
