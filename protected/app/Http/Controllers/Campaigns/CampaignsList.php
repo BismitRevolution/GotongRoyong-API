@@ -69,6 +69,7 @@ class CampaignsList extends Controller
     {
       $data = [];
 //      $campaigns = DB::select(DB::raw("CALL `CAMPAIGNS_LIST`()"));
+
       $campaigns = DB::table('campaigns')
         ->join('users', 'campaigns.id_user', '=', 'users.id')
         ->join('users_pahlawan', 'campaigns.id_user', '=', 'users_pahlawan.id_user')
@@ -100,7 +101,7 @@ class CampaignsList extends Controller
                 "count_users"       => $row->count_users,
                 "count_shares"      => $row->count_shares,
                 "target_donation"   => $row->target_donation,
-                "deadline"          => $diff_deadline,
+                "sisa_hari"          => $diff_deadline,
                 "complete_sts"      => $row->complete_sts,
                 "campaign_link" => $row->campaign_link,
                 "created_at" => $row->created_at,
