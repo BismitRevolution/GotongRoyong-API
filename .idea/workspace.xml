@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="" />
+    <list default="true" id="caead5eb-7d9f-4542-a771-ad93f2c31f52" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -643,12 +645,12 @@
       <workItem from="1539759239056" duration="2871000" />
       <workItem from="1539781631609" duration="1010000" />
       <workItem from="1539789460330" duration="1985000" />
-      <workItem from="1540036587790" duration="1215000" />
+      <workItem from="1540036587790" duration="2118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169074000" />
+    <option name="totallyTimeSpent" value="169977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -957,6 +959,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding>
+            <element signature="e#28#57#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
