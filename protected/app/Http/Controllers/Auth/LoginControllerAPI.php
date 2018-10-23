@@ -36,10 +36,35 @@ class LoginControllerAPI extends Controller
 //        $this->middleware('guest')->except('logout');
     }
 
+    protected function validateLogin(Request $request)
+    {
+
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required',
+            // new rules here
+        ]);
+    }
+
     public function loginAPI(Request $request)
     {
 //        dd('a');
 
+        if($request->input('email') == null){
+          return response()->json([
+              'success' => false,
+              'message' => 'User login failure',
+              'data' => 'Please input email'],
+              500);
+        }
+        if($request->input('password') == null){
+          return response()->json([
+              'success' => false,
+              'message' => 'User login failure',
+              'data' => 'Please input password'],
+              500);
+        }
+        
         $this->validateLogin($request);
 //        dd($this->attemptLogin($request));
         if ($this->attemptLogin($request)) {

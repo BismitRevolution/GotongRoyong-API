@@ -28,8 +28,9 @@ class UserController extends Controller
   {
       $user = Auth::guard('api')->user();
       $result = array();
-      $userdata = $user->toArray();
+
       if ($user) {
+        $userdata = $user->toArray();
         $pahlawan_detail = (new UserPahlawan)->getUserPahlawan($user);
         $userdata["data_pahlawan"] = $pahlawan_detail;
 
@@ -64,8 +65,9 @@ class UserController extends Controller
 
       $hero->create();
       $result = array();
-      $userdata = $user->toArray();
+
       if ($user) {
+        $userdata = $user->toArray();
         $pahlawan_detail = $hero->getUserPahlawan($user);
         $userdata["data_pahlawan"] = $pahlawan_detail;
 
