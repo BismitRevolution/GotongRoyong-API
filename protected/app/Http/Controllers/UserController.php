@@ -72,6 +72,7 @@ class UserController extends Controller
         $userdata["data_pahlawan"] = $pahlawan_detail;
 
         return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'User created successfully',
           'data' => $userdata,
@@ -79,9 +80,10 @@ class UserController extends Controller
       }
 
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'User created fail',
-        'data' => ''],
+        'data' => 'User already exist'],
         500);
   }
 

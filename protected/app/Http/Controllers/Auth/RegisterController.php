@@ -59,6 +59,8 @@ class RegisterController extends Controller
             //'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|max:255',
+            'fullname' => 'required|string|max:255',
         ]);
     }
 
@@ -74,10 +76,10 @@ class RegisterController extends Controller
         // $date = new DateTime($originalDate);
 
         return User::create([
-            //'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'fullname' => "My Full Name",
+            'fullname' => $data['fullname'],
+            'username' => $data['username'],
             //'birthdate' => $date->format('Y-m-d'),
             //'birthplace' => $data['birthplace'],
             //'gender' => $data['gender'],
@@ -89,19 +91,33 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
+      $this->validator($request->all())->validate();
+
       $cekEmail= User::where('email', $request->input("email"))->get();
       if(count($cekEmail) > 0){
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'Email already exist',
             'data' => ''
           ],500);
       }
 
+
+      $cekUsername= User::where('username', $request->input("username"))->where('flag_active', 1)->get();
+      if(count($cekUsername) > 0){
+        return response()->json([
+            'status' => 500,
+            'success' => false,
+            'message' => 'Username already exist',
+            'data' => ''
+          ],500);
+      }
+
+
       // Here the request is validated. The validator method is located
       // inside the RegisterController, and makes sure the name, email
       // password and password_confirmation fields are required.
-      $this->validator($request->all())->validate();
 
     // Start Send Email Token
 //        $dataEmail = array(
