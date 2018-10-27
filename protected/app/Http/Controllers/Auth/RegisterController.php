@@ -156,16 +156,18 @@ class RegisterController extends Controller
       //event(new Registered($user = $this->create($request->all())));
       //
 
+//        dd(count($request->all()) = 5);
 //        dd((
-//            (count($request->all()) != 5) &&
+//            (count($request->all()) == 5) &&
 //            ($request->email != null ||
-//            $request->password != null ||
-//            $request->password_confirmation != null ||
-//            $request->username != null ||
-//            $request->fullname != null))
-//        );
+//                $request->password != null ||
+//                $request->password_confirmation != null ||
+//                $request->username != null ||
+//                $request->fullname != null)
+//        ));
+
         if (
-                (count($request->all()) != 5) &&
+                (count($request->all()) == 5) &&
                 ($request->email != null ||
                 $request->password != null ||
                 $request->password_confirmation != null ||
