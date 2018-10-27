@@ -202,6 +202,20 @@ class UserController extends Controller
           }
         }
 
+          if(!is_null($request->input("password"))) {
+
+              $data_user = DB::table('users')
+                  ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
+                  ->select('users.*', 'users_pahlawan.*')
+                  ->where('users_pahlawan.flag_verified','=',1)
+                  ->where('users.id','=',$user->id)
+                  ->update([
+                      'users.updated_at'    => Carbon::now(),
+                      'users.password'      => bcrypt($request->input("password"))
+                  ]);
+
+          }
+
         $originalDate = $request->input("birthdate");
         $date = new DateTime($originalDate);
         $user->username = $request->input("username");
@@ -209,7 +223,7 @@ class UserController extends Controller
         $user->birthdate = $date->format('Y-m-d');
         $user->birthplace = $request->input("birthplace");
         $user->email = $request->input("email");
-        //$user->password = Hash::make($request->input("password"));
+//        $user->password = bcrypt($request->input("password"));
         $user->gender = $request->input("gender");
         $user->save();
 
