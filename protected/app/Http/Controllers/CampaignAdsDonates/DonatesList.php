@@ -91,7 +91,7 @@ use Illuminate\Support\Facades\Auth;
       $data = [];
       $campaigns = DB::select(DB::raw("CALL CAMPAIGN_ADS_DONATES_BY_USER($this->id_user)"));
       foreach($campaigns as $row){
-        $clist = (new CList)->getDetail($row->id_campaign);
+        $clist = (new CList)->getDetail($row->id_campaign,"user");
         $clist["jumlah_donasi"] = $row->jumlahdonasi;
         array_push($data,$clist);
       }

@@ -145,34 +145,62 @@ class CampaignsList extends Controller
     return $data;
   }
 
-  public function getDetail($id)
+  public function getDetail($id,$type = null)
   {
     $data = array();
     $campaigns = DB::select(DB::raw("CALL CAMPAIGNS_DETAIL($id)"));
-    foreach($campaigns as $row){
-      $images = new CImage;
-      $images->id_campaign = $row->id;
-      $list_img = $images->getImage();
-      $campaign = array(
-              "id"      => $row->id,
-              "title"   => $row->title,
-              "id_user" => $row->id_user,
-              "description" => $row->description,
-              "count_donations" => $row->count_donations,
-              "count_users" => $row->count_users,
-              "count_shares" => $row->count_shares,
-              "target_donation" => $row->target_donation,
-              "deadline" => $row->deadline,
-              "complete_sts" => $row->complete_sts,
-              "flag_active" => $row->flag_active,
-              "campaign_link" => $row->campaign_link,
-              "created_at" => $row->created_at,
-              "updated_at" => $row->updated_at,
-              "created_by" => $row->created_by,
-              "updated_by" => $row->updated_by,
-              "list_images" => $list_img
-      );
-      $data = $campaign;
+
+    if ($type == null) {
+        foreach($campaigns as $row){
+            $images = new CImage;
+            $images->id_campaign = $row->id;
+            $list_img = $images->getImage();
+            $campaign = array(
+                "id"      => $row->id,
+                "title"   => $row->title,
+                "id_user" => $row->id_user,
+                "description" => $row->description,
+                "count_donations" => $row->count_donations,
+                "count_users" => $row->count_users,
+                "count_shares" => $row->count_shares,
+                "target_donation" => $row->target_donation,
+                "deadline" => $row->deadline,
+                "complete_sts" => $row->complete_sts,
+                "flag_active" => $row->flag_active,
+                "campaign_link" => $row->campaign_link,
+                "created_at" => $row->created_at,
+                "updated_at" => $row->updated_at,
+                "created_by" => $row->created_by,
+                "updated_by" => $row->updated_by,
+                "list_images" => $list_img
+            );
+            $data = $campaign;
+        }
+    } else if ($type == "user"){
+        foreach($campaigns as $row){
+            $images = new CImage;
+            $images->id_campaign = $row->id;
+            $list_img = $images->getImage();
+            $campaign = array(
+                "id"      => $row->id,
+                "title"   => $row->title,
+                "id_user" => $row->id_user,
+                "count_donations" => $row->count_donations,
+                "count_users" => $row->count_users,
+                "count_shares" => $row->count_shares,
+                "target_donation" => $row->target_donation,
+                "deadline" => $row->deadline,
+                "complete_sts" => $row->complete_sts,
+                "flag_active" => $row->flag_active,
+                "campaign_link" => $row->campaign_link,
+                "created_at" => $row->created_at,
+                "updated_at" => $row->updated_at,
+                "created_by" => $row->created_by,
+                "updated_by" => $row->updated_by,
+                "list_images" => $list_img
+            );
+            $data = $campaign;
+        }
     }
     return $data;
   }
