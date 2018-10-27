@@ -186,6 +186,9 @@ class CampaignsList extends Controller
             $images = new CImage;
             $images->id_campaign = $row->id;
             $list_img = $images->getImage();
+            $date_deadline = Carbon::parse($row->deadline);
+            $now = Carbon::now();
+            $diff_deadline = $date_deadline->diffInDays($now);
             $campaign = array(
                 "id"      => $row->id,
                 "title"   => $row->title,
@@ -195,6 +198,7 @@ class CampaignsList extends Controller
                 "count_shares" => $row->count_shares,
                 "target_donation" => $row->target_donation,
                 "deadline" => $row->deadline,
+                "sisa_hari" => $diff_deadline,
                 "complete_sts" => $row->complete_sts,
                 "flag_active" => $row->flag_active,
                 "campaign_link" => $row->campaign_link,
