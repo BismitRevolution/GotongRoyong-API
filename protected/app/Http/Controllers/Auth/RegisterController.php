@@ -91,7 +91,9 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
-      $this->validator($request->all())->validate();
+//      $this->validator($request->all())->validate();
+
+
 
       $cekEmail= User::where('email', $request->input("email"))->get();
       if(count($cekEmail) > 0){
@@ -153,11 +155,35 @@ class RegisterController extends Controller
       // code that needs to be run as soon as the user is created.
       //event(new Registered($user = $this->create($request->all())));
       //
-      $user = $this->create($request->all());
-      //return response()->json(['data' => $user->toArray()], 201);
 
-      $this->guard()->login($user);
+//        dd((
+//            (count($request->all()) != 5) &&
+//            ($request->email != null ||
+//            $request->password != null ||
+//            $request->password_confirmation != null ||
+//            $request->username != null ||
+//            $request->fullname != null))
+//        );
+        if (
+                (count($request->all()) != 5) &&
+                ($request->email != null ||
+                $request->password != null ||
+                $request->password_confirmation != null ||
+                $request->username != null ||
+                $request->fullname != null)
+        ) {
+            $user = $this->create($request->all());
+            //return response()->json(['data' => $user->toArray()], 201);
 
+            $this->guard()->login($user);
+        } else {
+            return response()->json([
+                'status' => 500,
+                'success' => false,
+                'message' => 'All field should not empty',
+                'data' => ''
+            ],500);
+        }
       // And finally this is the hook that we want. If there is no
       // registered() method or it returns null, redirect him to
       // some other URL. In our case, we just need to implement
