@@ -203,16 +203,13 @@ class UserController extends Controller
         }
 
           if(!is_null($request->input("password"))) {
-
               $data_user = DB::table('users')
-                  ->join('users_pahlawan', 'users.id', '=', 'users_pahlawan.id_user')
-                  ->select('users.*', 'users_pahlawan.*')
-                  ->where('users_pahlawan.flag_verified','=',1)
                   ->where('users.id','=',$user->id)
                   ->update([
                       'users.updated_at'    => Carbon::now(),
                       'users.password'      => bcrypt($request->input("password"))
                   ]);
+
 
           }
 

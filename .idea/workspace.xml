@@ -60,11 +60,11 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="215" column="14" lean-forward="false" selection-start-line="215" selection-start-column="14" selection-end-line="215" selection-end-column="14" />
+            <state relative-caret-position="416">
+              <caret line="212" column="29" lean-forward="false" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
               <folding>
-                <marker date="1540654622385" expanded="true" signature="7715:9922" ph="{...}" />
-                <marker date="1540654622385" expanded="true" signature="7761:7770" ph="..." />
+                <marker date="1540656723246" expanded="true" signature="7522:9729" ph="{...}" />
+                <marker date="1540656723246" expanded="true" signature="7568:7577" ph="..." />
               </folding>
             </state>
           </provider>
@@ -128,7 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ssl</find>
       <find>stream</find>
       <find>donates/campaign-ads/campaign-participation</find>
       <find>getlistbyca</find>
@@ -158,6 +157,7 @@
       <find>updateUser</find>
       <find>pas</find>
       <find>passwo</find>
+      <find>userna</find>
     </findStrings>
     <dirStrings>
       <dir>D:\ONEDRIVE\PROJECTS\GOTONGROYONG\code\v1\api\protected</dir>
@@ -652,12 +652,12 @@
       <workItem from="1539781631609" duration="1010000" />
       <workItem from="1539789460330" duration="1985000" />
       <workItem from="1540036587790" duration="2751000" />
-      <workItem from="1540606749817" duration="10468000" />
+      <workItem from="1540606749817" duration="11777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181078000" />
+    <option name="totallyTimeSpent" value="182387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1066,11 +1066,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="215" column="14" lean-forward="false" selection-start-line="215" selection-start-column="14" selection-end-line="215" selection-end-column="14" />
+        <state relative-caret-position="416">
+          <caret line="212" column="29" lean-forward="false" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
           <folding>
-            <marker date="1540654622385" expanded="true" signature="7715:9922" ph="{...}" />
-            <marker date="1540654622385" expanded="true" signature="7761:7770" ph="..." />
+            <marker date="1540656723246" expanded="true" signature="7522:9729" ph="{...}" />
+            <marker date="1540656723246" expanded="true" signature="7568:7577" ph="..." />
           </folding>
         </state>
       </provider>
