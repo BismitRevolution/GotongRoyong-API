@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CampaignAdsDonates\DonatesList as DList;
 use App\Http\Controllers\AdsContentController as AdsContent;
 use DateTime;
+use Illuminate\Support\Facades\DB;
 
 
 class CamAdsDonatesController extends Controller
@@ -218,16 +219,31 @@ class CamAdsDonatesController extends Controller
 
       return response()->json([
           'success' => true,
-          'message' => 'Share donation successful',
+          'message' => 'Share campaign and the user successful',
           'data' => '',
       ],200);
+    } else {
+        $the_campaign = DB::table('campaigns')
+            ->where('id', $request->input('id_campaign'))
+            ->first();
+        DB::table('campaigns')
+            ->where('id', $request->input('id_campaign'))
+            ->update(['count_shares' => ($the_campaign->count_shares + 1)]);
+        $the_campaign_new = DB::table('campaigns')
+            ->where('id', $request->input('id_campaign'))
+            ->first();
+        return response()->json([
+            'success' => true,
+            'message' => 'Share campaign only successful',
+            'data' => 'dari: '.$the_campaign->count_shares.' , jadi: '.$the_campaign_new->count_shares,
+        ],200);
     }
 
-    return response()->json([
-      'success' => false,
-      'message' => 'Share donation failure',
-      'data' => 'User already logged out/Token false'],
-      500);
+//    return response()->json([
+//      'success' => false,
+//      'message' => 'Share donation failure',
+//      'data' => 'User already logged out/Token false'],
+//      500);
   }
 
 }
