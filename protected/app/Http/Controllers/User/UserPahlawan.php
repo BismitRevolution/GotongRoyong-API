@@ -60,6 +60,7 @@ class UserPahlawan extends Controller
             "id"              => $row->id,
             "count_shares"    => $row->count_shares,
             "count_campaigns" => $row->count_campaigns,
+            "count_campaign_owned" => $row->count_campaign_owned,
             "count_donations" => $row->count_donations,
             "about_me"        => $row->about_me,
             "my_url"          => $row->my_url,
