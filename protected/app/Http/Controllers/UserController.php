@@ -57,8 +57,8 @@ class UserController extends Controller
   {
       $hero = new UserPahlawan();
       $hero->id_user = $user->id;
-      $hero->about_me = "Welcome to my GotongRoyong.in profile !";
-      $hero->my_url = "myurlabc.com";
+      $hero->about_me = "Welcome to my profile !";
+      $hero->my_url = "https://gotongroyong.in";
       //$hero->instagram_link = "instagram.com/myprofile";
       //$hero->twitter_link = $request->twitter_link;
       //$hero->fb_link = $request->fb_link;
