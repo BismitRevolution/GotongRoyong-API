@@ -74,12 +74,15 @@ class RegisterController extends Controller
     {
         // $originalDate = $data['birthdate'];
         // $date = new DateTime($originalDate);
+        $lastuser = DB::table('users')
+            ->orderBy('id', 'desc')
+            ->first();
 
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'fullname' => $data['fullname'],
-            'username' => $data['username'],
+            'username' => 'user'.($lastuser->id +1),
             //'birthdate' => $date->format('Y-m-d'),
             //'birthplace' => $data['birthplace'],
             //'gender' => $data['gender'],
@@ -167,11 +170,10 @@ class RegisterController extends Controller
 //        ));
 
         if (
-                (count($request->all()) == 5) &&
+                (count($request->all()) == 4) &&
                 ($request->email != null ||
                 $request->password != null ||
                 $request->password_confirmation != null ||
-                $request->username != null ||
                 $request->fullname != null)
         ) {
             $user = $this->create($request->all());
