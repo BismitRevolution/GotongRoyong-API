@@ -32,7 +32,9 @@ class UserList extends Controller
   public function getDetailById($id)
   {
     $userdata = array();
-    $users = User::where('id', $id)->get();
+    $users = User::where('id', $id)
+        ->orderBy('id','asc')
+        ->get();
     foreach($users as $row){
       $user = array(
         "id"      => $row->id,
