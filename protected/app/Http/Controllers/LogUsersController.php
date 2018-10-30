@@ -24,6 +24,7 @@ class LogUsersController extends Controller
         $log->create();
 
         return response()->json([
+          'status' => 201,
           'success' => true,
           'message' => 'Log user created successfully',
           'data' => '',
@@ -31,6 +32,7 @@ class LogUsersController extends Controller
       }
 
       return response()->json([
+        'status' => 500,
         'success' => true,
         'message' => 'Please Login first',
         'data' => 'User logged out',

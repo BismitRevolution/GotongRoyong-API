@@ -37,6 +37,7 @@ class CamAdsDonatesController extends Controller
       $data['ads_data'] = $arr;
 
       return response()->json([
+          'status' => 201,
           'success' => true,
           'message' => 'Campaign Donation and Random Ads Detail',
           'data' => $data,
@@ -44,6 +45,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'Create donation failure',
       'data' => 'User already logged out/Token false'],
@@ -62,6 +64,7 @@ class CamAdsDonatesController extends Controller
       $donation->donateSuccess();
 
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Donation successful',
           'data' => '',
@@ -69,6 +72,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'Update donation failure',
       'data' => 'User already logged out/Token false'],
@@ -82,6 +86,7 @@ class CamAdsDonatesController extends Controller
     $donation->updateClickUrl();
 
     return response()->json([
+        'status' => 200,
         'success' => true,
         'message' => 'Click Target Url update successful',
         'data' => '',
@@ -96,6 +101,7 @@ class CamAdsDonatesController extends Controller
 
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Campaigns Participation By User',
           'data' => $data,
@@ -103,6 +109,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Campaign Participation By User',
       'data' => $data,
@@ -117,6 +124,7 @@ class CamAdsDonatesController extends Controller
 
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Users Participated in Campaign',
           'data' => $data,
@@ -124,6 +132,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No User Participation',
       'data' => $data,
@@ -138,6 +147,7 @@ class CamAdsDonatesController extends Controller
 
         if($data){
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'Users Participated in Campaign',
                 'data' => $data,
@@ -145,6 +155,7 @@ class CamAdsDonatesController extends Controller
         }
 
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'No User Participation',
             'data' => $data,
@@ -159,6 +170,7 @@ class CamAdsDonatesController extends Controller
 
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'This User Participation in This Campaign',
           'data' => $data,
@@ -166,6 +178,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No User Participation',
       'data' => $data,
@@ -177,6 +190,7 @@ class CamAdsDonatesController extends Controller
     $data = (new DList())->countActive();
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Total Donations',
           'data' => $data,
@@ -184,6 +198,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Donation',
       'data' => $data,
@@ -195,6 +210,7 @@ class CamAdsDonatesController extends Controller
     $data = 100000000;
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Total Money Result',
           'data' => ['total' => $data],
@@ -202,6 +218,7 @@ class CamAdsDonatesController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Money Result',
       'data' => $data,
@@ -218,6 +235,7 @@ class CamAdsDonatesController extends Controller
       $donation->shareSuccess();
 
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Share campaign and the user successful',
           'data' => '',
@@ -233,6 +251,7 @@ class CamAdsDonatesController extends Controller
             ->where('id', $request->input('id_campaign'))
             ->first();
         return response()->json([
+            'status' => 200,
             'success' => true,
             'message' => 'Share campaign only successful',
             'data' => 'dari: '.$the_campaign->count_shares.' , jadi: '.$the_campaign_new->count_shares,
