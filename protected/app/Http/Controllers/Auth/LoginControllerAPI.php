@@ -52,6 +52,7 @@ class LoginControllerAPI extends Controller
 
         if($request->input('email') == null){
           return response()->json([
+              'status' => 500,
               'success' => false,
               'message' => 'User login failure',
               'data' => 'Please input email'],
@@ -59,12 +60,13 @@ class LoginControllerAPI extends Controller
         }
         if($request->input('password') == null){
           return response()->json([
+              'status' => 500,
               'success' => false,
               'message' => 'User login failure',
               'data' => 'Please input password'],
               500);
         }
-        
+
         $this->validateLogin($request);
 //        dd($this->attemptLogin($request));
         if ($this->attemptLogin($request)) {
@@ -75,6 +77,7 @@ class LoginControllerAPI extends Controller
             $detailuser = (new UserController)->getDetailsWithoutAuth($user);
             $userdata["data_pahlawan"] = $detailuser;
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'User login succesfully',
                 'data' => $userdata],
@@ -83,6 +86,7 @@ class LoginControllerAPI extends Controller
         //$email = $request->input('email');
         //return response if login failure
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'User login failure',
             'data' => 'User/password wrong'],
@@ -101,6 +105,7 @@ class LoginControllerAPI extends Controller
             $user->api_token = null;
             $user->save();
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'User logout success',
                 'data' => 'User logged out'],
@@ -108,6 +113,7 @@ class LoginControllerAPI extends Controller
         }
         //return response if logout failure
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'User logout failure',
             'data' => 'Already logged out/Token false'],

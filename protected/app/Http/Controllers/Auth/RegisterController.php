@@ -169,13 +169,11 @@ class RegisterController extends Controller
 //                $request->fullname != null)
 //        ));
 
-        if (
-                (count($request->all()) == 4) &&
-                ($request->email != null ||
-                $request->password != null ||
-                $request->password_confirmation != null ||
-                $request->fullname != null)
-        ) {
+        if ((count($request->all()) == 4) &&
+            ($request->email != null ||
+            $request->password != null ||
+            $request->password_confirmation != null ||
+            $request->fullname != null)) {
             $user = $this->create($request->all());
             //return response()->json(['data' => $user->toArray()], 201);
 

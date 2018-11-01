@@ -35,6 +35,7 @@ class UserController extends Controller
         $userdata["data_pahlawan"] = $pahlawan_detail;
 
         return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'User detail',
           'data' => $userdata,
@@ -42,6 +43,7 @@ class UserController extends Controller
       }
 
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'Get user detail failure',
         'data' => 'Already logged out/Token false'],
@@ -72,11 +74,11 @@ class UserController extends Controller
         $userdata["data_pahlawan"] = $pahlawan_detail;
 
         return response()->json([
-          'status' => 200,
+          'status' => 201,
           'success' => true,
           'message' => 'User created successfully',
           'data' => $userdata,
-        ],200);
+        ],201);
       }
 
       return response()->json([
@@ -92,6 +94,7 @@ class UserController extends Controller
     $data = (new UList())->countActive();
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Total User Pahlawans',
           'data' => $data,
@@ -99,6 +102,7 @@ class UserController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No User',
       'data' => $data,
@@ -112,12 +116,14 @@ class UserController extends Controller
       $pahlawan_detail = (new UserPahlawan)->getUserPahlawanById($user["id"]);
       $user["data_pahlawan"] = $pahlawan_detail;
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'User Detail',
           'data' => $user,
         ],200);
     }
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No User',
       'data' => $user,
@@ -144,6 +150,7 @@ class UserController extends Controller
 
         if($data_users) {
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'Users Active List Pagination',
                 'data' => $data_users
@@ -151,6 +158,7 @@ class UserController extends Controller
         }
 
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'No Users',
             'data' => $data_users,
@@ -164,12 +172,14 @@ class UserController extends Controller
         $pahlawan_detail = (new UserPahlawan)->getUserPahlawanById($user["id"]);
         $user["data_pahlawan"] = $pahlawan_detail;
         return response()->json([
+            'status' => 200,
             'success' => true,
             'message' => 'User Detail',
             'data' => $user,
           ],200);
       }
       return response()->json([
+        'status' =>500,
         'success' => false,
         'message' => 'No User',
         'data' => $user,
@@ -184,6 +194,7 @@ class UserController extends Controller
           $cekEmail= User::where('email', $request->input("email"))->get();
           if(count($cekEmail) > 0){
             return response()->json([
+                'status' => 500,
                 'success' => false,
                 'message' => 'Email already exist',
                 'data' => ''
@@ -195,6 +206,7 @@ class UserController extends Controller
           $cekUsername= User::where('username', $request->input("username"))->get();
           if(count($cekUsername) > 0){
             return response()->json([
+                'status' => 500,
                 'success' => false,
                 'message' => 'Username already exist',
                 'data' => ''
@@ -235,6 +247,7 @@ class UserController extends Controller
         $hero->update();
 
         return response()->json([
+            'status' => 500,
             'success' => true,
             'message' => 'Update user successfull',
             'data' => '',
@@ -242,6 +255,7 @@ class UserController extends Controller
       }
 
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'Update user failure',
         'data' => 'Already logged out/Token false'],
@@ -267,12 +281,14 @@ class UserController extends Controller
         $user->save();
 
         return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Update user image profile success',
           'data' => $user->image_profile],
           200);
       }
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'Update user image failure',
         'data' => 'Already logged out/Token false'],
@@ -280,6 +296,7 @@ class UserController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'Update user image failure',
       'data' => 'No file image'],
@@ -304,12 +321,14 @@ class UserController extends Controller
         $user->save();
 
         return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Update user background image profile success',
           'data' => $user->bg_image_profile],
           200);
       }
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'Update user background image failure',
         'data' => 'Already logged out/Token false'],
@@ -317,6 +336,7 @@ class UserController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'Update user background image failure',
       'data' => 'No file image'],

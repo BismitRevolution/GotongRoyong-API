@@ -39,6 +39,7 @@ class CampaignsController extends Controller
 
         if($data) {
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'Campaigns List',
                 'data' =>
@@ -47,6 +48,7 @@ class CampaignsController extends Controller
         }
 
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'No Campaigns',
             'data' => $data,
@@ -59,6 +61,7 @@ class CampaignsController extends Controller
     $data = (new CList)->getList();
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Campaigns List',
           'data' => $data,
@@ -66,6 +69,7 @@ class CampaignsController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Campaigns',
       'data' => $data,
@@ -77,6 +81,7 @@ class CampaignsController extends Controller
     $data = (new CList)->getListActive();
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Active Campaigns List',
           'data' => $data,
@@ -84,6 +89,7 @@ class CampaignsController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Active Campaigns',
       'data' => $data,
@@ -95,6 +101,7 @@ class CampaignsController extends Controller
     $data = (new CList)->getDetail($request->input('id'));
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Campaign Detail',
           'data' => $data,
@@ -102,6 +109,7 @@ class CampaignsController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'Campaign not found',
       'data' => $data,
@@ -123,6 +131,7 @@ class CampaignsController extends Controller
 
     if($date < $today){
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'Deadline date already passed',
         'data' => '',
@@ -137,6 +146,7 @@ class CampaignsController extends Controller
     $campaign->create();
 
     return response()->json([
+      'status' => 201,
       'success' => true,
       'message' => 'Campaign created successfully',
       'data' => '',
@@ -149,12 +159,14 @@ class CampaignsController extends Controller
     if($campaign->flag_active == 1) {
       $campaign->delete();
       return response()->json([
+        'status' => 200,
         'success' => true,
         'message' => 'Campaign deleted successfully',
         'data' => '',
       ],200);
     } else{
       return response()->json([
+        'status' => 200,
         'success' => false,
         'message' => 'Campaign id wrong',
         'data' => '',
@@ -167,6 +179,7 @@ class CampaignsController extends Controller
     $data = (new CList())->getListByUser($request->input('id_user'));
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'User Campaigns List',
           'data' => $data,
@@ -174,6 +187,7 @@ class CampaignsController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Campaigns',
       'data' => $data,
@@ -185,6 +199,7 @@ class CampaignsController extends Controller
     $data = (new CList())->countActive();
     if($data){
       return response()->json([
+          'status' => 200,
           'success' => true,
           'message' => 'Total Campaigns',
           'data' => $data,
@@ -192,6 +207,7 @@ class CampaignsController extends Controller
     }
 
     return response()->json([
+      'status' => 500,
       'success' => false,
       'message' => 'No Campaigns',
       'data' => $data,
@@ -205,12 +221,14 @@ class CampaignsController extends Controller
         if($campaign->complete_sts == 0){
           $campaign->complete();
           return response()->json([
+              'status' => 200,
               'success' => true,
               'message' => 'Campaign is completed',
               'data' => '',
             ],200);
         }
         return response()->json([
+          'status' => 500,
           'success' => false,
           'message' => 'Campaign already completed',
           'data' => '',
@@ -218,6 +236,7 @@ class CampaignsController extends Controller
       }
 
       return response()->json([
+        'status' => 500,
         'success' => false,
         'message' => 'No Campaign',
         'data' => '',
