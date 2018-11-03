@@ -219,6 +219,7 @@ class RegisterController extends Controller
       $cekEmail= User::where('email', $request->input("email"))->get();
       if(count($cekEmail) > 0) {
           return response()->json([
+              'status' => 500,
               'success' => false,
               'message' => 'Email already exist',
               'data' => ''
@@ -228,6 +229,7 @@ class RegisterController extends Controller
       $cekIDFB= User::where('id_fb', $request->input("id_fb"))->get();
       if(count($cekIDFB) > 0){
           return response()->json([
+              'status' => 500,
               'success' => false,
               'message' => 'ID FB already exist',
               'data' => ''
@@ -270,6 +272,7 @@ class RegisterController extends Controller
         $cekEmail= User::where('email', $request->input("email"))->get();
         if(count($cekEmail) > 0) {
             return response()->json([
+                'status' => 500,
                 'success' => false,
                 'message' => 'Email already exist',
                 'data' => ''
@@ -279,6 +282,7 @@ class RegisterController extends Controller
         $cekIDGoogle = User::where('id_google', $request->input("id_google"))->get();
         if(count($cekIDGoogle) > 0){
             return response()->json([
+                'status' => 500,
                 'success' => false,
                 'message' => 'ID Google already exist',
                 'data' => ''

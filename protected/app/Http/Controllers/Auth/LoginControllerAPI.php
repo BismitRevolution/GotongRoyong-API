@@ -132,6 +132,7 @@ class LoginControllerAPI extends Controller
             $detailuser = (new UserController)->getDetailsWithoutAuth($user);
             $userdata["data_pahlawan"] = $detailuser;
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'User login by FB succesfully',
                 'data' => $userdata
@@ -140,6 +141,7 @@ class LoginControllerAPI extends Controller
         }
 
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'User login failure',
             'data' => 'User data wrong'],
@@ -158,6 +160,7 @@ class LoginControllerAPI extends Controller
             $detailuser = (new UserController)->getDetailsWithoutAuth($user);
             $userdata["data_pahlawan"] = $detailuser;
             return response()->json([
+                'status' => 200,
                 'success' => true,
                 'message' => 'User login by Google succesfully',
                 'data' => $userdata
@@ -166,6 +169,7 @@ class LoginControllerAPI extends Controller
         }
 
         return response()->json([
+            'status' => 500,
             'success' => false,
             'message' => 'User login failure',
             'data' => 'User data wrong'],
